@@ -1,0 +1,140 @@
+/**index.wxss**/
+Page {
+  width: 100%;
+  height: 100%;
+  background-color: #F8F8F8;
+}
+ 
+.homeHeader {
+  width: 100%;
+  height:30%;
+}
+ 
+.homeHeader .swiper {
+  width: 100%;
+  height: 100%;
+}
+.container{
+ padding: 0 20rpx;
+ height:70%;
+}
+.content{
+  width: 100%;
+  height:100%;
+  position: relative;
+}
+.content .car{
+  position: absolute;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 5rpx;
+  top: -15rpx;
+  font-size: 14px;
+  box-sizing: border-box;
+  height: 75%;
+  width: 100%;
+  padding: 0 30rpx;
+
+}
+.picker{
+  text-align: center;
+}
+.section__title{
+  color: #979797;
+  font-size: 12px;
+}
+.carCity,.dateTime,.carType{
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 0rpx;
+  border-bottom: rgb(214, 210, 210) solid 1px;
+}
+.price{
+  color: rgb(243, 105, 55);
+  font-weight: 700;
+  font-size: 20px;
+}
+.btn{
+  width: 100%;
+  background-color: #ff7f00;
+}
+.arrow-r{
+  width: 50%;
+  height:50%;
+}
+.chooseDay{
+  margin: 0 10rpx;
+}
+.line{
+  width: 60rpx;
+  height: 10rpx;
+
+  margin-left: 10rpx;
+
+}
+.iconfont{
+  margin-left:8rpx;
+  display: inline-block;
+  text-align: center;
+}
+.mod{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+  padding: 0 20rpx;
+}
+.content .other{
+  border-radius: 2%;
+  position: absolute;
+  height: 20%;
+  width: 100%;
+  background-color: #fff;
+  bottom: 20rpx;
+  border-radius: 5rpx;
+}
+
+.swiper_box {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+}
+swiper-item {
+  display: flex;
+  flex-direction: column;
+}
+swiper-item image {
+  width:  20%;
+  height: 50%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+
+
+
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}

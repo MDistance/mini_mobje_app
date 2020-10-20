@@ -1,0 +1,99 @@
+Page {
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.loginHeader {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #2ab6b7;
+  background:-webkit-linear-gradient(top,#2ab6b7 ,#7bdbdb);
+  height:300rpx;
+}
+.nav .settingItem .icon{
+  width: 40rpx;
+  height: 25rpx;
+  margin-right: 20rpx;
+}
+ 
+.userHead {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  margin: 0px auto;
+}
+ 
+.userTitle {
+  margin-left: 16rpx;
+  font-size: 30rpx;
+  color: #ffffff;
+}
+.nav{
+  padding: 20rpx;
+  margin-top:30rpx;
+}
+ 
+.order {
+  width: 100%;
+  height: max-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  padding: 32rpx 0;
+  margin: 20rpx 0;
+  background: white;
+}
+ 
+.order .item {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+ 
+ 
+ 
+.order .item .icon {
+  width: 40rpx;
+}
+ 
+.order .item .text {
+  margin-left: 16rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+ 
+.settingItem {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: row;
+  background: white;
+  border-bottom: #dedede solid 1px;
+  padding: 22rpx 30rpx;
+  align-items: center;
+}
+ 
+.settingItem .caption, .settingItem .value {
+  font-size: 30rpx;
+  color: #333;
+}
+ 
+.settingItem .value {
+  flex: 1;
+  text-align: right;
+}
+ 
+.settingItem .icon {
+  width: 28rpx;
+  margin-left: 10rpx;
+}
