@@ -39,44 +39,47 @@
  
 
 /* 全部 */
-.cont_count{
-  height: 480rpx;
+.cont_count,.cont_count_on,.cont_count_fin,.cont_count_cancel{
   border-radius:3%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  padding:20rpx;
+  padding: 10rpx 20rpx;
   box-sizing: border-box;
   width: 100%;
   text-align: center;
   margin:10rpx 0 20rpx 0;
   background-color:#fff;
 }
+.cont_count {
+  height: 340rpx;
+}
+.cont_count_on{
+  height: 480rpx;
+}
+.cont_count_fin{
+  height: 490rpx;
+}
+.cont_count_cancel{
+  height: 340rpx;
+}
 /* 编号 */
 .seria{
-  position: relative;
-  display: inline-block;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 50rpx;
+  height:15%;
   line-height: 50rpx;
-  /* background-color: yellow; */
   border-bottom: 1rpx solid #D4D4D4;
 }
 /* 订单lab */
 .seriac_name{
-  position: absolute;
-  font-size: 28rpx;
-  color: #333;
-  left: 0rpx;
+  font-size: 24rpx;
+  color: rgb(158, 157, 157);
 }
-/* .seriac_name text{
-margin-left: 15rpx;
-} */
 /* 订单状态 */
 .seriac_start{
-  position: absolute;
-  right:0rpx;
-  color: #999;
+  color: rgb(247, 29, 29);
   font-size: 28rpx;
 }
  
@@ -162,46 +165,43 @@ overflow: hidden;
 .coent_list{
   position: relative;
   width: 100%;
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 15%;
   /* border-bottom: 6rpx solid #ddd; */
-  background-color:  #fff;
 
 }
 /* 删除 */
-.coent_del{
+.coent_del ,.coent_cha_base,.coent_log_base{
   position: absolute;
   top: 20%;
-  right: 270rpx;
   display: inline-block;
-  width: 180rpx;
-    text-align: center;
-  height: 56rpx;
+  width: 140rpx;
+  text-align: center;
+  height: 40rpx;
   border: 1rpx solid #d3d3d3;
-font-size: 30rpx;
-line-height: 56rpx;
+  font-size: 23rpx;
+  line-height: 40rpx;
 }
- 
+.coent_del{
+  right:300rpx;
+}
+ /* 修改 */
+.coent_cha_base{
+  right:150rpx;
+}
+
  
 /* 取消 */
 .coent_log_base{
-    position: absolute;
-    top: 20%;
-    color: darkgoldenrod;
-    right: 40rpx;
-  display: inline-block;
-  width: 180rpx;
-  height: 56rpx;
-  text-align: center;
-  border: 1rpx solid  darkgoldenrod;
-font-size: 30rpx;
-line-height: 56rpx;
+    right:0rpx;
 }
 .total{
 padding:5rpx 15rpx;
 }
+.shop{
+  width: 100%;
+  height: 70%;
+}
 .proInfo{
-
   width: 100%;
   border-bottom: 1px solid #ddd2d2;
   box-sizing: border-box;
@@ -224,50 +224,21 @@ padding:5rpx 15rpx;
 .shop .state_taobao{
   color: #FF4B0A;
 }
-.shop .state_pdd{
-  color: #E22E1F;
-}
-.shop .state_jd{
-  color: #D32835;
-}
-.topRight{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
- 
-.proInfo_img{
-  width:110rpx;
-  height:110rpx;
-  border-radius:10rpx;
-  overflow: hidden;
-  /* background-color: pink; */
-}
-.proInfo_right{
-  padding: 15rpx 0;
+.proInfo{
   width: 100%;
-  height:280rpx;
+  height: 100%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  /* box-sizing: border-box; */
 }
 .proInfo_text{
   display: flex;
+  font-size: 24rpx;
+  color: #797979;
   width: 100%;
-  justify-content: space-between;
   /* margin-bottom: 10px ; */
 }
-.proInfo_text_title{
-  font-size: 28rpx;
-  color: #000;
-  line-height: 45rpx;
-  white-space: nowrap;
-  max-width: 480rpx;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  margin-bottom: 10rpx;
-}
+
 .proInfo_text_title .iconfont{
   font-size: 30rpx;
 }

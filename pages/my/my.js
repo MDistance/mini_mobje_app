@@ -105,7 +105,7 @@ Page({
 getCustomerTel: function(e){
   var that = this;
   wx.request({
-    url: API.getCustomerTel,
+    // url: API.getCustomerTel,
     method: 'POST',
     header: {
       "Content-Type": "application/x-www-form-urlencoded"

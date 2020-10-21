@@ -1,13 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
+    "pages/service/service",
     "pages/order/order",
+    "pages/logs/logs",
     "pages/my/my",
     "pages/login/login",
     "pages/about/about",
-    "pages/service/service",
-    "components/PagingView/index"
+    "components/PagingView/index",
+    "pages/newGuide/newGuide",
+    "pages/networkNum/networkNum"
   ],
   "tabBar": {
     "color": "#333333",

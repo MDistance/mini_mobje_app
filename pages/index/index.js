@@ -18,27 +18,13 @@ Page({
         path:''
       },
     ],
+    carList:['宝来','大众朗逸','兰博基尼'],
     array: ['长春', '成都', '松原', '延边'],
+    backArray: [ '松原', '延边','长春', '成都'],
+    index: 0,
     days: ['1天', '2天', '3天', '4天','5天', '6天', '7天', '8天','9天', '10天', '11天'],
     travelTime:'2020-10-20',
-    objectArray: [
-      {
-        
-        name: '美国'
-      },
-      {
-        id: 1,
-        name: '中国'
-      },
-      {
-        id: 2,
-        name: '巴西'
-      },
-      {
-        id: 3,
-        name: '日本'
-      }
-    ],
+
     homeAdvertises: [{
       'imgUrl': '',
       'webUrl': ''
@@ -50,6 +36,32 @@ Page({
     {
       'imgUrl': '',
       'webUrl': ''
+    }
+  ],
+  list:[
+    {
+      url: "",
+      image: "/assets/icons/xszy.png",
+      itemName: "新手指引",
+
+    },
+    {
+      url: "",
+      image: "/assets/icons/tchd.png",
+      itemName: "套餐活动",
+
+    },
+    {
+      url: "",
+      image: "/assets/icons/zysx.png",
+      itemName: "注意事项",
+
+    },
+    {
+      url: "",
+      image: "/assets/icons/qtsm.png",
+      itemName: "其他说明",
+
     }
   ],
     motto: 'Hello World',
@@ -90,6 +102,42 @@ Page({
         }
       })
     }
+  },
+  // 取车城市
+  bindPickerCity: function (e) {
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  // 取车网点
+  bindPickerAddress: function () {
+    wx.navigateTo({
+      url: '../networkNum/networkNum',
+    })
+  },
+  // 还车城市
+  bindBackCity: function (e) {
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  // 还车网点
+  bindBackAddress: function () {
+    wx.navigateTo({
+      url: '../reserve/reserve?travelType=1',
+    })
+  },
+  // 车型选择
+  bindPickerChange: function (e) {
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  // 新手指引
+  jump: function () {
+    wx.navigateTo({
+      url: '../newGuide/newGuide',
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
