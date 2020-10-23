@@ -4,7 +4,7 @@ Page {
   height: 100%;
   background-color: #F8F8F8;
 }
- 
+ /* 头部轮播部分 */
 .homeHeader {
   width: 100%;
   height:30%;
@@ -14,6 +14,7 @@ Page {
   width: 100%;
   height: 100%;
 }
+/* 中间内容 */
 .container{
  padding: 0 20rpx;
  height:70%;
@@ -39,23 +40,32 @@ Page {
 
 }
 .picker{
+  display: flex;
+  justify-content: space-between;
   text-align: center;
 }
 .section__title{
   color: #979797;
   font-size: 12px;
 }
-.carCity,.dateTime,.carType{
+.carCity,.dateTime,.carType,.basicprice{
   display: flex;
   justify-content: space-between;
   padding: 10rpx 0rpx;
   border-bottom: rgb(214, 210, 210) solid 1px;
 }
+/* 基础价格 */
+.priceTitle{
+  width:26%;
+}
 .price{
+  width: 70%;
+  text-align: center;
   color: rgb(243, 105, 55);
   font-weight: 700;
   font-size: 20px;
 }
+/* 确认按钮 */
 .btn{
   width: 100%;
   background-color: #ff7f00;
@@ -64,18 +74,18 @@ Page {
   width: 50%;
   height:50%;
 }
+/* 时间 */
 .chooseDay{
   margin: 0 10rpx;
 }
 .line{
   width: 60rpx;
   height: 10rpx;
-
-  margin-left: 10rpx;
+  
 
 }
 .iconfont{
-  margin-left:8rpx;
+  right: 0;
   display: inline-block;
   text-align: center;
 }
@@ -95,27 +105,29 @@ Page {
   background-color: #fff;
   bottom: 20rpx;
   border-radius: 5rpx;
-}
-
-.swiper_box {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-
-}
-swiper-item {
-  display: flex;
-  flex-direction: column;
-}
-swiper-item image {
-  width:  20%;
-  height: 50%;
-  display: inline-block;
   overflow: hidden;
 }
 
-
-
+.scrollItem{
+  padding: 20rpx 30rpx 5rpx;
+  white-space: nowrap;
+}
+.scrollItem .wrapList{
+  width:180rpx;
+  height: 240rpx;
+  display: inline-block;
+}
+.scrollItem .wrapList image{
+  border-radius: 20rpx;
+  margin-bottom: 10rpx;
+  width:80rpx;
+  height: 80rpx;
+}
+.scrollItem .wrapList .itemName{
+  font-size: 20rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 
 .userinfo {

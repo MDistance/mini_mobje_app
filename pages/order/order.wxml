@@ -9,29 +9,34 @@
 <view hidden="{{currentTab!==0}}" class='total' style="background-color: #efefef">
   <view wx:if="{{orderAll.length>0}}">
     <!-- 外层 -->
+    <!-- 案例一 -->
     <view class='cont_count' wx:for="{{orderAll}}" wx:key="key">
       <!-- 编号 -->
       <view class='seria'>
-        <label class='seriac_name'>
-          订单编号
-          <text>{{item.orderNo}}</text>
+        <label class='seriac_start'>
+          待支付
         </label>
         <!-- 订单状态 -->
         <label wx:if="{{item.type ==0}}" class='seriac_start'>
-          接机服务
+          待支付
         </label>
         <label wx:if="{{item.type ==1}}" class='seriac_start'>
-          送机服务
+          已取车
         </label>
         <label wx:if="{{item.type ==2}}" class='seriac_start'>
-          接站服务
+          还车中
         </label>
         <label wx:if="{{item.type ==3}}" class='seriac_start'>
-          送站服务
+          已还车
+        </label>
+        <label class='seriac_name'>
+          订单编号:3242424242424
+          <text>{{item.orderNo}}</text>
         </label>
       </view>
       <!-- 列表 -->
       <view class='shop'>
+<<<<<<< HEAD
        <view class="proInfo">
           <view class="proInfo_right">
             <view class="proInfo_text_dtt">预约车型:{{item.modeName}}</view>
@@ -41,12 +46,24 @@
             <text class="proInfo_text_acount">总价:313</text>
            
           </view>
+=======
+        <view class="proInfo">
+            <text class="proInfo_text" decode="true">车&emsp;&emsp;型 :{{item.modeName}}</text>
+            <text class="proInfo_text">用车时间 :{{item.travelDate}} {{item.etime}}</text>
+            <text class="proInfo_text">取车地点 :{{item.startPlace}}</text>
+            <text class="proInfo_text">还车地点 :{{item.endPlace}}</text>
+            <text class="proInfo_text" decode="true">总&emsp;&emsp;价 :{{item.endPlace}}</text>
+>>>>>>> 8859aee11bae9c0ced63949df1e397ee75d18cc1
         </view>
-      
       </view>
-     
       <!-- 标签功能 -->
       <view class='coent_list'>
+        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>支付订单</label>
+        <label class='coent_cha_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>修改订单</label>
+        <label class='coent_log_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>取消订单</label>
+
+        <!-- 支付订单 -->
+        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap' wx:if="{{item.state ==0||item.state ==1 || item.state ==2}}">支付订单</label>
           <!-- 取消订单 -->
         <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap' wx:if="{{item.state ==0||item.state ==1 || item.state ==2}}">取消订单</label>
         <!-- 修改订单 -->
@@ -57,9 +74,70 @@
         <label class='coent_log_base' wx:if="{{item.state ==3 && item.isInvoice==0}}">发票已申请</label>
         <label class='coent_log_base' wx:if="{{item.state ==4}}" >订单已取消</label>
       </view>
-
     </view>
+<<<<<<< HEAD
 
+  </view>
+  <!-- 否则 -->
+  <view wx:else>
+    <!-- 外层 -->
+    <view class='cont_count'>
+      <label class='none_tab'>亲,您还暂未下单哦~~</label>
+=======
+    <!-- 案例二 -->
+    <view class='cont_count' wx:for="{{orderAll}}" wx:key="key">
+      <!-- 编号 -->
+      <view class='seria'>
+        <label class='seriac_start'>
+          已预约成功
+        </label>
+        <!-- 订单状态 -->
+        <label wx:if="{{item.type ==0}}" class='seriac_start'>
+          待支付
+        </label>
+        <label wx:if="{{item.type ==1}}" class='seriac_start'>
+          已取车
+        </label>
+        <label wx:if="{{item.type ==2}}" class='seriac_start'>
+          还车中
+        </label>
+        <label wx:if="{{item.type ==3}}" class='seriac_start'>
+          已还车
+        </label>
+        <label class='seriac_name'>
+          订单编号:3242424242424
+          <text>{{item.orderNo}}</text>
+        </label>
+      </view>
+      <!-- 列表 -->
+      <view class='shop'>
+        <view class="proInfo">
+            <text class="proInfo_text" decode="true">车&emsp;&emsp;型:{{item.modeName}}</text>
+            <text class="proInfo_text">用车时间:{{item.travelDate}} {{item.etime}}</text>
+            <text class="proInfo_text">取车地点:{{item.startPlace}}</text>
+            <text class="proInfo_text">还车地点:{{item.endPlace}}</text>
+            <text class="proInfo_text" decode="true">总&emsp;&emsp;价:{{item.endPlace}}</text>
+        </view>
+      </view>
+      <!-- 标签功能 -->
+      <view class='coent_list'>
+        <label class='coent_cha_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>修改订单</label>
+        <label class='coent_log_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>取消订单</label>
+
+        <!-- 支付订单 -->
+        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap' wx:if="{{item.state ==0||item.state ==1 || item.state ==2}}">支付订单</label>
+          <!-- 取消订单 -->
+        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap' wx:if="{{item.state ==0||item.state ==1 || item.state ==2}}">取消订单</label>
+        <!-- 修改订单 -->
+        <label class='coent_log_base' data-type="{{item.type}}" data-bookingId="{{item.bookingId}}" bindtap='updateTap' wx:if="{{item.state ==0 ||item.state ==1 | item.state ==2}}">修改订单</label>
+          <!-- 申请发票 -->
+        <label class='coent_log_base' wx:if="{{item.state ==3 && item.isInvoice==1}}" data-type="{{item.type}}" data-bookingId="{{item.bookingId}}" data-orderNo="{{item.orderNo}}"   bindtap='invoiceTap'>申请发票</label>
+        <!-- 申请发票 -->
+        <label class='coent_log_base' wx:if="{{item.state ==3 && item.isInvoice==0}}">发票已申请</label>
+        <label class='coent_log_base' wx:if="{{item.state ==4}}" >订单已取消</label>
+      </view>
+>>>>>>> 8859aee11bae9c0ced63949df1e397ee75d18cc1
+    </view>
   </view>
   <!-- 否则 -->
   <view wx:else>
@@ -72,81 +150,64 @@
 </view>
 <!--租赁中-->
 <view hidden="{{currentTab!==1}}" class='total' style="background-color: #efefef">
-  <view wx:if="{{orderOn.length>0}}">
+  <view wx:if="{{orderOn.length>0}}" >
+    <!-- wx:if="{{orderOn.length>0}}" -->
     <!-- 外层 -->
-    <view class='cont_count' wx:for="{{orderOn}}" wx:key="key">
+    <view class='cont_count_on' wx:for="{{orderOn}}" wx:key="key">
       <!-- 编号 -->
       <view class='seria'>
-        <label class='seriac_name'>
-          订单编号
-          <text>{{item.orderNo}}</text>
+        <label class='seriac_start'>
+          租赁中
         </label>
         <!-- 订单状态 -->
         <label wx:if="{{item.type ==0}}" class='seriac_start'>
-          接机服务
+          待支付
         </label>
         <label wx:if="{{item.type ==1}}" class='seriac_start'>
-          送机服务
+          已取车
         </label>
         <label wx:if="{{item.type ==2}}" class='seriac_start'>
-          接站服务
+          还车中
         </label>
         <label wx:if="{{item.type ==3}}" class='seriac_start'>
-          送站服务
+          已还车
+        </label>
+        <label class='seriac_name'>
+          订单编号:3242424242424
+          <text>{{item.orderNo}}</text>
         </label>
       </view>
       <!-- 列表 -->
       <view class='shop'>
-       <view class="proInfo">
-          <view class="proInfo_right">
-           
-             <view class="proInfo_text">
-                <text> 姓名:{{item.name}}</text> 
-                <text>手机号码：{{item.phone}}</text>
-                <!-- <text class="iconfont icon-qianjinjiantou">{{item.orderdtt}}</text> -->
-            </view>
-             <view class="proInfo_text">
-                <text class="proInfo_text_dtt">出行时间：{{item.travelDate}} {{item.etime}}</text>
-                <text class="proInfo_text_dtt" wx:if="{{item.carpooling ==1}}">拼车：是</text>
-                <text class="proInfo_text_dtt" wx:if="{{item.carpooling ==0}}">拼车：否</text>
-            </view>
-             <view class="proInfo_text">
-              <view class="proInfo_text_dtt">预约车型:{{item.modeName}}</view>
-              <text class="proInfo_text_acount">乘车人数:{{item.peopleNum}}人</text>
-            </view>
-            <view class="proInfo_addresss">
-              <view class="proInfo_text_dtt">出发地点:{{item.startPlace}}</view>
-            </view>
-            <view class="proInfo_addresss">
-              <text class="proInfo_text_acount">抵达地点:{{item.endPlace}}</text>
-            </view>
-             <view class="proInfo_mess">
-              <text class="proInfo_mess_acount">您的订单已预约成功,司机会在出行前一天与您联系！</text>
-            </view>
-          </view>
+        <view class="proInfo">
+            <text class="proInfo_text" decode="true">车&emsp;&emsp;型 :{{item.modeName}}</text>
+            <text class="proInfo_text">用车时间 :{{item.travelDate}} {{item.etime}}</text>
+            <text class="proInfo_text">取车地点 :{{item.startPlace}}</text>
+            <text class="proInfo_text">还车地点 :{{item.endPlace}}</text>
+            <text class="proInfo_text" decode="true">总&emsp;&emsp;价 :{{item.endPlace}}</text>
+            <text class="proInfo_text">车牌号码 :{{item.startPlace}}</text>
+            <text class="proInfo_text">起始油量 :{{item.endPlace}}</text>
+            <text class="proInfo_text" decode="true">当前油量 :{{item.endPlace}}</text>
         </view>
       
       </view>
-     
       <!-- 标签功能 -->
       <view class='coent_list'>
-        <!-- 取消订单 -->
-        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>取消订单</label>
-        <!-- 修改订单 -->
-        <label class='coent_log_base' data-type="{{item.type}}" data-bookingId="{{item.bookingId}}" bindtap='updateTap'>修改订单</label>
+        <!-- 申请结束 -->
+        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>申请结束</label>
+        <!-- 已申请结束 -->
+        <label class='coent_log_base' data-type="{{item.type}}" data-bookingId="{{item.bookingId}}" bindtap='updateTap'>已申请结束</label>
       </view>
-
     </view>
-
   </view>
   <!-- 否则 -->
-  <view wx:else>
+  <!-- <view wx:else> -->
     <!-- 外层 -->
-    <view class='cont_count'>
+    <!-- <view class='cont_count'>
 
       <label class='none_tab'>亲,您还暂未下单哦~~</label>
     </view>
-  </view>
+  </view> -->
 
 </view>
 
@@ -156,60 +217,50 @@
 <view hidden="{{currentTab!==2}}" class='total' style="background-color: #efefef">
   <view wx:if="{{orderFinish.length>0}}">
     <!-- 外层 -->
-    <view class='cont_count' wx:for="{{orderFinish}}" wx:key="key">
+    <view class='cont_count_fin' wx:for="{{orderFinish}}" wx:key="key">
       <!-- 编号 -->
       <view class='seria'>
-        <label class='seriac_name'>
-          订单编号
-          <text>{{item.orderNo}}</text>
+        <label class='seriac_start'>
+          已完成
         </label>
         <!-- 订单状态 -->
         <label wx:if="{{item.type ==0}}" class='seriac_start'>
-          接机服务
+          待支付
         </label>
         <label wx:if="{{item.type ==1}}" class='seriac_start'>
-          送机服务
+          已取车
         </label>
         <label wx:if="{{item.type ==2}}" class='seriac_start'>
-          接站服务
+          还车中
         </label>
         <label wx:if="{{item.type ==3}}" class='seriac_start'>
-          送站服务
+          已还车
+        </label>
+        <label class='seriac_name'>
+          订单编号:3242424242424
+          <text>{{item.orderNo}}</text>
         </label>
       </view>
       <!-- 列表 -->
       <view class='shop'>
        <view class="proInfo">
-          <view class="proInfo_right">
-           
-             <view class="proInfo_text">
-                <text> 姓名:{{item.name}}</text> 
-                <text>手机号码：{{item.phone}}</text>
-                <!-- <text class="iconfont icon-qianjinjiantou">{{item.orderdtt}}</text> -->
-            </view>
-             <view class="proInfo_text">
-                <text class="proInfo_text_dtt">出行时间：{{item.travelDate}} {{item.etime}}</text>
-                <text class="proInfo_text_dtt" wx:if="{{item.carpooling ==1}}">拼车：是</text>
-                <text class="proInfo_text_dtt" wx:if="{{item.carpooling ==0}}">拼车：否</text>
-            </view>
-             <view class="proInfo_text">
-              <view class="proInfo_text_dtt">预约车型:{{item.modeName}}</view>
-              <text class="proInfo_text_acount">乘车人数:{{item.peopleNum}}人</text>
-            </view>
-            <view class="proInfo_addresss">
-              <view class="proInfo_text_dtt">出发地点:{{item.startPlace}}</view>
-            </view>
-            <view class="proInfo_addresss">
-              <text class="proInfo_text_acount">抵达地点:{{item.endPlace}}</text>
-            </view>
-          </view>
+            <text class="proInfo_text" decode="true">车&emsp;&emsp;型 :{{item.modeName}}</text>
+            <text class="proInfo_text">用车时间 :{{item.travelDate}} {{item.etime}}</text>
+            <text class="proInfo_text">取车地点 :{{item.startPlace}}</text>
+            <text class="proInfo_text">还车地点 :{{item.endPlace}}</text>
+            <text class="proInfo_text" decode="true">总&emsp;&emsp;价 :{{item.endPlace}}</text>
+            <text class="proInfo_text">车牌号码 :{{item.startPlace}}</text>
+            <text class="proInfo_text">起始油量 :{{item.endPlace}}</text>
+            <text class="proInfo_text" decode="true">终止油量 :{{item.endPlace}}</text>
+            <text class="proInfo_text" decode="true">押&emsp;&emsp;金 :{{item.endPlace}}</text>
         </view>
       
       </view>
      
       <!-- 标签功能 -->
       <view class='coent_list'>
-                  <!-- 申请发票 -->
+        <label class='coent_log_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>开具发票</label>
+         <!-- 申请发票 -->
         <label class='coent_log_base' wx:if="{{item.state ==3 && item.isInvoice==1}}" data-type="{{item.type}}" data-bookingId="{{item.bookingId}}" data-orderNo="{{item.orderNo}}"  bindtap='invoiceTap'>申请发票</label>
         <!-- 申请发票 -->
         <label class='coent_log_base' wx:if="{{item.state ==3 && item.isInvoice==0}}">发票已申请</label>
@@ -235,70 +286,56 @@
 <view hidden="{{currentTab!==3}}" class='total' style="background-color: #efefef" >
   <view wx:if="{{orderCancel.length>0}}">
     <!-- 外层 -->
-    <view class='cont_count' wx:for="{{orderCancel}}" wx:key="key">
+    <view class='cont_count_cancel' wx:for="{{orderCancel}}" wx:key="key">
       <!-- 编号 -->
       <view class='seria'>
-        <label class='seriac_name'>
-          订单编号
-          <text>{{item.orderNo}}</text>
+        <label class='seriac_start'>
+          已取消
         </label>
         <!-- 订单状态 -->
         <label wx:if="{{item.type ==0}}" class='seriac_start'>
-          接机服务
+          待支付
         </label>
         <label wx:if="{{item.type ==1}}" class='seriac_start'>
-          送机服务
+          已取车
         </label>
         <label wx:if="{{item.type ==2}}" class='seriac_start'>
-          接站服务
+          还车中
         </label>
         <label wx:if="{{item.type ==3}}" class='seriac_start'>
-          送站服务
+          已还车
+        </label>
+        <label class='seriac_name'>
+          订单编号:3242424242424
+          <text>{{item.orderNo}}</text>
         </label>
       </view>
       <!-- 列表 -->
       <view class='shop'>
        <view class="proInfo">
-          <view class="proInfo_right">
-           
-             <view class="proInfo_text">
-                <text> 姓名:{{item.name}}</text> 
-                <text>手机号码：{{item.phone}}</text>
-                <!-- <text class="iconfont icon-qianjinjiantou">{{item.orderdtt}}</text> -->
-            </view>
-             <view class="proInfo_text">
-                <text class="proInfo_text_dtt">出行时间：{{item.travelDate}} {{item.etime}}</text>
-                <text class="proInfo_text_dtt" wx:if="{{item.carpooling ==1}}">拼车：是</text>
-                <text class="proInfo_text_dtt" wx:if="{{item.carpooling ==0}}">拼车：否</text>
-            </view>
-             <view class="proInfo_text">
-              <view class="proInfo_text_dtt">预约车型:{{item.modeName}}</view>
-              <text class="proInfo_text_acount">乘车人数:{{item.peopleNum}}人</text>
-            </view>
-            <view class="proInfo_addresss">
-              <view class="proInfo_text_dtt">出发地点:{{item.startPlace}}</view>
-            </view>
-            <view class="proInfo_addresss">
-              <text class="proInfo_text_acount">抵达地点:{{item.endPlace}}</text>
-            </view>
-          </view>
+            <text class="proInfo_text" decode="true">车&emsp;&emsp;型:{{item.modeName}}</text>
+            <text class="proInfo_text">用车时间:{{item.travelDate}} {{item.etime}}</text>
+            <text class="proInfo_text">取车地点:{{item.startPlace}}</text>
+            <text class="proInfo_text">还车地点:{{item.endPlace}}</text>
+            <text class="proInfo_text" decode="true">总&emsp;&emsp;价:{{item.endPlace}}</text>
         </view>
       
       </view>
 
   <!-- 标签功能 -->
       <view class='coent_list'>
-       
+        <!-- 订单已取消 -->
+        <label class='coent_log_base' data-type="{{item.type}}" data-bookingId="{{item.bookingId}}"  bindtap='invoiceTap'>订单已取消</label>
         <label class='coent_log_base' wx:if="{{item.state ==4}}" data-type="{{item.type}}" data-bookingId="{{item.bookingId}}"  bindtap='invoiceTap'>订单已取消</label>
       </view>
     </view>
 
   </view>
   <!-- 否则 -->
-  <!-- <view wx:else>
+  <view wx:else>
     <!-- 外层 -->
     <view class='cont_count'>
-
       <label class='none_tab'>亲,您还暂未下单哦~~</label>
     </view>
+  </view>
 </view> 

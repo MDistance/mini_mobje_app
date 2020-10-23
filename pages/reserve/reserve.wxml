@@ -1,0 +1,228 @@
+<!-- 预约信息 -->
+<view class="add-page">
+  <form bindsubmit="submitForm">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{TopTips}}</view>
+    <!-- 出行类型 -->
+    <view class="mod-a">
+      <view class="mod t-name">
+        <text class="key">出行类型</text>
+        <view class="value">
+          {{travelTypeName}}
+          <!-- <input disabled name="type" class="input" value="{{travelTypeName}}"/> -->
+          <!-- <image class="arrow-r" src="/images/arrow-r-0.png"></image> -->
+        </view>
+      </view>
+    </view>
+    <!-- 姓名 -->
+    <view class="mod-a">
+      <view class="mod t-name">
+        <text class="key">姓　　名</text>
+        <input name="name" class="input" maxlength="100" placeholder="请输入姓名" value="{{name}}" />
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+    </view>
+    <!-- 手机号 -->
+    <view class="mod-a">
+      <view class="mod t-name">
+        <text class="key">手机号码</text>
+        <input name="phone" class="input" type="number" maxlength="100" placeholder="请输入手机号" value="{{phone}}" />
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+ 
+    </view>
+    <!--航班号 -->
+    <view class="mod-a">
+      <view class="mod t-name">
+        <text class="key">{{flightNoNmae}}</text>
+        <input name="flightNo" class="input" maxlength="100" placeholder="请输入{{flightNoNmae}}" value="{{flightNo}}" />
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+    </view>
+ 
+    <view class="mod-a mt20">
+      <!-- 城市选择 -->
+      <view class="mod t-sign-time">
+        <text class="key">城　　市</text>
+        <picker name="city" bindchange='cityChange' value="{{cityArray[cityIndex].dictLabel}}" range="{{cityArray}}" range-key="{{'dictLabel'}}">
+          <view class='value'>{{cityArray[cityIndex].dictLabel}}
+            <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+ 
+      </view>
+
+    <!-- 接机，接站出发地点地图选择 -->
+  <view wx:if="{{meetHide}}" class="mod t-address">
+        <text class="key">出发地点</text>
+        <picker name="startPlace" bindchange='addressListChange' value="{{addressArray[addressIndex].siteName}}" range="{{addressArray}}" range-key="{{'siteName'}}">
+          <view class='value'>
+            {{addressArray[addressIndex].siteName}}
+            <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+      </view>
+ 
+      <!--  送机，抵达出发地点地图选择 -->
+      <view wx:if="{{giveHide}}" class="mod t-address">
+        <text class="key">出发地点</text>
+        <text name="startPlace" class="value" bindtap="addressChange" value="{{address}}">{{addressNull}}</text>
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+
+      <view wx:if="{{startIsLoaction}}" class="mod t-address">
+        <text class="key">出发地点</text>
+        <input name="startPlace" class="value"  type="text"  placeholder="请输入出发地点" value="{{startPlace}}" />
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+ 
+ 
+      <view wx:if="{{endGiveHide}}" class="mod t-address">
+        <text class="key">抵达地点</text>
+        <picker name="endPlace" bindchange='addressListChange' value="{{addressArray[addressIndex].siteName}}" range="{{addressArray}}" range-key="{{'siteName'}}">
+          <view class='value'>
+            {{addressArray[addressIndex].siteName}}
+            <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+      </view>
+
+      <view wx:if="{{endMeetHide}}" class="mod t-address">
+        <text class="key">抵达地点</text>
+        <text name="endPlace" class="value" bindtap="addressChange" value="{{address}}">{{addressNull}}</text>
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+
+      <view wx:if="{{endIsLoaction}}" class="mod t-address">
+        <text class="key">抵达地点</text>
+        <input name="endPlace" class="value" type="text" placeholder="请输入抵达地点" value="{{endPlace}}" />
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+ 
+      <!-- 预约车型 -->
+      <view class="mod t-sign-time">
+        <text class="key">预约车型</text>
+        <picker name="mobleName" bindchange='mobleChange' value="{{modelArray[modelIndex].modelId}}" range="{{modelArray}}" data-price="{{modelArray[modelIndex].price}}" range-key="{{'name'}}">
+          <view class='value'>
+            {{modelArray[modelIndex].name}}
+            <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+      </view>
+      <!-- 乘车人数 -->
+      <view class="mod t-sign-time">
+        <text class="key">乘车人数</text>
+        <picker name="peopleNum" bindchange='bindPeopleNumChange' value="{{peopleNum[peopleIndex].value}}" range="{{peopleNum}}" range-key="{{'name'}}">
+          <view class='value'>
+            {{peopleNum[peopleIndex].name}}
+            <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+      </view>
+      <!-- 乘车人数
+      <view class="mod t-sign-time">
+        <text class="key">乘车人数</text>
+        <picker bindchange="bindPeopleNumChange" name="peopleNum" value="{{peoNum}}" range="{{peopleNum}}">
+          <view class="value">{{peopleNumNull}}{{peopleNum[peoNum]}}
+            <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+      </view> -->
+      <!-- 出发日期 -->
+      <view class="mod t-sign-time">
+        <text class="key">出发日期</text>
+        <picker name="travelDate" mode="date" value="{{date}}" start="{{date}}" end="2025-12-01" bindchange="bindDateChange">
+          <view class="value" name="travelDate">{{date}}
+            <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+      </view>
+ 
+      <!-- 预约出发时间 -->
+      <view class="mod t-sign-time">
+        <text class="key">{{travelTimeName}}</text>
+        <text class="poolTimeText">(预约或修改订单需提前4小时)</text>
+        <picker name="etime" mode="time" value="{{travelTime}}"  start="{{travelTime}}" end="24:00" bindchange="bindTimeChange">
+          <view class="value" name="etime">{{travelTime}}
+            <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+ 
+      </view>
+ 
+ 
+      <view>
+        <view class="mod t-name  t-address">
+          <text class="key">拼　　车</text>
+          <text class="poolText">(拼单成功立减{{titlePrice}}元)</text>
+          <i-switch value="{{isCarpooling}}" name="carpooling" size="large" bind:change="onCollageChange" slot="footer">
+            <view slot="open">是</view>
+            <view slot="close">否</view>
+          </i-switch>
+          <!-- <text>{{seleted}}</text> -->
+        </view>
+      </view>
+      <view>
+        <view class="mod t-name  t-address">
+          <text class="key">订阅通知</text>
+          <i-switch value="{{isSubscribeMsg}}" size="large" slot="footer" name="subscribeMsg" bindchange="subscribeMsgSwitchChange">
+            <view slot="open">是</view>
+            <view slot="close">否</view>
+          </i-switch>
+          <!-- <text>{{seleted}}</text> -->
+        </view>
+        <view>
+          <view class="mod t-name">
+            备   注:
+             <!-- <textarea placeholder="请输入备注" placeholder-style="color:red;"  /> -->
+            <input name="remarks" placeholder="请输入备注" class="please"  adjust-position></input>
+          </view>
+        </view>
+      </view>
+ 
+ 
+ 
+    </view>
+    <view class="mod t-name">
+      <view class="bto">
+        <view class="bto_bottin">
+          <view class="bto_bottin_one">
+            <checkbox-group bindchange="checkboxChange" data-checked='{{isChecked}}'>
+              <checkbox name="box_check" style="transform: scale(0.8,0.7);font-size: 25rpx;" value="{{if_rem_user}}"></checkbox>
+              我已阅读并同意
+              <text style="color:red;font-size: 25rpx;">《</text>
+               <text style="color:red;font-size: 25rpx;text-decoration:underline;" bindtap="treaty">用户使用协议</text>
+               <text style="color:red;font-size: 25rpx;">》</text>
+               <text style="color:red;font-size: 25rpx;">《</text>
+              <text style="color:red;font-size: 25rpx;text-decoration:underline;" bindtap="privacy">隐私协议</text>
+              <text style="color:red;font-size: 25rpx;">》</text>
+            </checkbox-group>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view>
+        <!-- 1、预约订单需提前4个小时预定
+        2、服务区域为当前城市绕城范围以内
+        3、若您接受拼车，摩捷出行会根据实际情况合理安排拼车，若拼车成功，将在订单金额基础上享受一定折扣 -->
+        <view class="remark">预约订单需提前4个小时预定</view>
+        <view class="remark">服务区域为当前城市绕城范围以内</view>
+        <view class="remark">若您接受拼车，摩捷出行会根据实际情况合理安排拼车</view>
+        <view class="remark">若拼车成功，将在订单金额基础上享受一定折扣</view>
+
+      </view>
+    </view> 
+    <view class='placeholder-view'></view>
+  <view class="submit-btn">
+     <view class="payWrap">
+       <view class="pay">
+        预计支付金额：{{payData - aircraftPrice}}元
+      </view>
+      <button class='button' loading="{{isLoading}}" style="width:40%"  hover-start-time="200" disabled="{{isdisabled}}" formType="submit">立即预约</button>
+     </view>
+      <!-- <text>备注：长春地区拼车立减20元</text> -->
+ 
+    </view>
+  </form>
+
+</view>

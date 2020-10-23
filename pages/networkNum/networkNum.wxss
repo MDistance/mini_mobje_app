@@ -1,0 +1,35 @@
+/* pages/networkNum/networkNum.wxss */
+.container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height:80rpx;
+  background-color: #e9e9e9;
+
+}
+.weui-cell__bd{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width:80%;
+  height: 80%;
+  background-color: #fff;
+  border-radius:5rpx;
+  border:1px solid #ccc;
+}
+.map{
+  color: #2ab6b7;
+}
+.content{
+  width: 100%;
+  height: 60%;
+}

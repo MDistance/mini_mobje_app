@@ -1,37 +1,11 @@
-// pages/service/service.js
+// pages/reserve/treaty/treaty.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    items: [
-			{
-				icon: '',
-				text: '查询信息',
-				path: '/pages/order/list/index'
-			}, 
-			{
-				icon: '',
-				text: '预订',
-				path: '/pages/address/list/index'
-			}, 
-			{
-				icon: '',
-				text: '修改',
-				path: '18521708248',
-			}, 
-			{
-				icon: '',
-				text: '取消',
-				path: '/pages/help/list/index',
-      },
-      {
-				icon: '',
-				text: '发票相关',
-				path: '/pages/help/list/index',
-			},
-		],
+
   },
 
   /**

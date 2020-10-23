@@ -14,35 +14,29 @@
             <view class="carCity">
               <view class="section">
                 <view class="section__title">取车城市</view>
-                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                  <view class="picker">长春{{array[index]}}
+                <picker bindchange="bindPickerCity" value="{{index}}" range="{{array}}">
+                    <view class="picker">{{array[index]}}
                     <text class="iconfont icon-arrLeft-fill"></text>
                   </view>
                 </picker>
               </view>
               <view class="section">
-                <view class="section__title">取车网点</view>
-                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                  <view class="picker">长春{{array[index]}}
-                    <text class="iconfont icon-arrLeft-fill"></text>
-                  </view>
-                </picker>
+                    <view class="section__title">取车网点</view>
+                    <view class="picker" bindtap="bindPickerAddress">{{carList[index]}}
+                      <text class="iconfont icon-arrLeft-fill"></text>
+                    </view>
               </view>
               <view class="section">
                 <view class="section__title">还车城市</view>
-                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                  <view class="picker">长春{{array[index]}}
+                <picker bindchange="bindBackCity" value="{{index}}" range="{{backArray}}">
+                    <view class="picker">{{backArray[index]}}
                     <text class="iconfont icon-arrLeft-fill"></text>
                   </view>
                 </picker>
               </view>
               <view class="section">
-                <view class="section__title">还车网点</view>
-                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                  <view class="picker">长春{{array[index]}}
+                    <view class="section__title">还车网点</view>
                     <text class="iconfont icon-arrLeft-fill"></text>
-                  </view>
-                </picker>
               </view>
             </view>
             <!-- 选择日期 -->
@@ -77,15 +71,18 @@
             <!-- 选择车型 -->
             <view class="carType">
               <text class="key">车型选择：</text>
-              <picker bindchange="bindPickerChange" value="{{index}}" range="{{days}}">
-                  <view class="picker">宝来{{days[index]}}
+              <picker bindchange="bindPickerChange" value="{{index}}" range="{{carList}}">
+                    <view class="picker">{{carList[index]}}
                     <text class="iconfont icon-arrLeft-fill"></text>
                   </view>
                 </picker>
             </view>
             <!-- 基础价格 -->
             <view class="basicprice">
-              <text class="key">基础价格：</text>
+              <view class="priceTitle">
+                <text class="key">基础价格</text>
+                <text class="iconfont icon-wenhao2" bindtap=""></text>
+              </view>
               <text class="price">888元</text>
             </view>
             <!-- 确认按钮 -->
@@ -95,14 +92,16 @@
         </view>
         <!-- 底部其他部分 -->
         <view class="other">
-            <swiper class="swiper_box"  interval='3000' circular skip-hidden-item-layout bindchange="swiperchange">
-            <!-- <block wx:for="{{ imagesArr }}" wx:key=""> -->
-                <swiper-item  wx:for="{{ imagesArr }}" wx:key="index">
-                    <image src="/assets/arrowright.png"  mode='scaleToFill' class='swiper' data-index='{{index}}'/>
-                    <text>新手指引</text>
-                </swiper-item>
-            <!-- </block> -->
-        </swiper>
+          <scroll-view class="scrollItem" scroll-x="true">
+            <view class="wrap">
+              <block wx:for="{{list}}" wx:key="index">
+                  <view class="wrapList" bindtap="jump">
+                      <image src="{{item.image}}"></image>
+                      <view class="itemName">{{item.itemName}}</view>
+                    </view>
+                </block> 
+            </view>
+          </scroll-view>
         </view>
 
     </view>
