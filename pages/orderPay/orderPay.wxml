@@ -1,0 +1,23 @@
+<!--pages/orderPay/orderPay.wxml   订单支付-->
+<view class="container">
+
+   <view class="top">
+     <text class="amountPay">应付金额 {{}}</text>
+     <text>取车时请带好二证一卡（身份证原件，驾驶证，信用卡）</text>
+   </view>
+   <view class="mid">
+     <text class="tit_content">请选择支付方式：</text>
+     <view class="wxPay">
+       <view class="left">
+        <text class="iconfont icon-weixinzhifu1"></text>
+        <text class="">微信支付</text>
+       </view>
+       <text class="iconfont icon-duihao6"></text>
+     </view>
+   </view>
+   <view class="bottom">
+     <button class="btn" bindtap="payBtn">立即支付</button>
+     <button class="btn" bindtap="orderManBtn">订单管理</button>
+   </view>
+
+</view>

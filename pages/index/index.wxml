@@ -42,11 +42,12 @@
             <!-- 选择日期 -->
             <view class="dateTime">
               <view class="mod t-sign-time">
-                <picker mode="time" value="{{time}}" start="09:00" end="16:30" bindchange="bindTimeChange">
+                <timeDate class="timeDate"></timeDate>
+                <!-- <picker mode="time" value="{{time}}" start="09:00" end="16:30" bindchange="bindTimeChange">
                   <view class="picker">
                      09:01
                   </view>
-                </picker>
+                </picker> -->
               </view>
               <view class="mod t-sign-time">
                 <image class="line" src="/assets/line.png"></image>
@@ -81,13 +82,13 @@
             <view class="basicprice">
               <view class="priceTitle">
                 <text class="key">基础价格</text>
-                <text class="iconfont icon-wenhao2" bindtap=""></text>
+                <text class="iconfont icon-wenhao2" bindtap="modalinput"></text>
               </view>
               <text class="price">888元</text>
             </view>
             <!-- 确认按钮 -->
             <view>
-              <button class="btn">确认</button>
+              <button class="btn" bindtap="confirm">确认</button>
             </view>
         </view>
         <!-- 底部其他部分 -->
@@ -107,7 +108,46 @@
     </view>
 
 
+<!-- 基础价格 弹窗 -->
+<view class="modal-dialog" hidden="{{hiddenmodalput}}" bindcancel="onCancel">
+ 
+ <view class="modal-title">详细信息</view>
 
+<view class="modal-content">
+
+<view class="modal-input">
+
+<input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="取车城市"></input>
+
+</view>
+
+<view class="modal-input">
+
+<input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="取车网点"></input>
+
+</view>
+
+<view class="modal-input">
+   <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="时间"></input>
+</view>
+
+<view class="modal-input">
+<input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="车型"></input>
+</view>
+<view class="modal-input">
+<input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="总价格"></input>
+</view>
+</view>
+
+<view class="modal-footer">
+
+<view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+
+<view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+
+</view>
+
+</view>
 
   <!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>

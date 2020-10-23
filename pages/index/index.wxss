@@ -39,6 +39,9 @@ Page {
   padding: 0 30rpx;
 
 }
+.timeDate{
+  width:120rpx;
+}
 .picker{
   display: flex;
   justify-content: space-between;
@@ -97,6 +100,7 @@ Page {
   height: 90rpx;
   padding: 0 20rpx;
 }
+/* 底部新手指引等部分 */
 .content .other{
   border-radius: 2%;
   position: absolute;
@@ -107,7 +111,6 @@ Page {
   border-radius: 5rpx;
   overflow: hidden;
 }
-
 .scrollItem{
   padding: 20rpx 30rpx 5rpx;
   white-space: nowrap;
@@ -128,7 +131,7 @@ Page {
   overflow: hidden;
   white-space: nowrap;
 }
-
+/* 小程序案例代码 */
 
 .userinfo {
   display: flex;
@@ -150,3 +153,89 @@ Page {
 .usermotto {
   margin-top: 200px;
 }
+
+
+
+
+
+/* 弹窗代码 */
+
+   
+  .modal-dialog {
+      width: 540rpx;
+      overflow: hidden;
+      position: fixed;
+      top: 50%;
+      left: 0;
+      z-index: 9999;
+      background: white;
+      box-shadow:1rpx 1rpx 15rpx 1rpx rgb(180, 179, 179);
+      margin: -180rpx 105rpx;
+      border-radius:20rpx;
+  }
+   
+  .modal-title {
+   
+        padding-top: 50rpx;
+        
+        font-size: 36rpx;
+        
+        color: #030303;
+        
+        text-align: center;
+   
+  }
+   
+  .modal-content {
+   
+        padding: 50rpx 32rpx;
+   
+  }
+   
+  .modal-input {
+        display: flex;
+        background: #fff;
+        border-bottom: 2rpx solid #ddd;
+        border-radius: 4rpx;
+        font-size: 28rpx;
+  }
+   
+  .input {
+      width: 100%;
+      height: 82rpx;
+      font-size: 28rpx;
+      line-height: 28rpx;
+      padding: 0 20rpx;
+      box-sizing: border-box;
+      color: #333;
+   
+  }
+   
+  input-holder {
+      color: #666;
+      font-size: 28rpx;
+  }
+   
+  .modal-footer {
+      display: flex;
+      flex-direction: row;
+      height: 86rpx;
+      border-top: 1px solid #dedede;
+      font-size: 34rpx;
+      line-height: 86rpx;
+  }
+   
+  .btn-cancel {
+      width: 50%;
+      color: #666;
+      text-align: center;
+      border-right: 1px solid #dedede;
+  }
+   
+  .btn-confirm {
+        width: 50%;
+        color: #ec5300;
+        text-align: center;
+   
+  }
+  

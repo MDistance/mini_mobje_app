@@ -1,44 +1,102 @@
-Page({
-  data: {
-    markers: [{
-      iconPath: "/resources/others.png",
-      id: 0,
-      latitude: 23.099994,
-      longitude: 113.324520,
-      width: 50,
-      height: 50
-    }],
-    polyline: [{
-      points: [{
-        longitude: 113.3245211,
-        latitude: 23.10229
-      }, {
-        longitude: 113.324520,
-        latitude: 23.21229
-      }],
-      color:"#FF0000DD",
-      width: 2,
-      dottedLine: true
-    }],
-    controls: [{
-      id: 1,
-      iconPath: '/resources/location.png',
-      position: {
-        left: 0,
-        top: 300 - 50,
-        width: 50,
-        height: 50
-      },
-      clickable: true
-    }]
-  },
-  regionchange(e) {
-    console.log(e.type)
-  },
-  markertap(e) {
-    console.log(e.detail.markerId)
-  },
-  controltap(e) {
-    console.log(e.detail.controlId)
-  }
+// 引用百度地图微信小程序JSAPI模块 
+var bmap = require('../../libs/bmap-wx.js'); 
+var BMap = new bmap.BMapWX({ 
+  ak: 'S0kLEjeZBorgvU1jeoXaKl5BqEVHZS7V' 
+}); 
+var wxMarkerData = []; 
+Page({ 
+    data: { 
+        sugData: '',
+        markers: [], 
+        latitude: '', 
+        longitude: '', 
+        placeData: {} 
+    }, 
+     // 绑定input输入 
+     bindKeyInput: function(e) { 
+      var that = this; 
+      // 新建百度地图对象 
+      var fail = function(data) { 
+          console.log(data) 
+      }; 
+      var success = function(data) { 
+          var sugData = ''; 
+          for(var i = 0; i < data.result.length; i++) { 
+              sugData = sugData + data.result[i].name + '\n'; 
+          } 
+          that.setData({ 
+              sugData: sugData 
+          }); 
+      } 
+     // 发起suggestion检索请求 
+      BMap.suggestion({ 
+          query: e.detail.value, 
+          region: '北京', 
+          city_limit: true, 
+          fail: fail, 
+          success: success 
+      }); 
+  } ,
+    makertap: function(e) { 
+        var that = this; 
+        var id = e.markerId; 
+        that.showSearchInfo(wxMarkerData, id); 
+        that.changeMarkerColor(wxMarkerData, id); 
+    }, 
+    onLoad: function() { 
+        var that = this; 
+        // 新建百度地图对象 
+        var fail = function(data) { 
+            console.log(data) 
+        }; 
+        var success = function(data) { 
+            wxMarkerData = data.wxMarkerData; 
+            that.setData({ 
+                markers: wxMarkerData 
+            }); 
+            that.setData({ 
+                latitude: wxMarkerData[0].latitude 
+            }); 
+            that.setData({ 
+                longitude: wxMarkerData[0].longitude 
+            }); 
+        } 
+       // 发起POI检索请求 
+        BMap.search({ 
+            "query": '酒店', 
+            fail: fail, 
+            success: success, 
+            // 此处需要在相应路径放置图片文件 
+            iconPath: '/assets/icons/marker.png', 
+            // 此处需要在相应路径放置图片文件 
+            iconTapPath: '/assets/icons/marker.png' 
+        }); 
+    }, 
+    showSearchInfo: function(data, i) { 
+        var that = this; 
+        that.setData({ 
+            placeData: { 
+                title: '名称：' + data[i].title + '\n', 
+                address: '地址：' + data[i].address + '\n', 
+                telephone: '电话：' + data[i].telephone 
+            } 
+        }); 
+    }, 
+    changeMarkerColor: function(data, i) { 
+        var that = this; 
+        var markers = []; 
+        for (var j = 0; j < data.length; j++) { 
+            if (j == i) { 
+                // 此处需要在相应路径放置图片文件 
+                data[j].iconPath = "../../img/marker_yellow.png"; 
+            } else { 
+                // 此处需要在相应路径放置图片文件 
+                data[j].iconPath = "../../img/marker_red.png"; 
+            } 
+            markers[j](data[j]); 
+        } 
+        that.setData({ 
+            markers: markers 
+        }); 
+    } 
 })

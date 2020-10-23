@@ -1,0 +1,36 @@
+/* pages/orderPay/orderPay.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+.top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 400rpx;
+  background-color: #fff;
+}
+.amountPay{
+  font-size: 28px;
+  color: orange;
+}
+.mid{
+  display: flex;
+  flex-direction: column;
+}
+.wxPay{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.bottom{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn{
+  background-color: #ff7f00;
+  color: #fff;
+}

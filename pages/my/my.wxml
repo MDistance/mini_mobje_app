@@ -2,25 +2,23 @@
 <import src='template.wxml' />
 
 <view class='loginHeader'>
-<view>
-  <image src='{{userHead}}' bindtap='loginTap' class='userHead' mode='aspectFill' />
-</view>
-<view>
-<text class='userTitle' bindtap='loginTap'>{{userTitle}}</text>
-</view>
-
-    
+    <view>
+      <image src='{{userHead}}' bindtap='loginTap' class='userHead' mode='aspectFill' />
+    </view>
+      <view>
+      <text class='userTitle' bindtap='loginTap'>{{userTitle}}</text>
+      </view>
 </view>
 
 <view>
   
 </view>
 <view class="nav">
-<view bindtap="personalTap">
-<template is='settingItem' data="{{caption:'个人信息',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/icon_personal.png'}}" /></view>
-<view bindtap='allOrderTap'>
-<template is='settingItem' data="{{caption:'预约订单',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/yy.png'}}" />
-</view>
+    <view bindtap="personalTap">
+    <template is='settingItem' data="{{caption:'个人信息',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/icon_personal.png'}}" /></view>
+    <view bindtap='allOrderTap'>
+    <template is='settingItem' data="{{caption:'预约订单',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/yy.png'}}" />
+    </view>
 <!-- <view bindtap='aboutTap'>
 <template is='settingItem' data="{{caption:'关于摩捷',value:'',needIcon:true,isIcon:true,iconUrl:'/images/icon_about.png'}}" />
 </view> -->

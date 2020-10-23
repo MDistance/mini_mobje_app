@@ -1,0 +1,118 @@
+/* pages/orderDetail/orderDetail.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+/* 头部区域代码 */
+.header{
+  background-color: #fff;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  padding: 20rpx;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+.countDown{
+  color: #ff7f00;
+}
+.order{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.item{
+  display: flex;
+  justify-content: space-between;
+}
+.itemDesc{
+  font-size: 14px;
+  color: rgb(202, 204, 206);
+}
+.itemCon{
+  font-size: 14px;
+}
+/* 中间内容区域代码 */
+.main{
+  width: 100%;
+  height: 60%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.carDetail{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  background-color: #fff;
+  
+}
+.carDetail_header{
+  display: flex;
+width: 100%;
+height: 20%;
+}
+.carDetail_header_left{
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.carDetail_header_right{
+  display: flex;
+  flex-direction: column;
+}
+.carDetail_content{
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* 底部固定区域代码 */
+.placeholder-view {
+  width: 100%;
+  height: 180rpx;
+} 
+.submit-btn {
+  width: 100%;
+  height: 180rpx;
+  background-color:white;
+  position: fixed;
+  padding: 0 20rpx;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+}
+.payWrap{
+  width: 96%;
+  height: 150rpx;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20rpx;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  align-items: center;
+  background-color: black;
+  z-index: 999;
+}
+.button {
+  height: 80rpx;
+  /* line-height: 80rpx; */
+  text-align: center;
+  font-size: 16px;
+  border: 0 none;
+  background: #118fff;
+  color: #fff;
+  border-radius: 50px;
+}
+.pay{
+  width: 48%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 10pt;
+  font-weight:bold;
+}

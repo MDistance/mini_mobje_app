@@ -9,7 +9,10 @@
     "pages/about/about",
     "components/PagingView/index",
     "pages/newGuide/newGuide",
-    "pages/networkNum/networkNum"
+    "pages/networkNum/networkNum",
+    "pages/orderDetail/orderDetail",
+    "pages/orderPay/orderPay",
+    "pages/vaddService/vaddService"
   ],
   "tabBar": {
     "color": "#333333",
@@ -54,6 +57,5 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
