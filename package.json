@@ -1,0 +1,18 @@
+{
+  "name": "mini_mobje_app",
+  "version": "1.0.0",
+  "description": "摩捷短租小程序前端",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://mengtingting@192.168.0.182:9001/r/mobje_shortrent_wx_mp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vant-weapp": "^0.5.28"
+  }
+}

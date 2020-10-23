@@ -70,13 +70,13 @@
   "setting": {
     "urlCheck": true,
     "es6": true,
-    "enhance": false,
+    "enhance": true,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
     "newFeature": false,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -102,7 +102,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.13.1",
-  "appid": "wx13becf0fb281ac9f",
+  "appid": "wx332a565537ed7d8f",
   "projectname": "mobjeShort",
   "debugOptions": {
     "hidedInDevtools": []

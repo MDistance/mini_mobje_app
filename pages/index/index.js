@@ -4,6 +4,8 @@ const app = getApp()
 
 Page({
   data: {
+    //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
+    hiddenmodalput: true,
     imagesArr:[
       {
         id: 0,
@@ -69,6 +71,41 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  
+//点击按钮痰喘指定的hiddenmodalput弹出框
+modalinput: function () {
+      this.setData({
+          hiddenmodalput: !this.data.hiddenmodalput
+      })
+  },
+ /**
+  * 隐藏模态对话框
+  */
+   
+ hideModal: function () {
+  this.setData({
+    hiddenmodalput: true
+  });
+},
+
+/**
+* 对话框取消按钮点击事件
+*/
+onCancel: function () {
+  this.hideModal();
+},
+/**
+* 对话框确认按钮点击事件
+*/
+
+onConfirm: function () {
+  wx.showToast({
+      title: '提交成功',
+      icon: 'success',
+      duration: 2000
+  })
+  this.hideModal();
+  },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -133,6 +170,11 @@ Page({
       index: e.detail.value
     })
   },
+  confirm: function () {
+    wx.navigateTo({
+      url: '/pages/orderDetail/orderDetail',
+    })
+    },
   // 新手指引
   jump: function () {
     wx.navigateTo({
