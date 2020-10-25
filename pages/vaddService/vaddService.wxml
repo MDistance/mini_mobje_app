@@ -1,2 +1,72 @@
 <!--pages/vaddService/vaddService.wxml-->
-<text>pages/vaddService/vaddService.wxml</text>
+<view class="container">
+   <view class="header">
+      <text class="headerText">已选   280元</text>
+   </view>
+   <view class="main">
+      <view class="content">
+          <view class="contentHeader">
+             <text class="headerTitle">租车保障.安全出行</text>
+          </view>
+          <view class="safeguard">
+             <van-cell-group>
+                <van-cell icon="question-o" label="不包含轮胎损坏" title="基础补充保障（105元）" border="{{ true }}" />
+                    <!-- <van-icon name="question-o" /> -->
+                    <van-tag type="danger">新手必买</van-tag>
+                  <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
+              </van-cell-group>
+            <van-cell-group>
+              <van-cell icon="question-o" title="高级补充保障（144元）"/>
+              <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
+            </van-cell-group>
+            <van-cell-group>
+              <van-cell icon="question-o" title="尊享补充保障（189元）" />
+              <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
+            </van-cell-group>
+          </view>
+      </view>
+      <view class="content">
+          <view class="contentHeader">
+            <text class="headerTitle">增值服务</text>
+          </view>
+          <view class="appreciation">
+           
+            <van-cell-group>
+              <van-cell icon="question-o" title="车型升级"  />
+              <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
+            </van-cell-group>
+            <van-cell-group>
+              <van-cell icon="question-o" title="免除加油服务费（50元）"  />
+              <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
+            </van-cell-group>
+             <van-cell-group>
+                <van-cell icon="question-o" title="行无忧（44元）" label="代缴不扣分罚款，最高免赔600元" />
+                <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
+              </van-cell-group>
+          </view>
+      </view>
+   
+   </view>
+   <view class="footer">
+     <van-cell-group>
+      <van-cell icon="description" title="取车凭证"  label="本人有效身份证+驾驶证原件 （正副页）+信用卡" border="{{ false }}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell icon="gold-coin-o" title="押金金额"  label="取车时刷取车辆押金，还车时当场撤销预授权；还车时刷取违章押金，还车后30-45天无违章自动解冻。" border="{{ false }}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell icon="coupon-o" title="发票"  label="可在”摩捷短租“申请开票，还车后为您开具增值税发票。"  border="{{ false }}" />
+    </van-cell-group>
+    <view class="read">
+            <checkbox-group bindchange="checkboxChange" data-checked='{{isChecked}}'>
+              <checkbox name="box_check" style="transform: scale(0.8,0.7);"></checkbox>
+              我已阅读并同意
+              <text style="color:red;" bindtap="treaty">《规则说明》</text>
+            </checkbox-group>
+      </view>
+    </view>
+
+</view>
+<view class="subBtn">
+   <view class="subBtnText" bindtap="subBtnText"> 提交订单</view>
+</view>

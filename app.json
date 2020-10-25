@@ -1,22 +1,23 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/vaddService/vaddService",
+    "pages/my/my",
     "pages/service/service",
+    "pages/orderPay/orderPay",
+    "pages/orderDetail/orderDetail",
     "pages/order/order",
     "pages/logs/logs",
-    "pages/my/my",
     "pages/login/login",
     "pages/about/about",
     "components/PagingView/index",
     "pages/newGuide/newGuide",
-    "pages/networkNum/networkNum",
-    "pages/orderDetail/orderDetail",
-    "pages/orderPay/orderPay",
-    "pages/vaddService/vaddService"
+    "pages/networkNum/networkNum"
+
   ],
   "tabBar": {
     "color": "#333333",
-    "selectedColor": "#ff7f00",
+    "selectedColor": "#00A3FF",
     "backgroundColor": "#ffffff",
     "list": [
       {

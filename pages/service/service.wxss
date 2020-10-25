@@ -1,1 +1,59 @@
 /* pages/service/service.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  position: relative;
+}
+.header{
+  width: 100%;
+  height: 100rpx;
+  position: absolute;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background-color: aquamarine;
+  top: 0;
+}
+.title{
+  font-weight: bold;
+}
+.main{
+  position: absolute;
+  top: 100rpx;
+  padding: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: powderblue;
+}
+.van-collapse-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 10rpx;
+}
+
+
+/* 底部 */
+.footer{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  top:700rpx;
+  width: 100%;
+  height: 180rpx;
+  background-color: white;
+  border-top:1px solid rgb(226, 218, 218,0.5);
+}
+.btn{
+  width: 90%;
+  line-height: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  border: 1px solid orange;
+  text-align: center;
+  color: orange;
+}

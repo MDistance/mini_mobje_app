@@ -5,7 +5,7 @@ Page {
   display: flex;
   flex-direction: column;
 }
- 
+ /* 头部代码 */
 .loginHeader {
   width: 100%;
   box-sizing: border-box;
@@ -40,7 +40,54 @@ Page {
   padding: 20rpx;
   margin-top:30rpx;
 }
- 
+.main{
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.content{
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5rpx;
+  width: 100%;
+  height: 120rpx;
+  background-color: white;
+  margin-bottom: 10rpx;
+}
+.img{
+  width: 50rpx;
+  height: 50rpx;
+}
+.conItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20rpx;
+}
+ .list{
+   box-sizing: border-box;
+  padding: 10rpx;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   background-color: white;
+   height:400rpx;
+ }
+ .listItem{
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   height: 50rpx;
+   line-height: 50rpx;
+   margin-bottom: 10rpx;
+   background-color: #dedede;
+ }
+ .listItemTitle{
+  height: 50rpx;
+  line-height: 50rpx;
+ }
 .order {
   width: 100%;
   height: max-content;
@@ -96,4 +143,33 @@ Page {
 .settingItem .icon {
   width: 28rpx;
   margin-left: 10rpx;
+}
+
+/* 底部代码 */
+.footer{
+  position: fixed;
+  bottom: 0;
+  height: 180rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: seashell; */
+
+}
+
+.cancelBtn{
+   width: 50%;
+   height: 60rpx;
+   line-height: 60rpx;
+   color: orange;
+   border-radius: 30rpx;
+   border: 1px solid salmon;
+   text-align: center;
+}
+.cancelBtn>text{
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }

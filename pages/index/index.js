@@ -4,6 +4,9 @@ const app = getApp()
 
 Page({
   data: {
+    shows:false,
+    isShowPopView2:false,
+    currentDateStr1:'',
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
     hiddenmodalput: true,
     imagesArr:[
@@ -71,7 +74,23 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  
+  switch1Change:function(e){
+    this.setData({
+      shows:e.detail.value
+    });
+  },
+  ClickTimeBtn1: function () {
+    this.setData({
+      isShowPopView2: true,
+    });
+  },
+  confirm1: function (event){
+    console.log(event.detail);
+    this.setData({
+      currentDateStr1: event.detail,
+    });
+  },
+
 //点击按钮痰喘指定的hiddenmodalput弹出框
 modalinput: function () {
       this.setData({

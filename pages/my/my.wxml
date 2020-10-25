@@ -1,31 +1,52 @@
 <!--pages/my/my.wxml-->
 <import src='template.wxml' />
-
-<view class='loginHeader'>
-    <view>
-      <image src='{{userHead}}' bindtap='loginTap' class='userHead' mode='aspectFill' />
-    </view>
-      <view>
-      <text class='userTitle' bindtap='loginTap'>{{userTitle}}</text>
-      </view>
-</view>
-
 <view>
-  
-</view>
-<view class="nav">
-    <view bindtap="personalTap">
-    <template is='settingItem' data="{{caption:'个人信息',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/icon_personal.png'}}" /></view>
-    <view bindtap='allOrderTap'>
-    <template is='settingItem' data="{{caption:'预约订单',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/yy.png'}}" />
+
+      <view class='loginHeader'>
+          <view>
+            <image src='{{userHead}}' bindtap='loginTap' class='userHead' mode='aspectFill' />
+          </view>
+            <view>
+              <text class='userTitle' bindtap='loginTap'>{{userTitle}}</text>
+            </view>
+      </view>
+      <view class="main">
+      
+        <view class="content">
+          <view class="conItem">
+             <image class="img" src="/assets/fapiaoguanli1.png"></image>
+             <text>发票管理</text>
+          </view>
+          <view class="conItem">
+             <image class="img" src="/assets/weizhangjilu.png"></image>
+             <text>违章记录</text>
+          </view>
+        </view>
+        <view class="list">
+           <view class="listItem">
+              <text class="listItemTitle">预约订单</text>
+              <text class="listItemCon"></text>
+           </view>
+           <view class="listItem">
+              <text class="listItemTitle">联系方式 :</text>
+              <text class="listItemCon"></text>
+           </view>
+        </view>
+      </view>
+      <!-- <view class="nav">
+          <view bindtap="personalTap">
+             <template is='settingItem' data="{{caption:'个人信息',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/icon_personal.png'}}" />
+          </view>
+          <view bindtap='allOrderTap'>
+            <template is='settingItem' data="{{caption:'预约订单',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/yy.png'}}" />
+          </view>
+      </view> -->
+    <view class="footer">
+      <view class="cancelBtn"><text bindtap="btn">退出登录</text></view>
+      <view>
+        <text class="service">客服电话 :</text>
+        <text class="tel">17513145210</text>    
+      </view>
     </view>
-<!-- <view bindtap='aboutTap'>
-<template is='settingItem' data="{{caption:'关于摩捷',value:'',needIcon:true,isIcon:true,iconUrl:'/images/icon_about.png'}}" />
-</view> -->
-<view bindtap="tel">
-<template is='settingItem' data="{{caption:'联系客服',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/icon_cus.png'}}" />
-</view>
-
 
 </view>
-<button>退出登录</button>

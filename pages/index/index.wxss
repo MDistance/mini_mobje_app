@@ -16,45 +16,71 @@ Page {
 }
 /* 中间内容 */
 .container{
- padding: 0 20rpx;
- height:70%;
+  position: relative;
+  height:80%;
 }
 .content{
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 25rpx;
+  position: absolute;
+  top: -16rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   height:100%;
-  position: relative;
 }
 .content .car{
-  position: absolute;
-  background-color: #fff;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-radius: 5rpx;
-  top: -15rpx;
+  border-radius: 15px;
   font-size: 14px;
+  box-shadow: 1px 1px 15px rgb(214, 210, 210);
   box-sizing: border-box;
-  height: 75%;
+  height: 90%;
   width: 100%;
-  padding: 0 30rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
 
 }
-.timeDate{
-  width:120rpx;
+
+.carCity{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+/* 取车还地点代码 */
+.carCityItem{
+  display: flex;
+  justify-content: space-between;
+  height: 120rpx;
+  border-bottom: #dedede 1px solid;
 }
 .picker{
   display: flex;
   justify-content: space-between;
   text-align: center;
 }
+.section{
+  padding: 4rpx 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
 .section__title{
   color: #979797;
   font-size: 12px;
 }
-.carCity,.dateTime,.carType,.basicprice{
+.dateTime,.carType,.basicprice{
+  height: 100rpx;
   display: flex;
   justify-content: space-between;
-  padding: 10rpx 0rpx;
+  align-items: center;
+  padding: 8rpx 0rpx;
   border-bottom: rgb(214, 210, 210) solid 1px;
 }
 /* 基础价格 */
@@ -97,25 +123,25 @@ Page {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 90rpx;
+  height: 70rpx;
   padding: 0 20rpx;
 }
 /* 底部新手指引等部分 */
 .content .other{
   border-radius: 2%;
-  position: absolute;
   height: 20%;
   width: 100%;
   background-color: #fff;
-  bottom: 20rpx;
   border-radius: 5rpx;
   overflow: hidden;
 }
 .scrollItem{
+  align-items: center;
   padding: 20rpx 30rpx 5rpx;
   white-space: nowrap;
 }
 .scrollItem .wrapList{
+  padding: 5rpx;
   width:180rpx;
   height: 240rpx;
   display: inline-block;

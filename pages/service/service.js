@@ -31,9 +31,19 @@ Page({
 				text: '发票相关',
 				path: '/pages/help/list/index',
 			},
-		],
+    ],
+    activeNames: ['1']
   },
-
+  scrollToTop() {
+    this.setAction({
+      scrollTop: 0
+    })
+  },
+  onChange(event) {
+    this.setData({
+      activeNames: event.detail,
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

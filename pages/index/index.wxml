@@ -12,37 +12,51 @@
         <view class="car">
            <!-- 选择城市 -->
             <view class="carCity">
-              <view class="section">
-                <view class="section__title">取车城市</view>
-                <picker bindchange="bindPickerCity" value="{{index}}" range="{{array}}">
-                    <view class="picker">{{array[index]}}
-                    <text class="iconfont icon-arrLeft-fill"></text>
+              <view class="carCityItem">
+                <view class="section">
+                    <view class="section__title">取车城市</view>
+                    <picker bindchange="bindPickerCity" value="{{index}}" range="{{array}}">
+                        <view class="picker">{{array[index]}}
+                        <text class="iconfont icon-arrLeft-fill"></text>
+                      </view>
+                    </picker>
+                </view>
+                <view class="section">
+                      <view class="section__title">取车网点</view>
+                      <view class="picker" bindtap="bindPickerAddress">{{carList[index]}}
+                        <text class="iconfont icon-arrLeft-fill"></text>
+                      </view>
+                </view>
+                <view class="section">
+                      <view class="section__title">异地还车</view>
+                      <view class="picker">
+                        <switch style="zoom:0.8" bindchange="switch1Change"/>
+                      </view>
+                </view>
+              </view>
+              <view class="carCityItem" wx:if="{{shows==true}}">
+                  <view class="section">
+                    <view class="section__title">还车城市</view>
+                    <picker bindchange="bindBackCity" value="{{index}}" range="{{backArray}}">
+                        <view class="picker">{{backArray[index]}}
+                        <text class="iconfont icon-arrLeft-fill"></text>
+                      </view>
+                    </picker>
                   </view>
-                </picker>
-              </view>
-              <view class="section">
-                    <view class="section__title">取车网点</view>
-                    <view class="picker" bindtap="bindPickerAddress">{{carList[index]}}
-                      <text class="iconfont icon-arrLeft-fill"></text>
-                    </view>
-              </view>
-              <view class="section">
-                <view class="section__title">还车城市</view>
-                <picker bindchange="bindBackCity" value="{{index}}" range="{{backArray}}">
-                    <view class="picker">{{backArray[index]}}
-                    <text class="iconfont icon-arrLeft-fill"></text>
+                  <view class="section">
+                        <view class="section__title">还车网点</view>
+                        <text class="iconfont icon-arrLeft-fill"></text>
                   </view>
-                </picker>
-              </view>
-              <view class="section">
-                    <view class="section__title">还车网点</view>
-                    <text class="iconfont icon-arrLeft-fill"></text>
+                  <view class="section">
+                        <view class="section__title">还车网点</view>
+                        <text class="iconfont icon-arrLeft-fill"></text>
+                  </view>
               </view>
             </view>
             <!-- 选择日期 -->
             <view class="dateTime">
               <view class="mod t-sign-time">
-                <timeDate class="timeDate"></timeDate>
+                <timeDate class="timeDate" style="width:120rpx"></timeDate>
                 <!-- <picker mode="time" value="{{time}}" start="09:00" end="16:30" bindchange="bindTimeChange">
                   <view class="picker">
                      09:01
@@ -61,9 +75,9 @@
                 <image class="line" src="/assets/line.png"></image>
               </view>
               <view class="mod t-sign-time">
-                  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                  <picker mode="date" value="{{date}}" start="2018-09-01" end="2050-09-01" bindchange="bindDateChange">
                     <view class="picker">
-                      2020-10-20 {{date}}
+                    选择时间 {{date}}
                     </view>
                   </picker>
               </view>

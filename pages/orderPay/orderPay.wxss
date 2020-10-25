@@ -1,36 +1,83 @@
 /* pages/orderPay/orderPay.wxss */
-.container{
+.page{
   width: 100%;
   height: 100%;
   background-color: #f7f7f7;
 }
+.container{
+  width: 100%;
+  height: 100%;
+}
+/* 头部 */
 .top{
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   width: 100%;
-  height: 400rpx;
+  height:13%;
   background-color: #fff;
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
 }
 .amountPay{
-  font-size: 28px;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
   color: orange;
 }
+.descr{
+  font-size: 20rpx;
+  color: rgb(172, 172, 172);
+}
+/* 支付方式 */
 .mid{
+  height: 15%;
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40rpx;
+}
+.tit_content{
+  padding: 30rpx;
+  width: auto;
+  color: rgb(156, 156, 156);
+  display: flex;
 }
 .wxPay{
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-top: rgb(216, 210, 210,0.6) 1rpx solid;
+  border-bottom:rgb(216, 210, 210,0.6) 1rpx solid;  
+}
+.icon-weixinzhifu1{
+  color: green;
+}
+.icon-duihao6{
+  color: #ff7f00;
+}
+.wxcost{
+  margin-left: 10rpx;
 }
 .bottom{
+  width: 100%;
+  height:220rpx;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 .btn{
+  width: 90%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius:4rpx;
   background-color: #ff7f00;
   color: #fff;
 }

@@ -1,5 +1,4 @@
 {
   "usingComponents": {
-    "timeDate":"/components/timeDate/timeDate"
-  }
+    "timeDate":"/components/timeDate/timeDate"  }
 }

@@ -1,9 +1,9 @@
 <!--pages/orderDetail/orderDetail.wxml-->
 <view class="container">
-  <view class="header">
+  <view class="header" >
     <view class="countDown">
       <text class="iconfont icon-shijian"></text>
-      <text class="headerTitle">尽快支付锁定心仪车型。</text>
+      <text class="headerTitle">{{}}尽快支付锁定心仪车型。</text>
     </view>
     <view class="order">
       <view class="item">
@@ -23,7 +23,7 @@
         </view>
         <view>
           <text class="itemTitle itemDesc">支付状态 :</text>
-          <text class="itemCon">未支付</text>
+          <text class="itemMon">未支付</text>
         </view>
         
         
@@ -34,7 +34,7 @@
     <view class="carDetail">
       <view class="carDetail_header">
         <view class="carDetail_header_left">
-          <image src="/assets/ic_mine_normal.png" style="width:20rpx; height:20rpx"></image>
+          <image src="/assets/汽车.png" style="width:120rpx; height:120rpx"></image>
         </view>
         <view class="carDetail_header_right">
           <text class="tit itemDesc">选定车型：</text>
@@ -44,41 +44,41 @@
       </view>
       <view class="carDetail_content">
         <view class="item">
-          <text class="itemDesc">取车时间 :</text>
+          <text class="itemDesc carDetail_header_left">取车时间 :</text>
           <text class="itemContent"></text>
         </view>
         <view class="item">
-          <text class="itemDesc">取车门店 :</text>
+          <text class="itemDesc carDetail_header_left">取车门店 :</text>
           <text class="itemContent"></text>
         </view>
         <view class="item">
-          <text class="itemDesc">还车时间 :</text>
+          <text class="itemDesc carDetail_header_left">还车时间 :</text>
           <text class="itemContent"></text>
         </view>
         <view class="item">
-          <text class="itemDesc">还车门店 :</text>
+          <text class="itemDesc carDetail_header_left">还车门店 :</text>
           <text class="itemContent"></text>
         </view>
       </view>
     </view>
     <view class="orderDetail">
       <view class="orderDetail_title">订单明细</view>
-      <view class="orderDetail_content">
-        <view>
+      <view class="orderDetail_content1">
+        <view class="flexItem">
           <text class="describe"> 车辆租赁费及门店服务费（门店现付价）</text>
           <text class="price"> 241元</text>
         </view>
-        <view>
+        <view class="flexItem">
           <text class="describe"> 基本保障服务费</text>
           <text class="price"> 80元</text>
         </view>
-        <view>
+        <view class="flexItem">
           <text class="describe"> 手续费</text>
           <text class="price"> 24元</text>
         </view>
       </view>
-      <view class="orderDetail_content">
-        <view>
+      <view class="orderDetail_content2">
+        <view class="flexItem">
           <text> 车辆押金（可退）4000元</text>
           <text> 订单总额 4000元</text>
         </view>
@@ -90,17 +90,15 @@
   </view>
   
   <view class="footer">
-    <button class="changeBtn">修改</button>
-    <button class="cancelBtn">取消</button>
+    <text class="changeBtn" bindtap="changeBtn">修改</text>
+    <text class="cancelBtn" bindtap="cancelBtn">取消</text>
   </view>
-    <view class='placeholder-view'></view>
-    <view class="submit-btn">
-     <view class="payWrap">
-       <view class="pay">
-        预计支付金额：{{payData - aircraftPrice}}元
-      </view>
-      <button class='button' loading="{{isLoading}}" style="width:40%"  hover-start-time="200" disabled="{{isdisabled}}" formType="submit">支付</button>
-     </view>
- 
-    </view>
+    <!-- <view class='placeholder-view'></view> -->
+    
+
 </view>
+<van-submit-bar
+      price="{{ 34150 }}"
+      button-text="支付"
+      bind:submit="onSubmit"
+    />

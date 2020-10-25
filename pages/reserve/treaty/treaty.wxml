@@ -1,6 +1,6 @@
 <view class="container">
 
-  <text class="firstTitle">用户协议</text>
+  <text class="firstTitle">《规则说明》</text>
   <text decode="true" > &emsp;&emsp;摩捷出行根据您的出行需求，通过信息交互，为您提供多样化的约车接送服务，具体服务产品包括但不限于接送机等（以服务产品实际开通情况为准），您在访问和使用有关网站、应用程序提供的服务功能时适用本服务协议（以下简称“本协议”）。
   <text decode="true"> &emsp;&emsp;在您使用有关网站、应用程序及接受摩捷出行接送服务之前，请您认真阅读本协议。当您点击同意本协议后，即视为您已充分阅读并接受本协议的所有条款，您同意本协议对您和我们具有法律约束力。</text>
   </text>
