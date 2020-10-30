@@ -1,0 +1,160 @@
+
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+ }
+ .container_con{
+  width: 100%;
+  height: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+
+ }
+ .content{
+   border: 1rpx solid  rgb(190, 190, 190);
+   border-radius:20rpx;
+   width: 100%;
+   height:500vm;
+   margin-bottom: 10rpx;
+
+ }
+.car{
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   font-size: 14px;
+   box-sizing: border-box;
+   padding: 30rpx;
+ 
+ }
+ .timeDate{
+   width:120rpx;
+ }
+ .carCity{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+ }
+ /* .van-dialog{
+   height: 800rpx;
+ } */
+ .pickup_outlets{
+   opacity: 1;
+   z-index: 9999;
+   background: #fff;
+   width: 99%;
+   height:70%;
+ }
+ .pickup_main{
+   z-index: 999;
+   float: left;
+   box-sizing: border-box;
+   width: 100%;
+   background: #fff;
+ }
+ .main{
+   border: tan 1rpx solid;
+   float: left;
+   box-sizing: border-box;
+   width: 100%;
+   background: #fff;
+   padding: 20rpx;
+ }
+ /* 取车还地点代码 */
+ .carCityItem{
+   display: flex;
+   justify-content: space-between;
+   border-bottom: #dedede 1px solid;
+ }
+ .picker{
+   display: flex;
+   justify-content: space-between;
+   text-align: center;
+   align-items: center;
+ }
+ .section{
+   padding: 14rpx 0;
+   display: flex;
+   width:18%;
+   justify-content: space-around;
+   align-items: center;
+   flex-direction: column;
+ }
+ .section__title{
+   color: #979797;
+   font-size: 12px;
+ }
+ .backService{
+   font-size: 20rpx;
+   color: red;
+ }
+ .carCityItem,.dateTime,.carType{
+   border-bottom: rgb(214, 210, 210) solid 1px;
+ 
+ }
+ .carCityItem,.carType,.dateTime,.basicprice{
+   align-items: center;
+ }
+ .carCityItem,.dateTime,.carType,.basicprice{
+   display: flex;
+   height: 100rpx;
+   justify-content: space-between;
+ }
+ .hide{
+   display: none;
+ }
+ .show{
+   display: block;
+ }
+ /* 基础价格 */
+ .priceTitle{
+   width:26%;
+ }
+ .price{
+   width: 70%;
+   text-align: center;
+   color: rgb(243, 105, 55);
+   font-weight: 700;
+   font-size: 20px;
+ }
+ /* 确认按钮 */
+ .btn{
+   width: 100%;
+   background-color: #ff7f00;
+   color: white;
+ }
+ .arrow-r{
+   width: 50%;
+   height:50%;
+ }
+ /* 时间 */
+ .chooseDay{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+ }
+ .line{
+   width: 60rpx;
+   height: 10rpx;
+ }
+ .iconfont{
+   right: 0;
+   display: inline-block;
+   text-align: center;
+ }
+ /* 日期类代码 */
+ .mod{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 5rpx 0;
+   box-sizing: border-box;
+ }

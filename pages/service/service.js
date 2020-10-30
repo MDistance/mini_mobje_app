@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    customerTel:'17549643375',
     items: [
 			{
 				icon: '',
@@ -31,9 +32,30 @@ Page({
 				text: '发票相关',
 				path: '/pages/help/list/index',
 			},
-		],
+    ],
+    activeNames: ['1']
   },
-
+  phoneCall: function () {
+    console.log("phoneCall")
+    wx.makePhoneCall({
+      phoneNumber: this.data.customerTel 
+    })
+  },
+  scrollToTop() {
+    this.setAction({
+      scrollTop: 0
+    })
+  },
+  onChange(event) {
+    this.setData({
+      activeNames: event.detail,
+    });
+  },
+  useCarCity(){
+  wx.navigateTo({
+    url: '/pages/details/details',
+  })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

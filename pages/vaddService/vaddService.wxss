@@ -1,1 +1,117 @@
 /* pages/vaddService/vaddService.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(240, 240, 240);
+}
+.container{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.header{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 220rpx;
+  border-bottom: 1px solid seashell;
+}
+.mid{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.semicircle{
+  width:50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: rgb(221, 224, 224);
+}
+.headerLeft{
+  margin-left: -25rpx;
+}
+.headerRight{
+  margin-right: -25rpx;
+}
+.headerText{
+  margin-right: 20rpx;
+  font-size: 24rpx;
+}
+.sizeFont{
+  font-weight: bold;
+  font-size: 40rpx;
+  color: red;
+}
+.main{
+  border: 1px solid seashell;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.contentHeader{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx seashell solid;
+}
+.van-cell-group ,.van-cell{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.read{
+  padding: 30rpx;
+  display: flex;
+  justify-content: start;
+  background-color: #fff;
+}
+.van-radio-groupRead{
+  display: inline-block;
+}
+.ruleText{
+  color: orange;
+}
+.addService{
+  margin-bottom: 20rpx;
+}
+.footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+}
+/* .placeholder-view {
+  width: 100%;
+  height: 120rpx;
+}  */
+/* 提交订单按钮样式 */
+
+.subBtn{
+  z-index: 999;
+  border-top: whitesmoke 1rpx solid;
+  background-color: white;
+  width: 100%;
+  height:120rpx;
+  position: fixed;
+  bottom: 0;
+  padding: 20rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.subBtnText{
+  border-radius: 20rpx;
+  width: 90%;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: orange;
+  color: white;
+  text-align: center;
+}

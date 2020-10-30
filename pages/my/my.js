@@ -10,6 +10,8 @@ Page({
     userTitle: '点击头像登录',
     userHead: '/assets/ic_mine_normal.png',
     customerTel:'',
+    userRen:'摩捷认证用户',
+    userTel:'1800009536'
   },
 
   /**

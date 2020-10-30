@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-tree-select": "/miniprogram_npm/vant-weapp/tree-select/index"
+  },
+  "navigationBarTitleText": "选择网点"
+}

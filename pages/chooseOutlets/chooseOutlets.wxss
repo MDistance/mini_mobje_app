@@ -1,0 +1,44 @@
+/* pages/networkNum/networkNum.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.container{
+  width: 100vw;
+  height: 100vh;
+}
+.map_container{ 
+  height:100vh; 
+  width: 100vw; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} 
+.map_header{
+  width: 100%;
+  height:100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ecebeb;
+}
+.map_headerCon{
+  width:80%;
+  height:80rpx;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.weui-input{
+  background-color: #fff;
+}
+.content{
+  width: 100vw;
+  height: calc(100vh - 100rpx);
+  background-color: rgb(243, 240, 240);
+}

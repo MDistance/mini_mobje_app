@@ -1,5 +1,15 @@
 {
   "usingComponents": {
-    "timeDate":"/components/timeDate/timeDate"
+    "timeDate":"/components/timeDate/timeDate",
+    "van-dialog": "/miniprogram_npm/vant-weapp/dialog/index",
+    "van-tab": "/miniprogram_npm/vant-weapp/tab/index",
+    "van-tabs": "/miniprogram_npm/vant-weapp/tabs/index",
+    "carTypeCom":"/components/carTypeCom/carTypeCom",
+    "van-radio": "/miniprogram_npm/vant-weapp/radio/index",
+    "van-radio-group": "/miniprogram_npm/vant-weapp/radio-group/index",
+    "pickup_outlets": "/components/pickup_outlets/pickup_outlets",
+    "van-switch": "/miniprogram_npm/vant-weapp/switch/index",
+    "van-checkbox": "/miniprogram_npm/vant-weapp/checkbox/index",
+  "van-checkbox-group": "/miniprogram_npm/vant-weapp/checkbox-group/index"
   }
 }

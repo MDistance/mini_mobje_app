@@ -7,7 +7,16 @@ Page({
   data: {
 
   },
-
+  changeBtn:function(){
+    wx.navigateTo({
+      url: '/pages/changeOrder/changeOrder',
+    })
+  },
+  onSubmit:function(){
+    wx.navigateTo({
+      url: '/pages/orderPay/orderPay',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

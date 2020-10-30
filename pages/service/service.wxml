@@ -1,19 +1,93 @@
 <!--pages/service/service.wxml-->
 <view class="container">
   <view class="header">
-    <text>猜你想问</text>
+    <text class="title">猜你想问</text>
   </view>
   <view class="main">
-     <view class="item">
-      <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{ items }}" wx:key="index" data-path="{{ item.path }}" data-index="{{ index }}" bindtap="navigateTo">
-                <view class="weui-cell__hd">
-                    <image src="{{ item.icon }}" style="margin-bottom: 2px;margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
-                </view>
-                <view class="weui-cell__bd">{{ item.text }}</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access">
-                	<text wx:if="{{ index === 2 }}">{{ item.path }}</text>
-                </view>
-            </navigator>
-     </view>
+ <scroll-view scroll-y="true" style="height:600rpx;" n xscroll-top="{{scrollTop}}">
+          <van-collapse value="{{ activeNames }}" bind:change="onChange">
+        <van-collapse-item title="查询信息" label="用车城市，用车类型，提供车型，司机信息，查询订单" name="1">
+          <view class="collapseItem">
+            <view class="collapseConItem" bindtap="useCarCity">
+              <text class="collapseItemText">用车城市</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+            <view class="collapseConItem" bindtap="useCarCity">
+              <text class="collapseItemText">用车类型</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+            <view class="collapseConItem" bindtap="useCarCity">
+              <text class="collapseItemText">提供车型</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+            <view class="collapseConItem" bindtap="useCarCity">
+              <text class="collapseItemText">司机信息</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+            <view class="collapseConItem" bindtap="useCarCity">
+              <text class="collapseItemText">查询订单</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+            
+            
+            
+          </view>
+        </van-collapse-item>
+        <van-collapse-item  title="预订" label="预订渠道，如何预订" name="2">
+          <view class="collapseItem" bindtap="useCarCity">
+            <view class="collapseConItem">
+              <text class="collapseItemText">预订渠道</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+            <view class="collapseConItem" bindtap="useCarCity">
+              <text class="collapseItemText">如何预订</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+          </view>
+        </van-collapse-item>
+        <van-collapse-item title="修改" label="如何修改" name="3">
+          <view class="collapseItem" bindtap="useCarCity">
+            <view class="collapseConItem">
+              <text class="collapseItemText">如何修改</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+          </view>
+        </van-collapse-item>
+        <van-collapse-item class="van-collapse-item" title="取消" label="常规取消条款，紧急用车取消条款" name="4" >
+          <view class="collapseItem" bindtap="useCarCity">
+            <view class="collapseConItem">
+              <text class="collapseItemText">常规取消条款</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+            <view class="collapseConItem">
+              <text class="collapseItemText">紧急用车取消条款</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+          </view>
+        </van-collapse-item>
+        <van-collapse-item title="发票相关" label="如何申请发票，发票开局时效，没有收到电子发票" name="5">
+          <view class="collapseItem" bindtap="useCarCity">
+            <view class="collapseConItem">
+              <text class="collapseItemText">如何申请发票</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+            <view class="collapseConItem">
+              <text class="collapseItemText">发票开局时效</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+            <view class="collapseConItem">
+              <text class="collapseItemText">没有收到电子发票</text>
+              <text class="iconfont icon-jiantou3"></text>
+            </view>
+          </view>
+        </van-collapse-item>
+      </van-collapse>
+        </scroll-view>
+      
+  </view>
+  <view class="footer">
+    <view class="btn" bindtap="phoneCall">
+       不是你想问的？联系人工客服
+    </view>
   </view>
 </view>

@@ -4,6 +4,14 @@ var app = getApp()
 // var utilMd5 = require('../../utils/md5.js');  
 Page({
   data: {
+    // 验证通过
+    verfiy:true,
+    // 验证拒绝
+    verifyRefuse:true,
+    // 验证未通过
+    failedValidation:true,
+    showContent:false,
+    show: false,
     // 顶部菜单切换
     navbar: ['预约中', '租赁中', "已完成", "已取消"],
     // 默认选中菜单
@@ -73,7 +81,22 @@ Page({
     })
 
   },
+  // 租赁人认证
+  rental:function(){
+    var that=this
+    that.setData({
+      show: !that.data.show
+    })
+  },
+  verify:function(){
 
+  },
+  onClose() {
+    this.setData({ close: false });
+  },
+  onClose() {
+    this.setData({ show: false });
+  },
   //待出行订单list
   onOrder: function () {
     var that = this;

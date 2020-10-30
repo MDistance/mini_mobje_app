@@ -46,6 +46,8 @@
       </view>
       <!-- 标签功能 -->
       <view class='coent_list'>
+        <label class='coent_payMoney' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>支付押金</label>
+        <label class='coent_auth_base' data-bookingId="{{item.bookingId}}" bindtap='rental'>租赁人认证</label>
         <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>支付订单</label>
         <label class='coent_cha_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>修改订单</label>
         <label class='coent_log_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>取消订单</label>
@@ -100,6 +102,7 @@
       </view>
       <!-- 标签功能 -->
       <view class='coent_list'>
+        <label class='coent_auth_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>租赁人认证</label>
         <label class='coent_cha_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>修改订单</label>
         <label class='coent_log_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>取消订单</label>
 
@@ -171,6 +174,8 @@
       </view>
       <!-- 标签功能 -->
       <view class='coent_list'>
+        <!-- 续租 -->
+        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>申请结束</label>
         <!-- 申请结束 -->
         <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>申请结束</label>
         <!-- 已申请结束 -->
@@ -241,7 +246,7 @@
          <!-- 申请发票 -->
         <label class='coent_log_base' wx:if="{{item.state ==3 && item.isInvoice==1}}" data-type="{{item.type}}" data-bookingId="{{item.bookingId}}" data-orderNo="{{item.orderNo}}"  bindtap='invoiceTap'>申请发票</label>
         <!-- 申请发票 -->
-        <label class='coent_log_base' wx:if="{{item.state ==3 && item.isInvoice==0}}">发票已申请</label>
+        <label class='coent_log_base' wx:if="{{item.state ==3 && item.isInvoice==0}}">发票已开</label>
       </view>
 
     </view>
@@ -317,3 +322,59 @@
     </view>
   </view>
 </view> 
+
+
+<!-- 租赁人认证弹窗 -->
+<van-popup custom-style="height:50% ;width:90%" show="{{ show }}" bind:close="onClose">
+ <view style="padding:20rpx">
+  <van-cell-group>
+        <van-field
+          value="{{ username }}"
+          label="用车人姓名"
+          placeholder="请输入用车人姓名"
+        />
+        <van-field
+          value="{{ username }}"
+          label="用车人身份证号码"
+          placeholder="请输入用车人身份证号码"
+        />
+        <van-field
+          value="{{ phone }}"
+          label="用车人手机号码"
+          placeholder="请输入手机号"
+        />
+        <van-button type="primary" bindtap="verify" block>验证</van-button>
+  </van-cell-group>
+ </view>
+</van-popup>
+
+<!-- 验证通过 -->
+<van-popup custom-style="height:20% ;width:50%" show="{{ show1 }}" bind:close="onClose">
+  <view class="showContent">
+      <image class="imga" style="width:100rpx;height:100rpx" src="/assets/dui.svg"></image>
+      <view class="showMain">
+        <text class="verText">验证通过!</text>
+     </view>
+    </view>
+</van-popup>
+<!-- 验证拒绝 -->
+<van-popup custom-style="height:20% ;width:50%" show="{{ show1}}" bind:close="onClose">
+    <view class="showContent">
+      <image class="imga" style="width:100rpx;height:100rpx" src="/assets/cuowu1.svg"></image>
+     <view class="showMain">
+      <text class="verText">验证拒绝！</text>
+      <text class="verText">摩捷将退还您的订单费用</text>
+     </view>
+    </view>
+</van-popup>
+
+<!-- 验证未通过 -->
+<van-popup custom-style="height:20% ;width:70%" show="{{ showContent1  }}" bind:close="onClose">
+  <view class="showContent">
+      <image class="imga" style="width:100rpx;height:100rpx" src="/assets/tanhao.svg"></image>
+      <view class="showMain">
+        <text class="verText">验证未通过！</text>
+        <text class="verText">请下载摩捷APP，并完成用车资格证。或更换已具备条件的用车人信息</text>
+      </view>
+    </view>
+</van-popup>

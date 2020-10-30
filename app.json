@@ -1,18 +1,25 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/service/service",
+    "pages/networkNum/networkNum",
+    "pages/chooseOutlets/chooseOutlets",
     "pages/order/order",
-    "pages/logs/logs",
-    "pages/my/my",
+    "pages/desposit/desposit",
+    "pages/index/index",
+    "pages/orderDetail/orderDetail",
+    "pages/vaddService/vaddService",
+    "pages/changeOrder/changeOrder",
+    "pages/orderPay/orderPay",
     "pages/login/login",
-    "pages/about/about",
+    "pages/my/my",
+    "pages/service/service",
+    "pages/carType/carType",
+    "pages/logs/logs",
     "components/PagingView/index",
     "pages/newGuide/newGuide",
-    "pages/networkNum/networkNum",
-    "pages/orderDetail/orderDetail",
-    "pages/orderPay/orderPay",
-    "pages/vaddService/vaddService"
+    "pages/details/details",
+    "pages/changeOrderPay/changeOrderPay",
+    "pages/inputtips/index",
+    "pages/poi/poi"
   ],
   "tabBar": {
     "color": "#333333",
@@ -47,7 +54,7 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#2ab6b7",
+    "navigationBarBackgroundColor": "#00A3FF",
     "navigationBarTitleText": "摩捷短租",
     "navigationBarTextStyle": "black"
   },

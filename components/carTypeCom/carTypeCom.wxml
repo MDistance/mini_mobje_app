@@ -1,0 +1,123 @@
+<!--components/carTypeCom/carTypeCom.wxml-->
+ <!-- 车型 -->
+      <view class="car_type">
+        <scroll-view scroll-y="true" style="height: 300rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <view id="demo1" class="scroll-view-item scrollItem">
+            <view  class="carTypeItem">
+              <image class="carImg"></image>
+              <view class="carTextDesc">
+                <text class="carName">大众速腾（豪华版）</text>
+                <text class="carDesc">自动1.6L/三厢四座</text>
+              </view>
+              <view class="avgDayItem">
+                <text class="avgDayPriceIcon"></text>
+                <text class="avgDayPrice">106</text>
+                <text class="avgDayPriceText">日均价</text>
+              </view>
+              <van-radio-group value="{{ radio }}" bind:change="onChange">
+                  <van-radio name="1" icon-size="10px"></van-radio>
+                </van-radio-group>
+            </view>
+          </view>
+          <view id="demo2"  class="scroll-view-item scrollItem">
+            <view  class="carTypeItem">
+              <image class="carImg"></image>
+              <view class="carTextDesc">
+                <text class="carName">大众速腾（豪华版）</text>
+                <text class="carDesc">自动1.6L/三厢四座</text>
+              </view>
+              <view class="avgDayItem">
+                <text class="avgDayPriceIcon"></text>
+                <text class="avgDayPrice">106</text>
+                <text class="avgDayPriceText">日均价</text>
+              </view>
+              <van-radio-group value="{{ radio }}" bind:change="onChange">
+                  <van-radio name="1" icon-size="24px"></van-radio>
+                </van-radio-group>
+            </view>
+          </view>
+          <view id="demo3" class="scroll-view-item scrollItem">
+            <view class="carTypeItem">
+              <image class="carImg"></image>
+              <view class="carTextDesc">
+                <text class="carName">大众速腾（豪华版）</text>
+                <text class="carDesc">自动1.6L/三厢四座</text>
+              </view>
+              <view class="avgDayItem">
+                <text class="avgDayPriceIcon"></text>
+                <text class="avgDayPrice">106</text>
+                <text class="avgDayPriceText">日均价</text>
+              </view>
+              <van-radio-group value="{{ radio }}" bind:change="onChange">
+                  <van-radio name="1" icon-size="24px"></van-radio>
+                </van-radio-group>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <!-- 租赁方式代码 -->
+      <view class="rental">
+        <view class="itemBackColor">
+          <view class="page-section-title">
+           <text>租赁方式选择</text>
+          </view>
+          <view class="page-section-spacing">
+            <scroll-view scroll-y="true" style="height: 300rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+              <view  class="scroll-view-item demo-text-1">
+                <view class="page-section-spacingItemOne">
+                  <text class="rentalText">普通日租方式</text>
+                  <view class="rentalDays">
+                    <image class="line" src="/assets/line.png"></image>
+                    <picker class="chooseDay" bindchange="bindPickerChange" value="{{index}}" range="{{days}}">
+                    <view class="picker" style="color:#2ab6b7">
+                      {{days[10]}}
+                    </view>
+                  </picker>  
+                  <image class="line" src="/assets/line.png"></image>
+
+                  </view>
+                  <van-radio-group value="{{ radio }}" bind:change="onChange">
+                    <van-radio name="1" icon-size="24px"></van-radio>
+                  </van-radio-group>
+                </view>
+              </view>
+              <view id="demo1" class="scroll-view-item demo-text-1">
+                <view class="page-section-spacingItem">
+                  <text class="rentalText">3日套餐,88元</text>
+                  <van-radio-group value="{{ radio }}" bind:change="onChange">
+                    <van-radio name="1" icon-size="24px"></van-radio>
+                  </van-radio-group>
+                </view>
+              </view>
+              <view id="demo2"  class="scroll-view-item demo-text-2">
+                <view class="page-section-spacingItem">
+                  <text class="rentalText">7日套餐,8120元</text>
+                  <van-radio-group value="{{ radio }}" bind:change="onChange">
+                    <van-radio name="1" icon-size="24px"></van-radio>
+                  </van-radio-group>
+                </view>
+              </view>
+              <view id="demo3" class="scroll-view-item demo-text-3">
+                <view class="page-section-spacingItem">
+                  <text class="rentalText">15日套餐,200元</text>
+                  <van-radio-group value="{{ radio }}" bind:change="onChange">
+                    <van-radio name="1" icon-size="24px"></van-radio>
+                  </van-radio-group>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+      </view>
+      <!-- 归还日期代码 -->
+      <view class="backDate">
+        <view class="backDateItem"><text class="backDateText"> 归还日期</text></view>
+        <view class="backDateItem">
+          <text class="backDateText">10月15日</text>
+          <text class="backDateText"> 星期五12:00</text>
+        </view>
+        <view class="backDatePrice">
+          <text class="backDateText">基础合计</text>
+          <text class="backDateText"> 888元</text>
+        </view>
+      </view>

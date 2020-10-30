@@ -5,17 +5,32 @@ Page {
   display: flex;
   flex-direction: column;
 }
- 
+ /* 头部代码 */
 .loginHeader {
   width: 100%;
   box-sizing: border-box;
-  padding: 40rpx 30rpx;
+  padding: 40rpx;
   display: flex;
-  flex-direction: column;
   align-items: center;
   background: #2ab6b7;
-  background:-webkit-linear-gradient(top,#2ab6b7 ,#7bdbdb);
+  background:-webkit-linear-gradient(top,#00A3FF ,#00a2ff59);
   height:300rpx;
+}
+.headerRight{
+  height: 140rpx;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20rpx;
+}
+.userTel{
+  color: #ffffff;
+  
+}
+.userRen{
+  font-size:24rpx;
+  color: #ffffff;
 }
 .nav .settingItem .icon{
   width: 40rpx;
@@ -24,8 +39,8 @@ Page {
 }
  
 .userHead {
-  width: 120rpx;
-  height: 120rpx;
+  width: 140rpx;
+  height: 140rpx;
   margin: 20rpx;
   border-radius: 50%;
   margin: 0px auto;
@@ -36,11 +51,60 @@ Page {
   font-size: 30rpx;
   color: #ffffff;
 }
-.nav{
+.main{
   padding: 20rpx;
-  margin-top:30rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
- 
+.content{
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 5rpx;
+  width: 100%;
+  height: 120rpx;
+  background-color: white;
+  margin-bottom: 10rpx;
+}
+.img{
+  width: 50rpx;
+  height: 50rpx;
+}
+.conItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20rpx;
+  margin-right:30rpx;
+}
+ .list{
+   box-sizing: border-box;
+   padding: 10rpx;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   background-color: white;
+   height:400rpx;
+ }
+ .listItem{
+   display: flex;
+   box-sizing: border-box;
+   align-items: center;
+   padding: 10rpx;
+   justify-content: space-between;
+   width: 100%;
+   height: 50rpx;
+   line-height: 50rpx;
+   margin-bottom: 10rpx;
+   background-color: #dedede;
+ }
+ .listItemTitle{
+  height: 50rpx;
+  line-height: 50rpx;
+ }
 .order {
   width: 100%;
   height: max-content;
@@ -96,4 +160,44 @@ Page {
 .settingItem .icon {
   width: 28rpx;
   margin-left: 10rpx;
+}
+
+/* 底部代码 */
+.footer{
+  position: fixed;
+  bottom: 0;
+  height: 180rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: seashell; */
+
+}
+
+.cancelBtn{
+   width: 50%;
+   height: 80rpx;
+   line-height: 80rpx;
+   color: orange;
+   border-radius: 40rpx;
+   border: 1px solid salmon;
+   text-align: center;
+}
+.cancelBtn>text{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.service{
+  display: flex;
+  align-items: center;
+}
+.serviceTel{
+  font-size: 24rpx;
+  color: #cacaca;
+}
+.tel{
+  color: orange;
 }

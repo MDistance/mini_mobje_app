@@ -1,0 +1,64 @@
+/* pages/networkNum/networkNum.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+}
+.map_container{ 
+  height:100%; 
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} 
+.map_header{
+  width: 100%;
+  height:98rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8e8e8;
+}
+.map_headerCon{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.weui-input{
+  background-color: #fff;
+}
+.iconfont{
+  z-index: 4444;
+  color: black;
+}
+.map{
+  height:500rpx;
+  border: silver 1rpx solid;
+  margin-bottom: 10rpx;
+}
+.footer{
+  width: 100%;
+  box-sizing: border-box;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color:#fff;
+  padding:10rpx 20rpx;
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.okBtn{
+  align-items: center;
+  width:90%;
+  text-align: center;
+  border-radius: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  background-color:orange ;
+}

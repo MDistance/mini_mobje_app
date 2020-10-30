@@ -12,53 +12,49 @@
         <view class="car">
            <!-- 选择城市 -->
             <view class="carCity">
-              <view class="section">
-                <view class="section__title">取车城市</view>
-                <picker bindchange="bindPickerCity" value="{{index}}" range="{{array}}">
-                    <view class="picker">{{array[index]}}
-                    <text class="iconfont icon-arrLeft-fill"></text>
-                  </view>
-                </picker>
-              </view>
-              <view class="section">
-                    <view class="section__title">取车网点</view>
-                    <view class="picker" bindtap="bindPickerAddress">{{carList[index]}}
-                      <text class="iconfont icon-arrLeft-fill"></text>
-                    </view>
-              </view>
-              <view class="section">
-                <view class="section__title">还车城市</view>
-                <picker bindchange="bindBackCity" value="{{index}}" range="{{backArray}}">
-                    <view class="picker">{{backArray[index]}}
-                    <text class="iconfont icon-arrLeft-fill"></text>
-                  </view>
-                </picker>
-              </view>
-              <view class="section">
-                    <view class="section__title">还车网点</view>
-                    <text class="iconfont icon-arrLeft-fill"></text>
+              <view class="carCityItem">
+                <view class="section">
+                    <view class="section__title">{{pickup_city}}</view>
+                    <picker bindchange="bindPickerCity" value="{{index}}" range="{{array}}">
+                        <view class="picker">{{array[index]}}
+                      </view>
+                    </picker>
+                </view>
+                <view class="section">
+                      <view class="section__title">{{checked===true?home_delivery:pickup_outlets}}</view>
+                      <view class="picker" bindtap="bindPickerAddress">{{carList[index]}}
+                      </view>
+                </view>
+                <view class="section">
+                    <view class="section__title">{{return_city}}</view>
+                    <picker bindchange="bindBackCity" value="{{index}}" range="{{backArray}}">
+                        <view class="picker">{{backArray[index]}}
+                      </view>
+                    </picker>
+                </view>
+                <view class="section">
+                        <view class="section__title">{{return_outlets}}</view>
+                        <picker bindchange="bindBackCity" value="{{index}}" range="{{backArray}}">
+                        <view class="picker">{{backArray[index]}}
+                      </view>
+                    </picker>
+                </view>
               </view>
             </view>
             <!-- 选择日期 -->
             <view class="dateTime">
               <view class="mod t-sign-time">
-                <timeDate class="timeDate"></timeDate>
-                <!-- <picker mode="time" value="{{time}}" start="09:00" end="16:30" bindchange="bindTimeChange">
+                <picker mode="time" value="{{time}}" start="09:00" end="16:30" bindchange="bindTimeChange">
                   <view class="picker">
                      09:01
                   </view>
-                </picker> -->
+                </picker>
               </view>
               <view class="mod t-sign-time">
-                <image class="line" src="/assets/line.png"></image>
-                <picker class="chooseDay" bindchange="bindPickerChange" value="{{index}}" range="{{days}}">
-                  <text class="iconfont icon--triangle-top"></text>
-                  <view class="picker" style="color:#2ab6b7">
+                <view class="picker" style="color:#2ab6b7">
                     {{days[10]}}
-                  </view>
-                  <text class="iconfont icon-arrLeft-fill"></text>
-                </picker>      
-                <image class="line" src="/assets/line.png"></image>
+                </view>
+                <text class="toRightLine"></text>
               </view>
               <view class="mod t-sign-time">
                   <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
@@ -67,16 +63,22 @@
                     </view>
                   </picker>
               </view>
-              
             </view>
             <!-- 选择车型 -->
             <view class="carType">
               <text class="key">车型选择：</text>
-              <picker bindchange="bindPickerChange" value="{{index}}" range="{{carList}}">
-                    <view class="picker">{{carList[index]}}
+              <view bindtap="change">
+                  <view class="picker">{{carList[index]}}
                     <text class="iconfont icon-arrLeft-fill"></text>
                   </view>
-                </picker>
+              </view>
+            </view>
+            <!-- 送车上门  -->
+            <view class="home_delivery">
+              <van-checkbox value="{{ checked }}" checked-color="#07c160" shape="square" bind:change="onChangeCar">
+                送车上门
+              </van-checkbox>
+              <text class="money">该服务将产生200元费用</text>
             </view>
             <!-- 基础价格 -->
             <view class="basicprice">
@@ -104,60 +106,59 @@
             </view>
           </scroll-view>
         </view>
-
     </view>
 
-
-<!-- 基础价格 弹窗 -->
-<view class="modal-dialog" hidden="{{hiddenmodalput}}" bindcancel="onCancel">
- 
- <view class="modal-title">详细信息</view>
-
-<view class="modal-content">
-
-<view class="modal-input">
-
-<input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="取车城市"></input>
-
-</view>
-
-<view class="modal-input">
-
-<input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="取车网点"></input>
-
-</view>
-
-<view class="modal-input">
-   <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="时间"></input>
-</view>
-
-<view class="modal-input">
-<input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="车型"></input>
-</view>
-<view class="modal-input">
-<input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="总价格"></input>
-</view>
-</view>
-
-<view class="modal-footer">
-
-<view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
-
-<view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
-
-</view>
-
-</view>
-
-  <!-- <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-    <text class="iconfont icon-wenhao1"></text>
-  </view> -->
+    <!-- 车型弹框  class="{{showView?'show':'hide'}}"  -->
+    <van-popup show="{{ show }}" bind:close="onClose">
+      <view class="carContent"  style=" width:95%; position:absolute;top:450rpx;left:20rpx;border:1px solid black" >
+      <view  class="main">
+        <van-tabs bind:change="onChange"  active="{{activeCar}}">
+        <van-tab title="经济型">
+          <carTypeCom class="carTypeCom"></carTypeCom>
+        </van-tab>
+        <van-tab title="舒适型"> <carTypeCom class="carTypeCom"></carTypeCom></van-tab>
+        <van-tab title="SUV"> <carTypeCom class="carTypeCom"></carTypeCom></van-tab>
+      </van-tabs>
+      </view>
+    </view>
+    </van-popup>
+    
+    <!-- 基础价格 弹窗 -->
+    <van-dialog
+    class="dialog"
+      use-slot
+      title="详情信息"
+      show="{{ show }}"
+      show-cancel-button
+      confirm-button-open-type="getUserInfo"
+      bind:close="onClose"
+      bind:getuserinfo="getUserInfo"
+    >
+   <view class="cont">
+      <view class="itemPrice">
+      <text class="itemPriceText">取车城市：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+    <view class="itemPrice">
+      <text class="itemPriceText">取车网点：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+    <view class="itemPrice">
+      <text class="itemPriceText">还车城市：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+    <view class="itemPrice">
+      <text class="itemPriceText">还车网点：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+    <view class="itemPrice">
+      <text class="itemPriceText">基础价格：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+    <view class="itemPrice">
+      <text class="itemPriceText">时间：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+   </view>
+    </van-dialog>
 </view>

@@ -1,11 +1,21 @@
-//index.js
 //获取应用实例
 const app = getApp()
 
 Page({
   data: {
+    pickup_city:'取车城市',
+    pickup_outlets:'取车网点',
+    return_city:'还车城市',
+    return_outlets:'还车网点',
+    home_delivery:'送车上门地点',
+    activeCar:0,
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
-    hiddenmodalput: true,
+    show: false,
+    showCar:false,
+    showView:false,
+    hidden:true,
+    radio: '0',
+    checked: false,
     imagesArr:[
       {
         id: 0,
@@ -71,40 +81,36 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  
-//点击按钮痰喘指定的hiddenmodalput弹出框
-modalinput: function () {
-      this.setData({
-          hiddenmodalput: !this.data.hiddenmodalput
+  // 点击车型
+  change(event) {
+      var that=this;
+      that.setData({
+        showView:(!showView)
       })
   },
- /**
-  * 隐藏模态对话框
-  */
-   
- hideModal: function () {
-  this.setData({
-    hiddenmodalput: true
-  });
-},
-
-/**
-* 对话框取消按钮点击事件
-*/
-onCancel: function () {
-  this.hideModal();
-},
-/**
-* 对话框确认按钮点击事件
-*/
-
-onConfirm: function () {
-  wx.showToast({
-      title: '提交成功',
-      icon: 'success',
-      duration: 2000
+  // 送车上门按钮
+  onChangeCar(event) {
+    this.setData({
+      checked: event.detail,
+    });
+  },
+  // 点击车型tab按钮
+  onChange(event) {
+    this.setData({
+      radio: event.detail,
+    });
+  },
+//点击按钮弹出基础价格的详情信息框
+modalinput: function () {
+      this.setData({
+        show: !this.data.show
+      })
+  },
+// 确认按钮
+confirm: function () {
+  wx.navigateTo({
+    url: '/pages/vaddService/vaddService',
   })
-  this.hideModal();
   },
   //事件处理函数
   bindViewTap: function() {
@@ -112,7 +118,8 @@ onConfirm: function () {
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    showView:(options.showView=="true"?true:false)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -164,17 +171,7 @@ onConfirm: function () {
       url: '../reserve/reserve?travelType=1',
     })
   },
-  // 车型选择
-  bindPickerChange: function (e) {
-    this.setData({
-      index: e.detail.value
-    })
-  },
-  confirm: function () {
-    wx.navigateTo({
-      url: '/pages/orderDetail/orderDetail',
-    })
-    },
+
   // 新手指引
   jump: function () {
     wx.navigateTo({
