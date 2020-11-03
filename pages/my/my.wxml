@@ -15,11 +15,11 @@
       </view>
       <view class="main">
         <view class="content">
-          <view class="conItem">
+          <view class="conItem" bindtap="invoiceManage">
              <image class="img" src="/assets/fapiaoguanli1.png"></image>
              <text>发票管理</text>
           </view>
-          <view class="conItem">
+          <view class="conItem" bindtap="delrBtn">
              <image class="img" src="/assets/weizhangjilu.png"></image>
              <text>违章记录</text>
           </view>

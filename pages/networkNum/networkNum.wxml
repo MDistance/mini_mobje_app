@@ -4,8 +4,8 @@
     <view class="map_container"> 
       <view class="map_header">
         <view class="map_headerCon">
-          <input class="weui-input" data-city="{{city}}" bindinput="getsuggest" data-longitude="{{longitude}}" data-latitude="{{latitude}}" value="{{backfill}}" placeholder="输入景点，地址寻找附近门店"/>
-            <text style="font-size:50rpx"  class="iconfont icon-sousuo" bindtap="nearby_search" ></text>
+          <image class="letf_search" src="{{'/assets/ic_search.png'}}" bindtap="onClickSearch"/>
+          <input class="weui-input" data-city="{{city}}"  bindtouchstart="bindInput" data-longitude="{{longitude}}" data-latitude="{{latitude}}" value="{{backfill}}" placeholder="输入景点，地址寻找附近门店"/>
         </view>
         <text class="toList" bindtap="toList">列表</text>
       </view>
@@ -23,10 +23,6 @@
         </view>
       </view> -->
       <view class="flaot-container">
-        <view class="flaot-item"
-            items="{{tabs}}"
-            fixedBar="{{isShowFloatTab}}"
-            bindtabclick="clickTab">
             <scroll-view scroll-x="true" class="ip_tab_comtainer">
               <view class="ip_tab_comtainer_padd"></view>
               <block wx:for="{{ips}}" wx:for-item="ip" wx:key="{{ip.id}}">
@@ -37,7 +33,6 @@
               <view class="ip_tab_comtainer_padd"></view>
             </scroll-view>
         </view>
-</view>
     </view> 
     
   </view>

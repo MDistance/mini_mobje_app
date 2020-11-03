@@ -1,13 +1,18 @@
 /* pages/vaddService/vaddService.wxss */
-page{
+/* page{
   width: 100%;
   height: 100%;
   background-color: rgb(240, 240, 240);
-}
+  overflow: hidden;
+  overflow-y: scroll;
+} */
 .container{
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  overflow-y: scroll;
 }
 .header{
   background-color: white;
@@ -15,7 +20,7 @@ page{
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 220rpx;
+  padding: 100rpx 0;
   border-bottom: 1px solid seashell;
 }
 .mid{
@@ -55,8 +60,7 @@ page{
 
 .contentHeader{
   width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
+  padding: 20rpx 0;
   border-bottom: 1rpx seashell solid;
 }
 .van-cell-group ,.van-cell{
@@ -83,13 +87,12 @@ page{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
   background-color: #fff;
 }
-/* .placeholder-view {
-  width: 100%;
-  height: 120rpx;
-}  */
+.van-cell-group{
+  background-color: #fff;
+}
+
 /* 提交订单按钮样式 */
 
 .subBtn{
@@ -97,7 +100,6 @@ page{
   border-top: whitesmoke 1rpx solid;
   background-color: white;
   width: 100%;
-  height:120rpx;
   position: fixed;
   bottom: 0;
   padding: 20rpx 0;
@@ -114,4 +116,9 @@ page{
   background-color: orange;
   color: white;
   text-align: center;
+}
+.empty{
+  width: 100%;
+  height: 150rpx;
+  background-color: #fff;
 }

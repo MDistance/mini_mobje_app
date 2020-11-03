@@ -32,7 +32,7 @@ page{
    justify-content: space-around;
    font-size: 14px;
    box-sizing: border-box;
-   padding: 30rpx;
+   padding: 30rpx 20rpx;
  
  }
  .timeDate{
@@ -53,6 +53,24 @@ page{
    width: 99%;
    height:70%;
  }
+ .backService{
+  font-size: 20rpx;
+  color: red;
+}
+.money{
+  color: red;
+  font-size: 20rpx;
+}
+ /* 选择车型,选择日期,选择车型,送车上门 */
+.carCityItem,.dateTime,.carType,.home_delivery{
+  border-bottom: rgb(240, 240, 240) solid 0.1rpx;
+}
+.home_delivery{
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  height: 90rpx;
+}
  .pickup_main{
    z-index: 999;
    float: left;
@@ -83,7 +101,7 @@ page{
  .section{
    padding: 14rpx 0;
    display: flex;
-   width:18%;
+   width:22%;
    justify-content: space-around;
    align-items: center;
    flex-direction: column;
@@ -100,20 +118,13 @@ page{
    border-bottom: rgb(214, 210, 210) solid 1px;
  
  }
- .carCityItem,.carType,.dateTime,.basicprice{
-   align-items: center;
- }
- .carCityItem,.dateTime,.carType,.basicprice{
-   display: flex;
-   height: 100rpx;
-   justify-content: space-between;
- }
- .hide{
-   display: none;
- }
- .show{
-   display: block;
- }
+ .dateTime,.carType,.basicprice{
+  display: flex;
+  align-items: center;
+  height:90rpx;
+  justify-content: space-between;
+}
+
  /* 基础价格 */
  .priceTitle{
    width:26%;

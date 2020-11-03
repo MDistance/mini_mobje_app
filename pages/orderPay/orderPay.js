@@ -15,7 +15,7 @@ Page({
     },
     // 订单管理按钮
     orderManBtn: function () {
-      wx.navigateTo({
+      wx.switchTab({
         url: '/pages/order/order',
       })
       },

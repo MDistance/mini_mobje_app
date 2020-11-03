@@ -42,6 +42,21 @@ Page({
     // }
     that.allOrder();
   },
+  toNavgiat:function(){
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success (res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        wx.openLocation({
+          latitude,
+          longitude,
+          scale: 18
+        })
+      }
+     })
+
+  },
 
   //全部订单list
   allOrder: function () {
@@ -237,7 +252,21 @@ Page({
       currentTab: e.currentTarget.dataset.idx
     })
   },
-
+  orderPayTap:function(){
+   wx.navigateTo({
+     url: '/pages/orderPay/orderPay',
+   })
+  },
+  changeTap:function(){
+   wx.navigateTo({
+     url: '/pages/changeOrder/changeOrder',
+   })
+  },
+  payDespo:function(){
+   wx.navigateTo({
+     url: '/pages/desposit/desposit',
+   })
+  },
   //取消按钮
   cancelTap: function (e) {
     var that = this;

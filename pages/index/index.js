@@ -82,11 +82,15 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   // 点击车型
-  change(event) {
+  showCar(event) {
       var that=this;
       that.setData({
-        showView:(!showView)
+        showView:true
       })
+  },
+
+  onClose() {
+    this.setData({ showView:false });
   },
   // 送车上门按钮
   onChangeCar(event) {
@@ -156,7 +160,7 @@ confirm: function () {
   // 取车网点
   bindPickerAddress: function () {
     wx.navigateTo({
-      url: '../networkNum/networkNum',
+      url: '../chooseOutlets/chooseOutlets',
     })
   },
   // 还车城市
@@ -168,7 +172,7 @@ confirm: function () {
   // 还车网点
   bindBackAddress: function () {
     wx.navigateTo({
-      url: '../reserve/reserve?travelType=1',
+      url: '../chooseOutlets/chooseOutlets',
     })
   },
 

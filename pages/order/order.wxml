@@ -37,19 +37,29 @@
       <!-- 列表 -->
       <view class='shop'>
         <view class="proInfo">
-            <text class="proInfo_text" decode="true">车&emsp;&emsp;型 :{{item.modeName}}</text>
-            <text class="proInfo_text">用车时间 :{{item.travelDate}} {{item.etime}}</text>
-            <text class="proInfo_text">取车地点 :{{item.startPlace}}</text>
-            <text class="proInfo_text">还车地点 :{{item.endPlace}}</text>
-            <text class="proInfo_text" decode="true">总&emsp;&emsp;价 :{{item.endPlace}}</text>
+           <text class="proInfo_text" decode="true">车&emsp;&emsp;型: 宝来（1.5L自动）{{item.modeName}}</text>
+            <text class="proInfo_text">用车时间: 2020-10-01 8:00——2020-10-10 8:00{{item.travelDate}} {{item.etime}}</text>
+            <view class="pick_address">
+              <text class="proInfo_text">取车地点: 解放大路店(解放大路与临河街交汇){{item.startPlace}}</text>
+              <text class="iconfont icon-zb" style="color:blue" bindtap="toNavgiat"></text>
+            </view>
+            <view class="pick_address">
+              <text class="proInfo_text">还车地点:  解放大路店(解放大路与临河街交汇){{item.endPlace}}</text>
+              <text class="iconfont icon-zb" style="color:blue" bindtap="toNavgiat"></text>
+            </view>
+            <view class="allPrice">
+              <text class="proInfo_text" decode="true">总&emsp;&emsp;价 :</text>
+              <image src="/assets/16.svg" style="width:30rpx;height:30rpx"></image>
+              <text > 313 {{item.endPlace}}</text>
+            </view>
         </view>
       </view>
       <!-- 标签功能 -->
       <view class='coent_list'>
-        <label class='coent_payMoney' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>支付押金</label>
+        <label class='coent_payMoney' data-bookingId="{{item.bookingId}}" bindtap='payDespo'>支付押金</label>
         <label class='coent_auth_base' data-bookingId="{{item.bookingId}}" bindtap='rental'>租赁人认证</label>
-        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>支付订单</label>
-        <label class='coent_cha_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>修改订单</label>
+        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='orderPayTap'>支付订单</label>
+        <label class='coent_cha_base' data-bookingId="{{item.bookingId}}" bindtap='changeTap'>修改订单</label>
         <label class='coent_log_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>取消订单</label>
 
         <!-- 支付订单 -->
@@ -93,16 +103,20 @@
       <!-- 列表 -->
       <view class='shop'>
         <view class="proInfo">
-            <text class="proInfo_text" decode="true">车&emsp;&emsp;型:{{item.modeName}}</text>
-            <text class="proInfo_text">用车时间:{{item.travelDate}} {{item.etime}}</text>
-            <text class="proInfo_text">取车地点:{{item.startPlace}}</text>
-            <text class="proInfo_text">还车地点:{{item.endPlace}}</text>
-            <text class="proInfo_text" decode="true">总&emsp;&emsp;价:{{item.endPlace}}</text>
+            <text class="proInfo_text" decode="true">车&emsp;&emsp;型: 宝来（1.5L自动）{{item.modeName}}</text>
+            <text class="proInfo_text">用车时间: 2020-10-01 8:00——2020-10-10 8:00{{item.travelDate}} {{item.etime}}</text>
+            <text class="proInfo_text">取车地点: 解放大路店{{item.startPlace}}</text>
+            <text class="proInfo_text">还车地点:  解放大路店{{item.endPlace}}</text>
+            <view class="allPrice">
+              <text class="proInfo_text" decode="true">总&emsp;&emsp;价 :</text>
+              <image src="/assets/16.svg" style="width:30rpx;height:30rpx"></image>
+              <text > 313 {{item.endPlace}}</text>
+            </view>
         </view>
       </view>
       <!-- 标签功能 -->
       <view class='coent_list'>
-        <label class='coent_auth_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>租赁人认证</label>
+        <label class='coent_auth_base' data-bookingId="{{item.bookingId}}" bindtap='rental'>租赁人认证</label>
         <label class='coent_cha_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>修改订单</label>
         <label class='coent_log_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>取消订单</label>
 
@@ -165,17 +179,25 @@
             <text class="proInfo_text">用车时间 :{{item.travelDate}} {{item.etime}}</text>
             <text class="proInfo_text">取车地点 :{{item.startPlace}}</text>
             <text class="proInfo_text">还车地点 :{{item.endPlace}}</text>
-            <text class="proInfo_text" decode="true">总&emsp;&emsp;价 :{{item.endPlace}}</text>
+            <view class="allPrice">
+              <text class="proInfo_text" decode="true">总&emsp;&emsp;价 : </text>
+              <image src="/assets/16.svg" style="width:30rpx;height:30rpx"></image>
+              <text > 313 {{item.endPlace}}</text>
+            </view>
             <text class="proInfo_text">车牌号码 :{{item.startPlace}}</text>
             <text class="proInfo_text">起始油量 :{{item.endPlace}}</text>
-            <text class="proInfo_text" decode="true">当前油量 :{{item.endPlace}}</text>
+            <view class="now-oil">
+              <text class="proInfo_text" decode="true">当前油量 :</text>
+              <text class="now-oil-text">13l{{item.endPlace}}</text>
+              <van-button  hairline type="info"  size="small"> 获取当前油量 </van-button>
+            </view>
         </view>
       
       </view>
       <!-- 标签功能 -->
       <view class='coent_list'>
         <!-- 续租 -->
-        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>申请结束</label>
+        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>补交费用</label>
         <!-- 申请结束 -->
         <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>申请结束</label>
         <!-- 已申请结束 -->
@@ -231,7 +253,11 @@
             <text class="proInfo_text">用车时间 :{{item.travelDate}} {{item.etime}}</text>
             <text class="proInfo_text">取车地点 :{{item.startPlace}}</text>
             <text class="proInfo_text">还车地点 :{{item.endPlace}}</text>
-            <text class="proInfo_text" decode="true">总&emsp;&emsp;价 :{{item.endPlace}}</text>
+            <view class="allPrice">
+              <text class="proInfo_text" decode="true">总&emsp;&emsp;价 :</text>
+              <image src="/assets/16.svg" style="width:30rpx;height:30rpx"></image>
+              <text > 313 {{item.endPlace}}</text>
+            </view>
             <text class="proInfo_text">车牌号码 :{{item.startPlace}}</text>
             <text class="proInfo_text">起始油量 :{{item.endPlace}}</text>
             <text class="proInfo_text" decode="true">终止油量 :{{item.endPlace}}</text>
@@ -300,7 +326,11 @@
             <text class="proInfo_text">用车时间:{{item.travelDate}} {{item.etime}}</text>
             <text class="proInfo_text">取车地点:{{item.startPlace}}</text>
             <text class="proInfo_text">还车地点:{{item.endPlace}}</text>
-            <text class="proInfo_text" decode="true">总&emsp;&emsp;价:{{item.endPlace}}</text>
+            <view class="allPrice">
+              <text class="proInfo_text" decode="true">总&emsp;&emsp;价 :</text>
+              <image src="/assets/16.svg" style="width:30rpx;height:30rpx"></image>
+              <text > 313 {{item.endPlace}}</text>
+            </view>
         </view>
       
       </view>

@@ -25,7 +25,16 @@ changeOrder：修改订单页
 carType：车型tab页
 20201029
 
-desposit：押金缴纳\
+desposit：押金缴纳
+
+2020-11-03
+pay-result 支付结果页面
+network-details 网点详情页
+invoice-management   发票管理页面
+pay-fees   补交费用
+delr  违章记录页面
+invoice-history 发票历史页
+invoice-title  发票抬头页
 
 
 

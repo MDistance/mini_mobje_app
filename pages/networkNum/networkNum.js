@@ -25,6 +25,22 @@ Page({
           { id: "9", title: "宅基地三权分置", isSelect: false },
         ],
     }, 
+    // 搜索框代码
+    onClickSearch: function onClickSearch(e) {
+      this.triggerEvent('onClickSubmit', { content: this.data.content});
+  },
+// 搜索框代码
+    bindInput: function(e){
+      var that = this;
+      var url = '../inputtips/index';
+      if(e.target.dataset.latitude && e.target.dataset.longitude && e.target.dataset.city){
+        var dataset = e.target.dataset;
+        url = url + '?lonlat=' + dataset.longitude + ',' + dataset.latitude + '&city=' + dataset.city;
+      }
+      wx.redirectTo({
+        url: url
+      })
+    },
  /**
     * item点击事件
     */

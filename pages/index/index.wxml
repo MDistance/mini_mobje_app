@@ -22,7 +22,7 @@
                 </view>
                 <view class="section">
                       <view class="section__title">{{checked===true?home_delivery:pickup_outlets}}</view>
-                      <view class="picker" bindtap="bindPickerAddress">{{carList[index]}}
+                      <view class="picker" bindtap="bindPickerAddress">{{array[index]}}
                       </view>
                 </view>
                 <view class="section">
@@ -34,10 +34,10 @@
                 </view>
                 <view class="section">
                         <view class="section__title">{{return_outlets}}</view>
-                        <picker bindchange="bindBackCity" value="{{index}}" range="{{backArray}}">
-                        <view class="picker">{{backArray[index]}}
-                      </view>
-                    </picker>
+                        <!-- <picker bindchange="bindBackAddress" value="{{index}}" range="{{backArray}}"> -->
+                        <view class="picker" bindtap="bindBackAddress">{{backArray[index]}}
+                         </view>
+                    <!-- </picker> -->
                 </view>
               </view>
             </view>
@@ -67,7 +67,7 @@
             <!-- 选择车型 -->
             <view class="carType">
               <text class="key">车型选择：</text>
-              <view bindtap="change">
+              <view bindtap="showCar">
                   <view class="picker">{{carList[index]}}
                     <text class="iconfont icon-arrLeft-fill"></text>
                   </view>
@@ -108,21 +108,10 @@
         </view>
     </view>
 
-    <!-- 车型弹框  class="{{showView?'show':'hide'}}"  -->
-    <van-popup show="{{ show }}" bind:close="onClose">
-      <view class="carContent"  style=" width:95%; position:absolute;top:450rpx;left:20rpx;border:1px solid black" >
-      <view  class="main">
-        <van-tabs bind:change="onChange"  active="{{activeCar}}">
-        <van-tab title="经济型">
-          <carTypeCom class="carTypeCom"></carTypeCom>
-        </van-tab>
-        <van-tab title="舒适型"> <carTypeCom class="carTypeCom"></carTypeCom></van-tab>
-        <van-tab title="SUV"> <carTypeCom class="carTypeCom"></carTypeCom></van-tab>
-      </van-tabs>
-      </view>
-    </view>
-    </van-popup>
-    
+    <!-- 车型弹框 -->
+<van-popup show="{{ showView }}" bind:close="onClose" custom-style=" width:90%;height:80%;">
+   <carType/>
+</van-popup>
     <!-- 基础价格 弹窗 -->
     <van-dialog
     class="dialog"
@@ -136,29 +125,30 @@
     >
    <view class="cont">
       <view class="itemPrice">
-      <text class="itemPriceText">取车城市：</text>
+      <text class="itemPriceText">车型：</text>
       <text class="itemPriceCon"></text>
     </view>
     <view class="itemPrice">
-      <text class="itemPriceText">取车网点：</text>
+      <text class="itemPriceText">租赁方式：</text>
       <text class="itemPriceCon"></text>
     </view>
     <view class="itemPrice">
-      <text class="itemPriceText">还车城市：</text>
+      <text class="itemPriceText">租赁天数：</text>
       <text class="itemPriceCon"></text>
     </view>
     <view class="itemPrice">
+      <text class="itemPriceText">租赁时长：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+    <!-- <view class="itemPrice">
       <text class="itemPriceText">还车网点：</text>
       <text class="itemPriceCon"></text>
-    </view>
+    </view> -->
     <view class="itemPrice">
-      <text class="itemPriceText">基础价格：</text>
+      <text class="itemPriceText">租赁金额：</text>
       <text class="itemPriceCon"></text>
     </view>
-    <view class="itemPrice">
-      <text class="itemPriceText">时间：</text>
-      <text class="itemPriceCon"></text>
-    </view>
+
    </view>
     </van-dialog>
 </view>

@@ -4,7 +4,7 @@
     <text class="title">猜你想问</text>
   </view>
   <view class="main">
- <scroll-view scroll-y="true" style="height:600rpx;" n xscroll-top="{{scrollTop}}">
+ <scroll-view scroll-y="true" style="height:600rpx;" scroll-top="{{scrollTop}}">
           <van-collapse value="{{ activeNames }}" bind:change="onChange">
         <van-collapse-item title="查询信息" label="用车城市，用车类型，提供车型，司机信息，查询订单" name="1">
           <view class="collapseItem">

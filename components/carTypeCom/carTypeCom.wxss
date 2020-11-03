@@ -12,6 +12,15 @@
   justify-content: space-between;
   background-color: #fff;
 }
+.avgDayItem{
+  display: flex;
+  align-self:flex-end;
+  font-size: 20rpx;
+  color: red;
+}
+.imgSize{
+  display: inline-block;
+}
 .carImg{
   width: 60rpx;
   height:100rpx;
@@ -33,7 +42,7 @@
   flex-direction: column;
 }
 .avgDayPriceText{
-  color: #e8e8e8;
+  color: #b4b4b4;
   font-size: 18rpx;
 }
 .avgDayPrice{
@@ -48,9 +57,13 @@
   font-size: 20rpx;
 }
 .rentalDays{
-  height: 30rpx;
+  padding: 10rpx 0;
   display: flex;
   align-items: center;
+}
+.backDateTextPrice{
+  font-size: 28rpx;
+  color: red;
 }
 /* 背景白色代码 */
 .itemBackColor{
@@ -64,9 +77,13 @@
 .page-section-spacingItemOne{
   display: flex;
   justify-content: space-between;
-  height: 80rpx;
+  align-items: center;
+  padding: 10rpx 0;
   border-bottom: 1rpx solid #e8e8e8;
 
+}
+.van-stepper{
+  margin-right: 10rpx;
 }
 .car_type,.rental,.backDate{
   margin-bottom: 20rpx;
@@ -102,4 +119,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+/* 确认按钮 */
+.btn{
+  width: 100%;
+  background-color: #ff7f00;
+  color: white;
 }

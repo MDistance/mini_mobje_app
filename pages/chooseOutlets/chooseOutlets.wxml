@@ -3,21 +3,31 @@
     <view class="map_container"> 
       <view class="map_header">
         <view class="map_headerCon">
-          <input class="weui-input" data-city="{{city}}" bindinput="getsuggest" data-longitude="{{longitude}}" data-latitude="{{latitude}}" value="{{backfill}}" placeholder="输入景点，地址寻找附近门店"/>
-            <text style="font-size:50rpx"  class="iconfont icon-sousuo" bindtap="nearby_search" ></text>
+          <image class="letf_search" src="{{'/assets/ic_search.png'}}" bindtap="onClickSearch"/>
+          <input class="weui-input" data-city="{{city}}"  bindtouchstart="bindInput" data-longitude="{{longitude}}" data-latitude="{{latitude}}" value="{{backfill}}" placeholder="输入景点，地址寻找附近门店"/>
         </view>
         <text class="toMap" bindtap="toMap">地图</text>
       </view>
       <view class="content">
         <van-tree-select
             items="{{ items }}"
-            height="55vw"
+            height="55vh"
             main-active-index="{{ mainActiveIndex }}"
             active-id="{{ activeId }}"
             bind:click-nav="onClickNav"
             bind:click-item="onClickItem"
           >
-          <view slot="content"></view>
+          <image src="https://img.yzcdn.cn/vant/apple-1.jpg" slot="content" />
+          <!-- <view slot="content">
+            <view class="conHeader">
+              <text class="addressTitle"></text>
+            </view>
+            <view class="conMain">
+              <text class="address">
+
+              </text>
+            </view>
+          </view> -->
         </van-tree-select>
       </view> 
     

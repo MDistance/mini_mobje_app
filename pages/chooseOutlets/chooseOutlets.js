@@ -18,19 +18,7 @@ Page({
         // 禁用选项
         disabled: false,
         // 该导航下所有的可选项
-        children: [
-          {
-            // 名称
-            text: '温州',
-            // id，作为匹配选中状态的标识
-            id: 1,
-            // 禁用选项
-          },
-          {
-            text: '杭州',
-            id: 2,
-          },
-        ],
+ 
       },
       {
         // 导航名称
@@ -129,6 +117,18 @@ Page({
         ],
       },
     ],
+  },
+  // 搜索
+  bindInput: function(e){
+    var that = this;
+    var url = '../inputtips/index';
+    if(e.target.dataset.latitude && e.target.dataset.longitude && e.target.dataset.city){
+      var dataset = e.target.dataset;
+      url = url + '?lonlat=' + dataset.longitude + ',' + dataset.latitude + '&city=' + dataset.city;
+    }
+    wx.redirectTo({
+      url: url
+    })
   },
   // 列表nav
   onClickNav({ detail = {} }) {

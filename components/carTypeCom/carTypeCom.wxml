@@ -10,7 +10,7 @@
                 <text class="carDesc">自动1.6L/三厢四座</text>
               </view>
               <view class="avgDayItem">
-                <text class="avgDayPriceIcon"></text>
+                <image class="imgSize" style="width:35rpx;height:35rpx" src="/assets/qian.svg"></image>
                 <text class="avgDayPrice">106</text>
                 <text class="avgDayPriceText">日均价</text>
               </view>
@@ -27,12 +27,12 @@
                 <text class="carDesc">自动1.6L/三厢四座</text>
               </view>
               <view class="avgDayItem">
-                <text class="avgDayPriceIcon"></text>
+                <image class="imgSize" style="width:35rpx;height:35rpx" src="/assets/qian.svg"></image>
                 <text class="avgDayPrice">106</text>
                 <text class="avgDayPriceText">日均价</text>
               </view>
               <van-radio-group value="{{ radio }}" bind:change="onChange">
-                  <van-radio name="1" icon-size="24px"></van-radio>
+                  <van-radio name="2" icon-size="15rpx"></van-radio>
                 </van-radio-group>
             </view>
           </view>
@@ -44,12 +44,12 @@
                 <text class="carDesc">自动1.6L/三厢四座</text>
               </view>
               <view class="avgDayItem">
-                <text class="avgDayPriceIcon"></text>
+                <image class="imgSize" style="width:35rpx;height:35rpx" src="/assets/qian.svg"></image>
                 <text class="avgDayPrice">106</text>
                 <text class="avgDayPriceText">日均价</text>
               </view>
               <van-radio-group value="{{ radio }}" bind:change="onChange">
-                  <van-radio name="1" icon-size="24px"></van-radio>
+                  <van-radio name="3" icon-size="15px"></van-radio>
                 </van-radio-group>
             </view>
           </view>
@@ -67,42 +67,45 @@
                 <view class="page-section-spacingItemOne">
                   <text class="rentalText">普通日租方式</text>
                   <view class="rentalDays">
-                    <image class="line" src="/assets/line.png"></image>
-                    <picker class="chooseDay" bindchange="bindPickerChange" value="{{index}}" range="{{days}}">
-                    <view class="picker" style="color:#2ab6b7">
-                      {{days[10]}}
-                    </view>
-                  </picker>  
-                  <image class="line" src="/assets/line.png"></image>
-
+                    <van-stepper value="{{ value }}"  style=" margin-right: 10rpx;" bind:change="onChange" input-width="10px" button-size="10px" integer  step="1"/>
+                    <van-radio-group value="{{ radio }}" bind:change="onChangeRadio">
+                       <van-radio name="12" icon-size="10px"></van-radio>
+                    </van-radio-group>
                   </view>
-                  <van-radio-group value="{{ radio }}" bind:change="onChange">
-                    <van-radio name="1" icon-size="24px"></van-radio>
-                  </van-radio-group>
+                 
                 </view>
               </view>
               <view id="demo1" class="scroll-view-item demo-text-1">
                 <view class="page-section-spacingItem">
-                  <text class="rentalText">3日套餐,88元</text>
-                  <van-radio-group value="{{ radio }}" bind:change="onChange">
-                    <van-radio name="1" icon-size="24px"></van-radio>
-                  </van-radio-group>
+                  <text class="rentalText">3日套餐 , 88元</text>
+                  <view class="rentalDays">
+                  <van-stepper style=" margin-right: 10rpx;" value="{{ value }}" bind:change="onChange" input-width="10px" button-size="10px" integer  step="1"/>
+                    <van-radio-group value="{{ radio }}" bind:change="onChangeRadio">
+                       <van-radio name="3" icon-size="10px"></van-radio>
+                    </van-radio-group>
+                  </view>
                 </view>
               </view>
               <view id="demo2"  class="scroll-view-item demo-text-2">
                 <view class="page-section-spacingItem">
-                  <text class="rentalText">7日套餐,8120元</text>
-                  <van-radio-group value="{{ radio }}" bind:change="onChange">
-                    <van-radio name="1" icon-size="24px"></van-radio>
-                  </van-radio-group>
+                  <text class="rentalText">7日套餐 , 8120元</text>
+                  <view class="rentalDays">
+                    <van-stepper style=" margin-right: 10rpx;" value="{{ value }}" bind:change="onChange" input-width="10px" button-size="10px" integer  step="1"/>
+                    <van-radio-group value="{{ radio }}" bind:change="onChangeRadio">
+                       <van-radio name="4" icon-size="10px"></van-radio>
+                    </van-radio-group>
+                  </view>
                 </view>
               </view>
               <view id="demo3" class="scroll-view-item demo-text-3">
                 <view class="page-section-spacingItem">
-                  <text class="rentalText">15日套餐,200元</text>
-                  <van-radio-group value="{{ radio }}" bind:change="onChange">
-                    <van-radio name="1" icon-size="24px"></van-radio>
-                  </van-radio-group>
+                  <text class="rentalText">15日套餐 , 200元</text>
+                  <view class="rentalDays">
+                    <van-stepper style=" margin-right: 10rpx;" value="{{ value }}" bind:change="onChange" input-width="10px" button-size="10px" integer  step="1"/>
+                    <van-radio-group value="{{ radio }}" bind:change="onChangeRadio">
+                       <van-radio name="5" icon-size="10px"></van-radio>
+                    </van-radio-group>
+                  </view>
                 </view>
               </view>
             </scroll-view>
@@ -111,13 +114,15 @@
       </view>
       <!-- 归还日期代码 -->
       <view class="backDate">
-        <view class="backDateItem"><text class="backDateText"> 归还日期</text></view>
         <view class="backDateItem">
-          <text class="backDateText">10月15日</text>
-          <text class="backDateText"> 星期五12:00</text>
+          <text class="backDateText"> 总天数10.5{{}}天</text>
         </view>
+
         <view class="backDatePrice">
-          <text class="backDateText">基础合计</text>
-          <text class="backDateText"> 888元</text>
+          <text class="backDateText">车辆租赁金额</text>
+          <text class="backDateTextPrice"> 888元</text>
         </view>
+      </view>
+      <view class="confirmBtn">
+          <button class="btn" bindtap="confirmBtn">确认</button>
       </view>
