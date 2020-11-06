@@ -22,10 +22,18 @@
                             </view>
                           </picker>
                       </view>
+<<<<<<< HEAD
                       <view class="section">
                             <view class="section__title">{{checked===true?home_delivery:pickup_outlets}}</view>
                             <view class="picker" bindtap="bindPickerAddress">{{array[index]}}
                             </view>
+=======
+                    </picker>
+                </view>
+                <view class="section">
+                      <view class="section__title">{{checked===true?home_delivery:pickup_outlets}}</view>
+                      <view class="picker" bindtap="bindPickerAddress">{{array[index]}}
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
                       </view>
                       <view class="section">
                           <view class="section__title">{{return_city}}</view>
@@ -34,6 +42,7 @@
                             </view>
                           </picker>
                       </view>
+<<<<<<< HEAD
                       <view class="section">
                               <view class="section__title">{{return_outlets}}</view>
                               <!-- <picker bindchange="bindBackAddress" value="{{index}}" range="{{backArray}}"> -->
@@ -42,6 +51,25 @@
                           <!-- </picker> -->
                       </view>
                     </view>
+=======
+                    </picker>
+                </view>
+                <view class="section">
+                        <view class="section__title">{{return_outlets}}</view>
+                        <!-- <picker bindchange="bindBackAddress" value="{{index}}" range="{{backArray}}"> -->
+                        <view class="picker" bindtap="bindBackAddress">{{backArray[index]}}
+                         </view>
+                    <!-- </picker> -->
+                </view>
+              </view>
+            </view>
+            <!-- 选择日期 -->
+            <view class="dateTime">
+              <view class="mod t-sign-time">
+                <picker mode="time" value="{{time}}" start="09:00" end="16:30" bindchange="bindTimeChange">
+                  <view class="picker">
+                     09:01
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
                   </view>
                   <!-- 选择日期 -->
                   <view class="dateTime">
@@ -51,6 +79,7 @@
                           <text>{{pickup_time}}</text>
                         </view>
                     </view>
+<<<<<<< HEAD
                     <view class="mod t-sign-time">
                       <view class="picker daysStyle">
                         <text> {{days[10]}}</text>
@@ -91,6 +120,17 @@
                   <!-- 确认按钮 -->
                   <view>
                     <button class="btn" bindtap="confirm"  formType="submit">确认</button>
+=======
+                  </picker>
+              </view>
+            </view>
+            <!-- 选择车型 -->
+            <view class="carType">
+              <text class="key">车型选择：</text>
+              <view bindtap="showCar">
+                  <view class="picker">{{carList[index]}}
+                    <text class="iconfont icon-arrLeft-fill"></text>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
                   </view>
               </view>
               <!-- 底部其他部分 -->
@@ -149,9 +189,56 @@
             <text class="itemPriceCon"></text>
           </view>
 
+<<<<<<< HEAD
         </view>
           </van-dialog>
       </view>
 
 
 </view>
+=======
+    <!-- 车型弹框 -->
+<van-popup show="{{ showView }}" bind:close="onClose" custom-style=" width:90%;height:80%;">
+   <carType/>
+</van-popup>
+    <!-- 基础价格 弹窗 -->
+    <van-dialog
+    class="dialog"
+      use-slot
+      title="详情信息"
+      show="{{ show }}"
+      show-cancel-button
+      confirm-button-open-type="getUserInfo"
+      bind:close="onClose"
+      bind:getuserinfo="getUserInfo"
+    >
+   <view class="cont">
+      <view class="itemPrice">
+      <text class="itemPriceText">车型：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+    <view class="itemPrice">
+      <text class="itemPriceText">租赁方式：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+    <view class="itemPrice">
+      <text class="itemPriceText">租赁天数：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+    <view class="itemPrice">
+      <text class="itemPriceText">租赁时长：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+    <!-- <view class="itemPrice">
+      <text class="itemPriceText">还车网点：</text>
+      <text class="itemPriceCon"></text>
+    </view> -->
+    <view class="itemPrice">
+      <text class="itemPriceText">租赁金额：</text>
+      <text class="itemPriceCon"></text>
+    </view>
+
+   </view>
+    </van-dialog>
+</view>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c

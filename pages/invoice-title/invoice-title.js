@@ -8,17 +8,24 @@ Page({
 
   },
 
+<<<<<<< HEAD
   addInvoiceTitle:function(){
     wx.navigateTo({
       url: '/pages/add-invoice-title/add-invoice-title',
     })
   },
+=======
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

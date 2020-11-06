@@ -4,6 +4,7 @@
     "van-tab": "/miniprogram_npm/@vant/weapp/tab/index",
     "van-tabs": "/miniprogram_npm/@vant/weapp/tabs/index",
     "carTypeCom":"/components/carTypeCom/carTypeCom",
+<<<<<<< HEAD
     "van-radio": "/miniprogram_npm/@vant/weapp/radio/index",
     "van-radio-group": "/miniprogram_npm/@vant/weapp/radio-group/index",
     "van-switch": "/miniprogram_npm/@vant/weapp/switch/index",
@@ -11,5 +12,14 @@
     "van-checkbox-group": "/miniprogram_npm/@vant/weapp/checkbox-group/index",
     "van-popup": "/miniprogram_npm/@vant/weapp/popup/index",
     "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index"
+=======
+    "van-radio": "/miniprogram_npm/vant-weapp/radio/index",
+    "van-radio-group": "/miniprogram_npm/vant-weapp/radio-group/index",
+    "van-switch": "/miniprogram_npm/vant-weapp/switch/index",
+    "van-checkbox": "/miniprogram_npm/vant-weapp/checkbox/index",
+    "van-checkbox-group": "/miniprogram_npm/vant-weapp/checkbox-group/index",
+    "van-popup": "/miniprogram_npm/vant-weapp/popup/index",
+    "van-dialog": "/miniprogram_npm/vant-weapp/dialog/index"
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   }
 }

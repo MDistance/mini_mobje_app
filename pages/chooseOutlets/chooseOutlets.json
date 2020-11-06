@@ -1,6 +1,10 @@
 {
   "usingComponents": {
+<<<<<<< HEAD
     "van-tree-select": "/miniprogram_npm/@vant/weapp/tree-select/index",
+=======
+    "van-tree-select": "/miniprogram_npm/vant-weapp/tree-select/index",
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
     "search-history": "/components/common-search-and-history/common-search-and-history",
     "record-list": "/components/record-tab-list/record-tab-list"
   },

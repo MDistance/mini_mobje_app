@@ -1,3 +1,7 @@
 <view class="container">
+<<<<<<< HEAD
   <search-history id="call-statistics-search" historyKey="{{'call-statistics-search-history'}}" class="search_container" bindonClickSubmit="onClickSearchSubmit"/>
+=======
+  <search-history id="call-statistics-search" historyKey="{{'call-statistics-search-history'}}" class="search_container" bindonClickSubmit="onClickSearchSubmit" />
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
 </view>

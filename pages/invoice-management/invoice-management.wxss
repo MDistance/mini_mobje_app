@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container{
   width: 100%;
   height: 100%;
@@ -30,4 +31,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
+=======
+.container{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.header{
+  background-color: #fff;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20rpx;
+}
+.header-item{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.content{
+  width: 100%;
+  height: 80%;
+  padding: 30rpx;
+  background-color: #fff;
+}
+.cont_count{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
 }

@@ -14,8 +14,47 @@
                 <text class="avgDayPrice">106</text>
                 <text class="avgDayPriceText">日均价</text>
               </view>
+<<<<<<< HEAD
                <van-radio-group value="{{ radio }}" bind:change="onChangeCar">
                   <van-radio></van-radio>
+=======
+              <van-radio-group value="{{ radio }}" bind:change="onChange">
+                  <van-radio name="1" icon-size="10px"></van-radio>
+                </van-radio-group>
+            </view>
+          </view>
+          <view id="demo2"  class="scroll-view-item scrollItem">
+            <view  class="carTypeItem">
+              <image class="carImg"></image>
+              <view class="carTextDesc">
+                <text class="carName">大众速腾（豪华版）</text>
+                <text class="carDesc">自动1.6L/三厢四座</text>
+              </view>
+              <view class="avgDayItem">
+                <image class="imgSize" style="width:35rpx;height:35rpx" src="/assets/qian.svg"></image>
+                <text class="avgDayPrice">106</text>
+                <text class="avgDayPriceText">日均价</text>
+              </view>
+              <van-radio-group value="{{ radio }}" bind:change="onChange">
+                  <van-radio name="2" icon-size="15rpx"></van-radio>
+                </van-radio-group>
+            </view>
+          </view>
+          <view id="demo3" class="scroll-view-item scrollItem">
+            <view class="carTypeItem">
+              <image class="carImg"></image>
+              <view class="carTextDesc">
+                <text class="carName">大众速腾（豪华版）</text>
+                <text class="carDesc">自动1.6L/三厢四座</text>
+              </view>
+              <view class="avgDayItem">
+                <image class="imgSize" style="width:35rpx;height:35rpx" src="/assets/qian.svg"></image>
+                <text class="avgDayPrice">106</text>
+                <text class="avgDayPriceText">日均价</text>
+              </view>
+              <van-radio-group value="{{ radio }}" bind:change="onChange">
+                  <van-radio name="3" icon-size="15px"></van-radio>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
                 </van-radio-group>
             </view>
           </view>
@@ -33,6 +72,7 @@
                 <view class="page-section-spacingItemOne">
                   <text class="rentalText">普通日租方式</text>
                   <view class="rentalDays">
+<<<<<<< HEAD
                     <van-stepper value="{{ value}}"  style=" margin-right: 10rpx;" bind:change="onChange" input-width="10px"  integer  step="1"/>
                     <van-checkbox
                       value="{{ checked1 }}"
@@ -40,6 +80,12 @@
                       bind:change="onChange1"
                     >
                     </van-checkbox>
+=======
+                    <van-stepper value="{{ value }}"  style=" margin-right: 10rpx;" bind:change="onChange" input-width="10px" button-size="10px" integer  step="1"/>
+                    <van-radio-group value="{{ radio }}" bind:change="onChangeRadio">
+                       <van-radio name="12" icon-size="10px"></van-radio>
+                    </van-radio-group>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
                   </view>
                  
                 </view>
@@ -48,6 +94,7 @@
                 <view class="page-section-spacingItem">
                   <text class="rentalText">3日套餐 , 88元</text>
                   <view class="rentalDays">
+<<<<<<< HEAD
                   <van-stepper style=" margin-right: 10rpx;" value="{{ value }}" bind:change="onChange" input-width="10px"integer  step="1"/>
                   <van-checkbox
                      name="c"
@@ -56,6 +103,12 @@
                     bind:change="onChange2"
                   >
                   </van-checkbox>
+=======
+                  <van-stepper style=" margin-right: 10rpx;" value="{{ value }}" bind:change="onChange" input-width="10px" button-size="10px" integer  step="1"/>
+                    <van-radio-group value="{{ radio }}" bind:change="onChangeRadio">
+                       <van-radio name="3" icon-size="10px"></van-radio>
+                    </van-radio-group>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
                   </view>
                 </view>
               </view>
@@ -63,6 +116,7 @@
                 <view class="page-section-spacingItem">
                   <text class="rentalText">7日套餐 , 8120元</text>
                   <view class="rentalDays">
+<<<<<<< HEAD
                     <van-stepper style=" margin-right: 10rpx;" value="{{ value }}" bind:change="onChange" input-width="10px"integer  step="1"/>
                     <van-checkbox
                       value="{{ checked3 }}"
@@ -71,6 +125,12 @@
                       bind:change="onChange3"
                     >
                     </van-checkbox>
+=======
+                    <van-stepper style=" margin-right: 10rpx;" value="{{ value }}" bind:change="onChange" input-width="10px" button-size="10px" integer  step="1"/>
+                    <van-radio-group value="{{ radio }}" bind:change="onChangeRadio">
+                       <van-radio name="4" icon-size="10px"></van-radio>
+                    </van-radio-group>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
                   </view>
                 </view>
               </view>
@@ -78,6 +138,7 @@
                 <view class="page-section-spacingItem">
                   <text class="rentalText">15日套餐 , 200元</text>
                   <view class="rentalDays">
+<<<<<<< HEAD
                     <van-stepper style=" margin-right: 10rpx;" value="{{ value }}" bind:change="onChange" input-width="10px"integer  step="1"/>
                     <van-checkbox
                          name="b"
@@ -86,6 +147,12 @@
                         bind:change="onChange4"
                       >
                       </van-checkbox>
+=======
+                    <van-stepper style=" margin-right: 10rpx;" value="{{ value }}" bind:change="onChange" input-width="10px" button-size="10px" integer  step="1"/>
+                    <van-radio-group value="{{ radio }}" bind:change="onChangeRadio">
+                       <van-radio name="5" icon-size="10px"></van-radio>
+                    </van-radio-group>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
                   </view>
                 </view>
               </view>

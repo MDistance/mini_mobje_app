@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+<<<<<<< HEAD
     list:[
       {
         url: "",
@@ -43,6 +44,9 @@ Page({
   
       }
     ],
+=======
+
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   },
 
   /**
@@ -58,6 +62,7 @@ Page({
   onReady: function () {
 
   },
+<<<<<<< HEAD
 // 导航
 toNavgiat:function(){
   wx.getLocation({
@@ -74,6 +79,9 @@ toNavgiat:function(){
    })
 
 },
+=======
+
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   /**
    * 生命周期函数--监听页面显示
    */

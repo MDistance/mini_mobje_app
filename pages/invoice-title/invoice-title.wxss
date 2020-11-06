@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* pages/invoice-title/invoice-title.wxss */
 .container{
   width: 100%;
@@ -31,3 +32,6 @@
   color: #fff;
   border-radius:40rpx;
 }
+=======
+/* pages/invoice-title/invoice-title.wxss */
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c

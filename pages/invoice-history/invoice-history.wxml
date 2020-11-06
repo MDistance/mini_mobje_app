@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <view class="container">
   <view class="header">
     <view class="header-title">
@@ -67,3 +68,7 @@
         暂无发票历史
     </view>
 </view>
+=======
+<!--pages/invoice-history/invoice-history.wxml-->
+<text>pages/invoice-history/invoice-history.wxml</text>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c

@@ -252,6 +252,7 @@ Page({
       currentTab: e.currentTarget.dataset.idx
     })
   },
+<<<<<<< HEAD
 // 补交费用按钮
   payFreeBtn:function(){
     wx.navigateTo({
@@ -265,23 +266,32 @@ Page({
     })
    },
   //  支付订单按钮
+=======
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   orderPayTap:function(){
    wx.navigateTo({
      url: '/pages/orderPay/orderPay',
    })
   },
+<<<<<<< HEAD
   // 修改订单按钮
+=======
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   changeTap:function(){
    wx.navigateTo({
      url: '/pages/changeOrder/changeOrder',
    })
   },
+<<<<<<< HEAD
   // 支付押金按钮
+=======
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   payDespo:function(){
    wx.navigateTo({
      url: '/pages/desposit/desposit',
    })
   },
+<<<<<<< HEAD
   // 申请结束按钮
   toEnd:function (e) {
     var that = this;
@@ -344,6 +354,8 @@ Page({
       }
     })
   },
+=======
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   //取消按钮
   cancelTap: function (e) {
     var that = this;

@@ -1,7 +1,11 @@
 {
+<<<<<<< HEAD
   "usingComponents": {
     "van-submit-bar": "/miniprogram_npm/@vant/weapp/submit-bar/index",
     "van-field": "/miniprogram_npm/@vant/weapp/field/index"
   },
   "navigationBarTitleText": "补交费用"
+=======
+  "usingComponents": {}
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
 }

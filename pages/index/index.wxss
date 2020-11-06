@@ -34,6 +34,10 @@
   border-radius:15rpx;
   font-size: 16px;
   box-sizing: border-box;
+<<<<<<< HEAD
+=======
+  height: 80%;
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   width: 100%;
   padding:30rpx;
   margin-bottom: 20rpx;
@@ -63,7 +67,11 @@
 /* 取车还地点代码 */
 .carCityItem{
   width: 100%;
+<<<<<<< HEAD
   padding:30rpx 0;
+=======
+  height: 120rpx;
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   display: flex;
   justify-content: space-between;
   border-bottom: #dedede 1px solid;
@@ -184,8 +192,16 @@
 /* 底部新手指引等部分 */
 .content .other{
   border-radius: 2%;
+<<<<<<< HEAD
   width: 100%;
   background-color: #fff;
+=======
+  position: absolute;
+  height: 20%;
+  width: 100%;
+  background-color: #fff;
+  bottom:10rpx;
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   border-radius: 5rpx;
   overflow: hidden;
 }

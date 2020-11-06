@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <view class="container">
   <view class="header">
       <text class="header-tit">补交项</text>
@@ -39,3 +40,7 @@
 />
   </view>
 </view>
+=======
+<!--pages/pay-fees/pay-fees.wxml-->
+<text>pages/pay-fees/pay-fees.wxml</text>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c

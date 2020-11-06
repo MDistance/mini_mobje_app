@@ -59,7 +59,11 @@
         <label class='coent_payMoney' data-bookingId="{{item.bookingId}}" bindtap='payDespo'>支付押金</label>
         <label class='coent_auth_base' data-bookingId="{{item.bookingId}}" bindtap='rental'>租赁人认证</label>
         <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='orderPayTap'>支付订单</label>
+<<<<<<< HEAD
         <!-- <label class='coent_cha_base' data-bookingId="{{item.bookingId}}" bindtap='changeTap'>修改订单</label> -->
+=======
+        <label class='coent_cha_base' data-bookingId="{{item.bookingId}}" bindtap='changeTap'>修改订单</label>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
         <label class='coent_log_base' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>取消订单</label>
 
         <!-- 支付订单 -->
@@ -197,7 +201,11 @@
       <!-- 标签功能 -->
       <view class='coent_list'>
         <!-- 续租 -->
+<<<<<<< HEAD
         <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='payFreeBtn'>补交费用</label>
+=======
+        <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='cancelTap'>补交费用</label>
+>>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
         <!-- 申请结束 -->
         <label class='coent_del' data-bookingId="{{item.bookingId}}" bindtap='toEnd'>申请结束</label>
         <!-- 已申请结束 -->
