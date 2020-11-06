@@ -1,28 +1,51 @@
 /* pages/vaddService/vaddService.wxss */
-
 .container{
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: paleturquoise;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 .header{
-  z-index: 999;
-  overflow: hidden;
-  position: fixed;
-  top: 0rpx;
   background-color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
-  height: 200rpx;
-  border-bottom: 1px solid seashell;
+  padding: 100rpx 0;
+  border-bottom: 1px solid rgb(241, 146, 78);
+}
+.mid{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.semicircle{
+  width:50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: rgb(221, 224, 224);
+}
+.headerLeft{
+  margin-left: -25rpx;
+}
+.headerRight{
+  margin-right: -25rpx;
+}
+.headerText{
+  margin-right: 20rpx;
+  font-size: 24rpx;
+}
+.sizeFont{
+  font-weight: bold;
+  font-size: 40rpx;
+  color: red;
 }
 .main{
   border: 1px solid seashell;
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
   padding: 30rpx;
   background-color: #fff;
   margin-bottom: 30rpx;
@@ -30,19 +53,20 @@
 
 .contentHeader{
   width: 100%;
-  height: 60rpx;
-  line-height: 60rpx;
+  padding: 20rpx 0;
   border-bottom: 1rpx seashell solid;
 }
 .van-cell-group ,.van-cell{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #fff;
 }
 .read{
-  padding: 30rpx;
+  padding:20rpx;
   display: flex;
   justify-content: start;
+  background-color: #fff;
 }
 .van-radio-groupRead{
   display: inline-block;
@@ -50,9 +74,29 @@
 .ruleText{
   color: orange;
 }
-.footer{
-  background-color: #fff;
+.addService{
+  margin-bottom: 20rpx;
 }
+.footer{
+  width: 100%;
+  padding:30rpx 20rpx;
+  box-sizing: border-box;
+
+  background-color:#fff;
+}
+.button {
+  width:90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 16px;
+  border: 0 none;
+  background: #118fff;
+  color: #fff;
+  margin: 30rpx auto;
+  border-radius: 50px;
+}
+
 /* 提交订单按钮样式 */
 
 .subBtn{
@@ -60,10 +104,9 @@
   border-top: whitesmoke 1rpx solid;
   background-color: white;
   width: 100%;
-  height: 80rpx;
   position: fixed;
   bottom: 0;
-  padding: 20rpx 0;
+  padding:30rpx 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,9 +115,15 @@
 .subBtnText{
   border-radius: 20rpx;
   width: 90%;
-  height: 70rpx;
-  line-height: 70rpx;
+  box-sizing: border-box;
+  /* height: 70rpx;
+  line-height: 70rpx; */
   background-color: orange;
   color: white;
   text-align: center;
+}
+.empty{
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
 }

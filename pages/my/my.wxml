@@ -1,23 +1,29 @@
 <!--pages/my/my.wxml-->
-<import src='template.wxml' />
-<view>
-
+<view class="container">
       <view class='loginHeader'>
-          <view>
-            <image src='{{userHead}}' bindtap='loginTap' class='userHead' mode='aspectFill' />
-          </view>
-            <view>
+            <view class="headerLeft">
+              <image src='{{userHead}}' bindtap='loginTap' class='userHead' mode='aspectFill' />
+            </view>
+            <view wx:if="{{!isLoginSuccess}}" class="headerRight">
               <text class='userTitle' bindtap='loginTap'>{{userTitle}}</text>
+            </view>
+            <view wx:else="{{isLoginSuccess}}" class="headerRight">
+              <text class='userTel'>{{userTel}}</text>
+              <text class='userRen'>{{userRen}}</text>
             </view>
       </view>
       <view class="main">
-      
-        <view class="content">
-          <view class="conItem">
+        <view class="header">
+          <text class="title">我的服务</text>
+        </view>
+          <van-cell size="large" class="collapseConItem" icon="notes-o" is-link title="发票管理" link-type="navigateTo" url="/pages/invoice-management/invoice-management"/>
+          <van-cell size="large" class="collapseConItem" icon="coupon-o" is-link title="违章记录" link-type="navigateTo" url="/pages/delr/delr"/>
+        <!-- <view class="content">
+          <view class="conItem" bindtap="invoiceManage">
              <image class="img" src="/assets/fapiaoguanli1.png"></image>
              <text>发票管理</text>
           </view>
-          <view class="conItem">
+          <view class="conItem" bindtap="delrBtn">
              <image class="img" src="/assets/weizhangjilu.png"></image>
              <text>违章记录</text>
           </view>
@@ -28,23 +34,20 @@
               <text class="listItemCon"></text>
            </view>
            <view class="listItem">
-              <text class="listItemTitle">联系方式 :</text>
+              <text class="listItemTitle">联系方式 :1800666666</text>
               <text class="listItemCon"></text>
            </view>
-        </view>
+        </view> -->
       </view>
-      <!-- <view class="nav">
-          <view bindtap="personalTap">
-             <template is='settingItem' data="{{caption:'个人信息',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/icon_personal.png'}}" />
-          </view>
-          <view bindtap='allOrderTap'>
-            <template is='settingItem' data="{{caption:'预约订单',value:'',needIcon:true,isIcon:true,iconUrl:'/assets/yy.png'}}" />
-          </view>
-      </view> -->
+      <view class="content">
+          <van-cell size="large" border="{{false}}" class="collapseConItem" icon="service-o" is-link title="客服解答" link-type="navigateTo" url="/pages/service/service"/>
+      </view>
     <view class="footer">
-      <view class="cancelBtn"><text bindtap="btn">退出登录</text></view>
-      <view>
-        <text class="service">客服电话 :</text>
+      <view class="cancelBtn">
+        <text bindtap="btn">退出登录</text>
+      </view>
+      <view class="service">
+        <text class="serviceTel">客服电话 :</text>
         <text class="tel">17513145210</text>    
       </view>
     </view>

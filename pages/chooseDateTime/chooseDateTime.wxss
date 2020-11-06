@@ -1,0 +1,66 @@
+/* pages/chooseDateTime/chooseDateTime.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+.header{
+  width: 100%;
+  height: 80%;
+  background-color: #fff;
+}
+.main{
+  width: 100%;
+}
+.calendar {
+  --calendar-height:100%;
+}
+.picker{
+  color: rgb(243, 167, 69);
+}
+.footer{
+  padding: 10rpx 0rpx 30rpx;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 1rpx solid rgb(211, 211, 211);
+}
+.footer-top{
+  padding:10rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+}
+.section{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.section__title{
+  padding:20rpx 0;
+  box-sizing: border-box;
+}
+.footer-bottom{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding:30rpx;
+  box-sizing: border-box;
+}
+.okBtn{
+  width: 90%;
+  text-align: center;
+  font-size: 16px;
+  border:none;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: white;
+  background: #00A3FF;
+}

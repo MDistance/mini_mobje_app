@@ -1,0 +1,12 @@
+<!--pages/carType/carType.wxml-->
+<view class="carContent">
+  <view class="main">
+    <van-tabs bind:change="onChange" active="{{ active }}">
+    <van-tab title="经济型">
+      <carTypeCom class="carTypeCom"></carTypeCom>
+    </van-tab>
+    <van-tab title="舒适型"> <carTypeCom class="carTypeCom"></carTypeCom></van-tab>
+    <van-tab title="SUV"> <carTypeCom class="carTypeCom"></carTypeCom></van-tab>
+   </van-tabs>
+  </view>
+</view>

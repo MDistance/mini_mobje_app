@@ -1,4 +1,9 @@
 /* pages/service/service.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
 .container{
   width: 100%;
   height: 100%;
@@ -13,7 +18,6 @@
   position: absolute;
   padding: 30rpx;
   box-sizing: border-box;
-  background-color: aquamarine;
   top: 0;
 }
 .title{
@@ -25,14 +29,17 @@
   padding: 30rpx;
   width: 100%;
   box-sizing: border-box;
-  background-color: powderblue;
+}
+.scroll-view{
+  padding: 30rpx 0;
 }
 .van-collapse-item{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-top: 10rpx;
+
 }
+
 
 
 /* 底部 */

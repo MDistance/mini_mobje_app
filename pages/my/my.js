@@ -10,8 +10,22 @@ Page({
     userTitle: '点击头像登录',
     userHead: '/assets/ic_mine_normal.png',
     customerTel:'',
+    userRen:'摩捷认证用户',
+    userTel:'1800009536'
   },
 
+// 发票管理
+delrBtn:function(){
+    wx.navigateTo({
+      url: '/pages/delr/delr',
+    })
+ },
+ // 违章记录
+invoiceManage:function(){
+  wx.navigateTo({
+    url: '/pages/invoice-management/invoice-management',
+  })
+},
   /**
    * 生命周期函数--监听页面加载
    */

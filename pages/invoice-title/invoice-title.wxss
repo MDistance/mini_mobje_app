@@ -1,0 +1,33 @@
+/* pages/invoice-title/invoice-title.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+  padding: 30rpx 0rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-size: 22rpx;
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 0rpx;
+  box-sizing: border-box;
+  color: rgb(201, 201, 200);
+}
+.footer{
+  width: 100%;
+  position: fixed;
+  bottom:20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 0rpx;
+  box-sizing: border-box;
+}
+.footerText{
+  padding:20rpx;
+  background-color: orangered;
+  color: #fff;
+  border-radius:40rpx;
+}

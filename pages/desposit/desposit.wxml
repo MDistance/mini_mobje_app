@@ -1,0 +1,38 @@
+<!--pages/desposit/desposit.wxml-->
+<view class="container">
+  <view class="header">
+    <text class=" iconfont icon-qian01 price">2000元</text>
+  </view>
+  <view class="content">
+      <van-field
+        value="12432452342423"
+        label="订单号 :"
+        readonly
+      />
+      <van-field
+        value="宝来（1.5L自动）"
+        label="车  型 :"
+        readonly
+      />
+      <van-field
+        value="2020-10-01 8:00--2020-10-10 8:00"
+        label="用车时间 :"
+        readonly
+      />
+      <van-field
+        value="输入框已禁用"
+        label="取车网点 :"
+        readonly
+      />
+      <van-field
+        value="输入框已禁用"
+        label="还车网点 :"
+        readonly
+      />
+  </view>
+  <view class="footer">
+    <view class="payMoney" bindtap="payMoney">
+      支 付
+    </view>
+  </view>
+</view>

@@ -7,7 +7,10 @@ Page({
   data: {
     radio: '0',
     checked: true,
-    isChecked:false
+    isChecked:false,
+    username:'',
+    userIDNum:'',
+    userphone:''
   },
   onChange(event) {
     this.setData({
@@ -66,6 +69,148 @@ Page({
   onReachBottom: function () {
 
   },
+    //无忧保障
+    onCollageChange: function (event) {
+      var that = this;
+      var detail = event.detail;
+      if (detail.value == true) {
+  
+        that.setData({
+          isCarpooling: detail.value,
+          crpooling: 1,
+          aircraftPrice: that.data.titlePrice,
+          sfje: that.data.payData - that.data.titlePrice,
+  
+        })
+      } else {
+        that.setData({
+          isCarpooling: detail.value,
+          crpooling: 0,
+          aircraftPrice: 0,
+          sfje: that.data.payData
+  
+        })
+      }
+    },
+     //基础保障
+     onCollageChange: function (event) {
+      var that = this;
+      var detail = event.detail;
+      if (detail.value == true) {
+  
+        that.setData({
+          isCarpooling: detail.value,
+          crpooling: 1,
+          aircraftPrice: that.data.titlePrice,
+          sfje: that.data.payData - that.data.titlePrice,
+  
+        })
+      } else {
+        that.setData({
+          isCarpooling: detail.value,
+          crpooling: 0,
+          aircraftPrice: 0,
+          sfje: that.data.payData
+  
+        })
+      }
+    },
+     //整备费
+     onCollageChange: function (event) {
+      var that = this;
+      var detail = event.detail;
+      if (detail.value == true) {
+  
+        that.setData({
+          isCarpooling: detail.value,
+          crpooling: 1,
+          aircraftPrice: that.data.titlePrice,
+          sfje: that.data.payData - that.data.titlePrice,
+  
+        })
+      } else {
+        that.setData({
+          isCarpooling: detail.value,
+          crpooling: 0,
+          aircraftPrice: 0,
+          sfje: that.data.payData
+  
+        })
+      }
+    },
+     //加油服务费
+     onCollageChange: function (event) {
+      var that = this;
+      var detail = event.detail;
+      if (detail.value == true) {
+  
+        that.setData({
+          isCarpooling: detail.value,
+          crpooling: 1,
+          aircraftPrice: that.data.titlePrice,
+          sfje: that.data.payData - that.data.titlePrice,
+  
+        })
+      } else {
+        that.setData({
+          isCarpooling: detail.value,
+          crpooling: 0,
+          aircraftPrice: 0,
+          sfje: that.data.payData
+  
+        })
+      }
+    },
+    //调用验证函数
+    submitForm: function(e) {
+      var that = this;
+      console.log('form发生了submit事件，携带的数据为：', e.detail.value)
+      const params = e.detail.value
+      that.data.form.username = params.name;
+      that.data.form.userphone = params.phone;
+      that.data.form.userIDNum = params.flightNo;
+      that.data.form.city = params.city;
+      //校验表单
+        if (that.username == "" || that.username == null) {
+          wx.showModal({
+            content: '请填写用户名',
+            showCancel: false,
+          })
+          return false;
+        }
+        if (params.userphone == "" || params.userphone == null) {
+          wx.showModal({
+            content: '请填写手机号',
+            showCancel: false,
+          })
+          return false;
+        }
+        if (params.userphone) {
+          if (!(/^1[34578]\d{9}$/.test(params.userphone))) {
+            wx.showModal({
+              content: '请正确填写手机号',
+              showCancel: false,
+            })
+            return false;
+          }
+        }
+        if (params.userIDNum == "" || params.userIDNum == null) {
+          wx.showModal({
+            content: '请填写身份证号',
+            showCancel: false,
+          })
+          return false;
+  
+        }
+        if (that.data.isChecked == false) {
+          wx.showModal({
+    
+            content: '请查看规则说明并勾选',
+            showCancel: false
+          })
+          return false
+        }
+    },
   // 我已阅读并同意代码
   checkboxChange: function (e) {
     let  isChecked = e.currentTarget.dataset.checked;
@@ -79,7 +224,9 @@ Page({
       isChecked:  isChecked
     });
   },
-  subBtnText:function(){
+  subBtnText:function(e){
+    var that=this
+    that.submitForm(e)
     wx.navigateTo({
       url: '/pages/orderDetail/orderDetail',
     })

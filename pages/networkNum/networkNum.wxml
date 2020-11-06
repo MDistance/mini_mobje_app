@@ -1,26 +1,53 @@
 <!--pages/networkNum/networkNum.wxml-->
 <view class="container">
-  <view class="header" style=" position: fixed;top:0">
-    <!-- <form action=""> -->
-      <view class="weui-cell__bd">
-        <text class="iconfont icon-suosou"></text>
-        <input class="weui-input"  auto-focus type="text" bindinput="bindKeyInput" placeholder="请输入网点名称" />
-      </view>
-      <view class="sug_info"> 
-        <text>{{sugData}}</text> 
-      </view>
-      <!-- <text class="map">地图</text> -->
-    <!-- </form> -->
-  </view>
   <view class="content">
     <view class="map_container"> 
-      <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map> 
+      <view class="map_header">
+        <view class="map_headerCon">
+          <image class="letf_search" src="{{'/assets/ic_search.png'}}" bindtap="onClickSearch"/>
+          <input class="weui-input" data-city="{{city}}"  bindtouchstart="bindInput" data-longitude="{{longitude}}" data-latitude="{{latitude}}" value="{{backfill}}" placeholder="输入景点，地址寻找附近门店"/>
+        </view>
+        <text class="toList" bindtap="toList">列表</text>
+      </view>
+   
+      <view class="mapCon">
+        <map  id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map> 
+      </view>
+      <!-- <view class="footer">
+        <view class="address">
+          <text>已选择网点：</text>
+          <text>{{address}}</text>
+        </view>
+        <view class="btn"> 
+          <text class="okBtn">确认</text>
+        </view>
+      </view> -->
+      <view class="flaot-container">
+            <scroll-view scroll-x="true" class="ip_tab_comtainer">
+              <view class="ip_tab_comtainer_padd"></view>
+              <block wx:for="{{ips}}" wx:for-item="ip" wx:key="{{ip.id}}">
+                <view class="{{ip.isSelect?'ip_tab_item_s':'ip_tab_item_n'}}" bindtap="onIpItemClick" wx:key="{{ip.id}}" data-item="{{ip}}">
+                  {{ip.title}}
+                </view>
+              </block>
+              <view class="ip_tab_comtainer_padd"></view>
+            </scroll-view>
+        </view>
     </view> 
-    <view class="place_info"> 
-      <text>{{placeData.title}}</text> 
-      <text>{{placeData.address}}</text> 
-      <text>{{placeData.telephone}}</text> 
-    </view> 
+    
   </view>
+
+ 
     
 </view>
+<!-- <view class="backfill" wx:for="{{suggestion}}" wx:key="index"> -->
+    <!--绑定回填事件-->
+          <!-- <view class="backfillCon"> -->
+          <!--根据需求渲染相应数据-->
+          <!--渲染地址title-->
+              <!-- <view class="itemTitle" style="text-align:left;" bindtap="backfill" id="{{index}}">{{item.title}}</view> -->
+              <!--渲染详细地址-->
+              <!-- <view class="itemAddr" style="font-size:12px;color:#666;text-align:left;">{{item.addr}}
+              </view>
+           </view>
+     </view> -->

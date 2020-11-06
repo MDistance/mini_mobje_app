@@ -16,6 +16,7 @@ Page({
   onLoad: function(options) {
     // 页面加载时使用用户授权逻辑，弹出确认的框  
     this.userAuthorized()
+    this.onGetUserInfo()
   },
   userAuthorized() {
     wx.getSetting({
@@ -43,6 +44,7 @@ Page({
       // 1. 小程序通过wx.login()获取code
       wx.login({
         success: function (login_res) {
+          console.log(login_res)
           //获取用户信息
           wx.getUserInfo({
             success: function (info_res) {
@@ -88,7 +90,19 @@ Page({
       })
     }
   },
+  regisText(){
+  wx.navigateTo({
+    url: '/pages/login/treaty/treaty',
+    
+  })
+  },
+  priPol(){
+    wx.navigateTo({
+      url: '/pages/login/privacy/privacy',
+    })
+  }
 
+  ,
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

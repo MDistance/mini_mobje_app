@@ -1,6 +1,7 @@
 <!--pages/orderPay/orderPay.wxml   订单支付-->
 <view class="container">
-   <view class="top">
+   <view class="content">
+    <view class="top">
      <text class="amountPay">应付金额  341元 {{}}</text>
      <text class="descr">取车时请带好二证一卡（身份证原件，驾驶证，信用卡）</text>
    </view>
@@ -8,7 +9,7 @@
      <text class="tit_content">请选择支付方式：</text>
      <view class="wxPay">
        <view class="left">
-        <text class="iconfont icon-weixinzhifu1"></text>
+        <image class="imgSize" style="width:35rpx;height:35rpx" src="/assets/weixinzhifu.svg"></image>
         <text class="wxcost">微信支付</text>
        </view>
        <text class="iconfont icon-duihao6"></text>
@@ -17,6 +18,8 @@
    <view class="bottom">
      <view class="btn" bindtap="payBtn">立即支付</view>
      <view class="btn" bindtap="orderManBtn">订单管理</view>
+   </view>
+   <view class="con"></view>
    </view>
 
 </view>

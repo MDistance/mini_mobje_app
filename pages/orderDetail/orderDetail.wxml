@@ -61,42 +61,44 @@
         </view>
       </view>
     </view>
+  </view>
+    <view class="main">
     <view class="orderDetail">
       <view class="orderDetail_title">订单明细</view>
       <view class="orderDetail_content1">
         <view class="flexItem">
-          <text class="describe"> 车辆租赁费及门店服务费（门店现付价）</text>
+          <text class="describe"> 车辆租赁费及门店服务费（门店现付价）-----------------</text>
           <text class="price"> 241元</text>
         </view>
         <view class="flexItem">
-          <text class="describe"> 基本保障服务费</text>
+          <text class="describe"> 基本保障服务费-----------------------------------</text>
           <text class="price"> 80元</text>
         </view>
         <view class="flexItem">
-          <text class="describe"> 手续费</text>
+          <text class="describe"> 手续费-------------------------------------------</text>
           <text class="price"> 24元</text>
         </view>
       </view>
       <view class="orderDetail_content2">
         <view class="flexItem">
           <text> 车辆押金（可退）4000元</text>
-          <text> 订单总额 4000元</text>
+          <view> 订单总额 <text class="price">4000</text>元</view>
         </view>
         <view>
           <text> 违章押金（可退）2000元</text>
         </view>
       </view>
     </view>
-  </view>
-  
-  <view class="footer">
-    <text class="changeBtn" bindtap="changeBtn">修改</text>
-    <text class="cancelBtn" bindtap="cancelBtn">取消</text>
-  </view>
-    <!-- <view class='placeholder-view'></view> -->
-    
-
+   </view>
+  <!-- <view class="footer">
+    <view class="footerCon">
+      <text class="changeBtn" bindtap="changeBtn">修改</text>
+     <text class="cancelBtn" bindtap="cancelBtn">取消</text>
+    </view>
+  </view> -->
+  <view class="empty"></view>
 </view>
+
 <van-submit-bar
       price="{{ 34150 }}"
       button-text="支付"

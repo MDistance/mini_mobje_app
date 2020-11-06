@@ -1,0 +1,92 @@
+<view class="container">
+  <view class="header">
+    <view class="header-title">
+      <van-tabs active="{{ active }}" bind:change="onChange">
+        <van-tab title="企业">
+          <van-cell-group>
+            <van-field
+              value="{{ username }}"
+              clearable
+              label="企业名称"
+              placeholder="请输入企业名称"
+              bind:click-icon="onClickIcon"
+            />
+            <van-field
+              value="{{ username }}"
+              clearable
+              label="手机号"
+              placeholder="请输入手机号"
+              bind:click-icon="onClickIcon"
+            />
+            <van-field
+              value="{{ username }}"
+              clearable
+              label="账号"
+              placeholder="请输入账号"
+              bind:click-icon="onClickIcon"
+            />
+         
+            <van-field
+              value="{{ password }}"
+              type="password"
+              label="开户行"
+              placeholder="请输入开户行"
+              border="{{ false }}"
+            />
+            <van-field
+              value="{{ password }}"
+              type="password"
+              label="地址"
+              placeholder="请输入地址"
+              border="{{ false }}"
+            />
+            <van-field
+              value="{{ username }}"
+              clearable
+              label="税号"
+              placeholder="如企业开票，请提供相应税号"
+              left-icon="question-o"
+            />
+            <van-field
+              value="{{ password }}"
+              type="password"
+              label="电子邮箱"
+              placeholder="电子发票接收邮箱"
+            />
+ 
+          </van-cell-group>
+        </van-tab>
+        <van-tab title="个人/非企业">
+          <van-cell-group>
+            <van-field
+              value="{{ username }}"
+              clearable
+              label="姓名"
+              placeholder="请输入姓名"
+              bind:click-icon="onClickIcon"
+            />
+            <van-field
+              value="{{ username }}"
+              clearable
+              label="手机号"
+              placeholder="请输入手机号"
+              bind:click-icon="onClickIcon"
+            />
+            <van-field
+              value="{{ username }}"
+              clearable
+              label="电子邮箱"
+              placeholder="请输入电子邮箱"
+              bind:click-icon="onClickIcon"
+            />
+          </van-cell-group>
+        </van-tab>
+      </van-tabs>
+    </view>
+  </view>
+   <view class="main">
+    <text class="mainText" bindtap="saveBtn">保存</text>
+
+   </view>
+
+</view>

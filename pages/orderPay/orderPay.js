@@ -7,7 +7,18 @@ Page({
   data: {
 
   },
-
+  // 立即支付按钮
+  payBtn: function () {
+    wx.navigateTo({
+      url: '/pages/vaddService/vaddService',
+    })
+    },
+    // 订单管理按钮
+    orderManBtn: function () {
+      wx.switchTab({
+        url: '/pages/order/order',
+      })
+      },
   /**
    * 生命周期函数--监听页面加载
    */

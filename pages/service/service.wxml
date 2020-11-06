@@ -4,49 +4,40 @@
     <text class="title">猜你想问</text>
   </view>
   <view class="main">
- <!-- <scroll-view scroll-y="true" style="height:600rpx;" n xscroll-top="{{scrollTop}}"> -->
+    <scroll-view scroll-y="true" style="height:600rpx;" scroll-top="{{scrollTop}}">
           <van-collapse value="{{ activeNames }}" bind:change="onChange">
-        <van-collapse-item title="查询信息" label="用车城市，用车类型，提供车型，司机信息，查询订单" name="1">
-          <text>用车城市</text>
-          <text>用车类型</text>
-          <text>提供车型</text>
-          <text>司机信息</text>
-          <text>查询订单</text>
-        </van-collapse-item>
-        <van-collapse-item title="预订" label="预订渠道，如何预订" name="2">
-          <text>预订渠道</text>
-          <text>如何预订</text>
-        </van-collapse-item>
-        <van-collapse-item title="修改" label="如何修改" name="3">
-          <text>如何修改</text>
-        </van-collapse-item>
-        <van-collapse-item class="van-collapse-item" title="取消" label="常规取消条款，紧急用车取消条款" name="4" >
-          <text>常规取消条款</text>
-          <text>紧急用车取消条款</text>
-        </van-collapse-item>
-        <van-collapse-item title="发票相关" label="如何申请发票，发票开局时效，没有收到电子发票" name="5">
-          <text>如何申请发票</text>
-          <text>发票开局时效</text>
-          <text>没有收到电子发票</text>
-        </van-collapse-item>
-      </van-collapse>
-        <!-- </scroll-view> -->
+            <van-collapse-item title="查询信息" label="用车城市，用车类型，提供车型，司机信息，查询订单" name="1" >
+              <view class="collapseItem">
+                <van-cell class="collapseConItem" is-link title="用车城市" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" is-link title="用车类型" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" is-link title="提供车型" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" is-link title="司机信息" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" border="{{false}}" is-link title="查询订单" link-type="navigateTo" url="/pages/details/details"/>
+              </view>
+            </van-collapse-item>
+            <van-collapse-item  title="预订" label="预订渠道，如何预订" name="2">
+                <van-cell class="collapseConItem" is-link title="预订渠道" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" border="{{false}}" is-link title="如何预订" link-type="navigateTo" url="/pages/details/details"/>
+            </van-collapse-item>
+            <van-collapse-item title="修改" label="如何修改" name="3">
+              <van-cell class="collapseConItem" border="{{false}}" is-link title="如何修改" link-type="navigateTo" url="/pages/details/details"/>
+            </van-collapse-item>
+            <van-collapse-item class="van-collapse-item" title="取消" label="常规取消条款，紧急用车取消条款" name="4" >
+                <van-cell class="collapseConItem" is-link title="常规取消条款" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" border="{{false}}" is-link title="紧急用车取消条款" link-type="navigateTo" url="/pages/details/details"/>
+            </van-collapse-item>
+            <van-collapse-item title="发票相关" label="如何申请发票，发票开局时效，没有收到电子发票" name="5">
+                <van-cell class="collapseConItem" is-link title="如何申请发票" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" is-link title="发票开局时效" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" border="{{false}}" is-link title="没有收到电子发票" link-type="navigateTo" url="/pages/details/details"/>
+            </van-collapse-item>
+        </van-collapse>
+    </scroll-view>
       
-     <!-- <view class="item">
-      <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{ items }}" wx:key="index" data-path="{{ item.path }}" data-index="{{ index }}" bindtap="navigateTo">
-                <view class="weui-cell__hd">
-                    <image src="{{ item.icon }}" style="margin-bottom: 2px;margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
-                </view>
-                <view class="weui-cell__bd">{{ item.text }}</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access">
-                	<text wx:if="{{ index === 2 }}">{{ item.path }}</text>
-                </view>
-            </navigator>
-     </view> -->
   </view>
-  <!-- <view class="footer">
-    <view class="btn">
+  <view class="footer">
+    <view class="btn" bindtap="phoneCall">
        不是你想问的？联系人工客服
     </view>
-  </view> -->
+  </view>
 </view>

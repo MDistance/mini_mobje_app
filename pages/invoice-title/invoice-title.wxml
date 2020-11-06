@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="header">
+    <text class="header-title">暂无发票抬头</text>
+  </view>
+   <view class="main">
+
+   </view>
+  <view class="footer">
+    <text class="footerText" bindtap="addInvoiceTitle">新增发票抬头</text>
+  </view>
+</view>

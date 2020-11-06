@@ -1,0 +1,29 @@
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(241, 241, 241);
+  font-size: 22rpx;
+}
+.header{
+  width: 100%;
+  padding:0 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 100rpx;
+}
+.main{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 0rpx;
+  box-sizing: border-box;
+}
+.mainText{
+  width: 90%;
+  padding:20rpx;
+  background-color: orangered;
+  text-align: center;
+  color: #fff;
+  border-radius:40rpx;
+}

@@ -3,6 +3,7 @@
   display: flex;  
   background: #fff;  
 }  
+
 .none_tab{
   position: relative;
   top: 20rpx;
@@ -50,8 +51,8 @@
   margin:10rpx 0 20rpx 0;
   background-color:#fff;
 }
-.cont_count {
-  height: 340rpx;
+/* .cont_count {
+  height: 360rpx;
 }
 .cont_count_on{
   height: 480rpx;
@@ -61,14 +62,13 @@
 }
 .cont_count_cancel{
   height: 340rpx;
-}
+} */
 /* 编号 */
 .seria{
   display:flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height:15%;
   line-height: 50rpx;
   border-bottom: 1rpx solid #D4D4D4;
 }
@@ -89,117 +89,57 @@
   width: 90%;
   display: inline-block;
   padding-bottom: 10rpx;
-  height: 200rpx;
 }
-/* 列表图片 */
-.list_img{
-  position: absolute;
-  width:144rpx;
-  height: 144rpx;
-  left: 0rpx;
-  top: 30rpx; 
+/* 当前油量 */
+.now-oil{
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
-/* 列表标题 */
-.list_name{
-position: absolute;
-   text-align: left;
-   top: 30rpx;
-   /* left: 180rpx; */
-   /* color: #333333; */
-   width: 350rpx;
-   font-size: 30rpx;
-   display: -webkit-box;    
--webkit-box-orient: vertical;    
--webkit-line-clamp: 2;    
-overflow: hidden;
- 
+.now-oil-text{
+  margin-right: 20rpx;
 }
-.ctx{
-  margin: 19px 70px 0px 15px;
+
+.allPrice{
+  margin: 0;padding: 0;
+  /* background-color: plum; */
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+  color: #d81e06;
 }
-/* 列表价格 */
-.list_money{
-  position: absolute;
-  font-size: 32rpx;
-  right: 0rpx;
-  bottom: 30rpx;
-}
- 
- 
- 
-/* 总和 */
-.count_eg{
-  position: relative;
-  width: 100%;
-  height: 90rpx;
-  line-height: 90rpx;
-  border-bottom: 2rpx solid #EBEBEB;
-  /* background-color: red; */
-}
-/* 总和居中 */
-.count_cent{
-  position: relative;
-  width: 90%;
-  display: inline-block;
-  height: 90rpx;
-  line-height: 90rpx;
-}
-/* 商品数量 */
-.cont_cent_name{
-  position: relative;
-  font-size: 28rpx;
- float: right;
-}
-.cont_ce_mon{
-  font-size: 28rpx;
-}
-/* 总计金额 */
-.cont_cen_money{
-  position: relative;
-   font-size: 28rpx;
-   margin-right: 15rpx;
-   float: right;
-}
- 
+
 /* 标签功能 */
 .coent_list{
-  position: relative;
+  display: flex;
+  padding: 10rpx 0;
+  justify-content: flex-end;
+  align-items: center;
+  /* position: relative; */
   width: 100%;
-  height: 15%;
   /* border-bottom: 6rpx solid #ddd; */
 
 }
 /* 删除 */
-.coent_del ,.coent_cha_base,.coent_log_base{
-  position: absolute;
-  top: 20%;
+.coent_auth_base,.coent_payMoney,.coent_del ,.coent_cha_base,.coent_log_base{
+  /* position: absolute;
+  top: 20%; */
   display: inline-block;
-  width: 140rpx;
+  width: 120rpx;
   text-align: center;
   height: 40rpx;
   border: 1rpx solid #d3d3d3;
-  font-size: 23rpx;
+  font-size: 22rpx;
   line-height: 40rpx;
-}
-.coent_del{
-  right:300rpx;
-}
- /* 修改 */
-.coent_cha_base{
-  right:150rpx;
-}
-
- 
-/* 取消 */
-.coent_log_base{
-    right:0rpx;
+  margin-left: 10rpx;
 }
 .total{
 padding:5rpx 15rpx;
 }
 .shop{
   width: 100%;
-  height: 70%;
+
 }
 .proInfo{
   width: 100%;
@@ -227,18 +167,32 @@ padding:5rpx 15rpx;
 .proInfo{
   width: 100%;
   height: 100%;
+  padding: 10rpx 0;
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
 }
 .proInfo_text{
   display: flex;
+  padding: 10rpx 0;
   font-size: 24rpx;
   color: #797979;
-  width: 100%;
   /* margin-bottom: 10px ; */
 }
 
 .proInfo_text_title .iconfont{
+  font-size: 30rpx;
+}
+.pick_address{
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+.pick_address>.proInfo_text{
+  margin-right: 15rpx;
+}
+.icon-qian-copy{
+  color: red;
   font-size: 30rpx;
 }
 .icon-qianjinjiantou{
@@ -250,11 +204,7 @@ padding:5rpx 15rpx;
   font-size: 24rpx;
   color: rgb(121, 118, 118); 
 }
- 
-/* .proInfo_text_acount text{
-  font-size: 32rpx;
-  color: #000; 
-} */
+
 .proInfo_mess_acount{
   font-size: 24rpx;
   color: #333;
@@ -265,14 +215,23 @@ padding:5rpx 15rpx;
   /* flex-direction: column; */
   color: rgb(121, 118, 118); 
 }
-.orderNum{
-  text-align: center;
-  font-size: 24rpx;
+/* 验证通过 */
+.showContent{
+  padding: 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  color: white; 
-  height: 75rpx;
-  line-height: 75rpx;
+  justify-content: space-between;
+  font-size: 22rpx;
 }
- 
+.showMain{
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.imga{
+  margin-right: 20rpx;
+}

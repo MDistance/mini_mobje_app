@@ -1,23 +1,39 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/invoice-history/invoice-history",
+    "pages/invoice/invoice",
+    "pages/network-details/network-details",
     "pages/vaddService/vaddService",
+    "pages/order/order",
+    "pages/desposit/desposit",
+    "pages/delr/delr",
+    "pages/pay-fees/pay-fees",
+    "pages/pay-result/pay-result",
+    "pages/chooseDateTime/chooseDateTime",
+    "pages/chooseOutlets/chooseOutlets",
+    "pages/add-invoice-title/add-invoice-title",
+    "pages/invoice-management/invoice-management",
     "pages/my/my",
     "pages/service/service",
-    "pages/orderPay/orderPay",
+    "pages/invoice-title/invoice-title",
+    "pages/inputtips/index",
+    "pages/changeOrder/changeOrder",
     "pages/orderDetail/orderDetail",
-    "pages/order/order",
-    "pages/logs/logs",
+    "pages/changeAddService/changeAddService",
+    "pages/networkNum/networkNum",
+    "pages/orderPay/orderPay",
     "pages/login/login",
-    "pages/about/about",
+    "pages/carType/carType",
+    "pages/logs/logs",
     "components/PagingView/index",
-    "pages/newGuide/newGuide",
-    "pages/networkNum/networkNum"
-
+    "pages/changeOrderPay/changeOrderPay",
+    "pages/poi/poi",
+    "pages/newGuide/newGuide"
   ],
   "tabBar": {
     "color": "#333333",
-    "selectedColor": "#00A3FF",
+    "selectedColor": "#ff7f00",
     "backgroundColor": "#ffffff",
     "list": [
       {
@@ -33,12 +49,6 @@
         "selectedIconPath": "/assets/tabbar/dingdanS.png"
       },
       {
-        "pagePath": "pages/service/service",
-        "text": "客服",
-        "iconPath": "/assets/tabbar/kefu.png",
-        "selectedIconPath": "/assets/tabbar/kefuS.png"
-      },
-      {
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "/assets/tabbar/my.png",
@@ -48,7 +58,7 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#2ab6b7",
+    "navigationBarBackgroundColor": "#00A3FF",
     "navigationBarTitleText": "摩捷短租",
     "navigationBarTextStyle": "black"
   },

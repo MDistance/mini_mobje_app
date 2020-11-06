@@ -1,14 +1,26 @@
-//index.js
 //获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    shows:false,
-    isShowPopView2:false,
-    currentDateStr1:'',
+    pickup_city:'取车城市',
+    pickup_outlets:'取车网点',
+    return_city:'还车城市',
+    return_outlets:'还车网点',
+    home_delivery:'送车上门地点',
+    pickup_time:'8:00',
+    return_time:'8:00',
+    dateTime:{},
+    startDate: '',
+    endDate: '',
+    activeCar:0,
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
-    hiddenmodalput: true,
+    show: false,
+    showCar:false,
+    showView:false,
+    hidden:true,
+    radio: '0',
+    checked: false,
     imagesArr:[
       {
         id: 0,
@@ -74,56 +86,73 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  switch1Change:function(e){
-    this.setData({
-      shows:e.detail.value
-    });
-  },
-  ClickTimeBtn1: function () {
-    this.setData({
-      isShowPopView2: true,
-    });
-  },
-  confirm1: function (event){
-    console.log(event.detail);
-    this.setData({
-      currentDateStr1: event.detail,
-    });
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
   },
 
-//点击按钮痰喘指定的hiddenmodalput弹出框
-modalinput: function () {
-      this.setData({
-          hiddenmodalput: !this.data.hiddenmodalput
+
+  // 点击车型
+  showCar(event) {
+      var that=this;
+      that.setData({
+        showView:true
       })
   },
- /**
-  * 隐藏模态对话框
-  */
+
+  onClose() {
+    this.setData({ showView:false });
+  },
+  // 送车上门按钮
+  onChangeCar(event) {
+    this.setData({
+      checked: event.detail,
+    });
+  },
+  // 点击车型tab按钮
+  onChange(event) {
+    this.setData({
+      radio: event.detail,
+    });
+  },
+//点击按钮弹出基础价格的详情信息框
+modalinput: function () {
+      this.setData({
+        show: !this.data.show
+      })
+  },
+  // 选择日期
+  bindTimeChange: function () {
+    wx.navigateTo({
+      url: '/pages/chooseDateTime/chooseDateTime',
+      events:{
+        getDate: ({start, end,pickup_time, return_time}) => {
+          this.setData({
+            startDate:start,
+            endDate:end,
+            pickup_time:pickup_time,
+            return_time:return_time
+          });
+            console.log(start, end,pickup_time,return_time)
+        },
+        getPickupOutlets: ({pickup_outlets}) => {
+          this.setData({
+            pickup_outlets:pickup_outlets,
+          });
+            console.log(pickup_outlets)
+        },
+        
+      }
+    })
    
- hideModal: function () {
-  this.setData({
-    hiddenmodalput: true
-  });
-},
-
-/**
-* 对话框取消按钮点击事件
-*/
-onCancel: function () {
-  this.hideModal();
-},
-/**
-* 对话框确认按钮点击事件
-*/
-
-onConfirm: function () {
-  wx.showToast({
-      title: '提交成功',
-      icon: 'success',
-      duration: 2000
+  },
+// 确认按钮
+confirm: function () {
+  wx.navigateTo({
+    url: '/pages/vaddService/vaddService',
   })
-  this.hideModal();
   },
   //事件处理函数
   bindViewTap: function() {
@@ -131,7 +160,11 @@ onConfirm: function () {
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  formatDate(date) {
+    return `${date.getMonth() + 1}月${date.getDate()}日`;
+  },
+  onLoad: function (options) {
+    showView:(options.showView=="true"?true:false)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -158,6 +191,17 @@ onConfirm: function () {
         }
       })
     }
+
+   
+
+    const now = new Date();
+    const next = new Date(now.getTime() + +24*60*60*1000)
+    wx.setStorageSync('startDate', now)
+    wx.setStorageSync('endDate', next)
+    this.setData({
+      startDate: `${this.formatDate(now)}`,
+      endDate: `${this.formatDate(next)}`
+    });
   },
   // 取车城市
   bindPickerCity: function (e) {
@@ -168,7 +212,7 @@ onConfirm: function () {
   // 取车网点
   bindPickerAddress: function () {
     wx.navigateTo({
-      url: '../networkNum/networkNum',
+      url: '../chooseOutlets/chooseOutlets',
     })
   },
   // 还车城市
@@ -180,20 +224,10 @@ onConfirm: function () {
   // 还车网点
   bindBackAddress: function () {
     wx.navigateTo({
-      url: '../reserve/reserve?travelType=1',
+      url: '../chooseOutlets/chooseOutlets',
     })
   },
-  // 车型选择
-  bindPickerChange: function (e) {
-    this.setData({
-      index: e.detail.value
-    })
-  },
-  confirm: function () {
-    wx.navigateTo({
-      url: '/pages/orderDetail/orderDetail',
-    })
-    },
+
   // 新手指引
   jump: function () {
     wx.navigateTo({

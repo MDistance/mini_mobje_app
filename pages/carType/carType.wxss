@@ -1,0 +1,13 @@
+/* pages/carType/carType.wxss */
+.page{
+  width: 100%;
+  height: 100%;
+  padding: 30rpx;
+}
+.carContent{
+  border: 1px solid blcak;
+  box-sizing: border-box;
+  width: 100%;
+  height: 400rpx;
+  padding: 20rpx;
+}

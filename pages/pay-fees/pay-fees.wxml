@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="header">
+      <text class="header-tit">补交项</text>
+  </view>
+   <view class="main">
+    <van-cell-group>
+        <van-field
+        value="大众CC"
+       label="租赁车型"
+          disabled
+        />
+        <van-field
+        value="{{ username }}"
+        label="租赁套餐"
+          disabled
+        />
+        <van-field
+        value="{{ username }}"
+        label="租赁时长"
+          disabled
+        />
+        <van-field
+        value="{{ username }}"
+       label="用户名"
+          disabled
+        />
+        <van-field
+        value="{{ username }}"
+        label="用户名"
+          disabled
+        />
+      </van-cell-group>
+   </view>
+  <view class="footer">
+    <van-submit-bar
+  price="{{ 3050 }}"
+  button-text="支付"
+  bind:submit="onSubmit"
+/>
+  </view>
+</view>

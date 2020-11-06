@@ -1,0 +1,52 @@
+<view class="container">
+   <view class="header">
+    <van-calendar
+      type="range"
+      formatter="{{ formatter }}"
+      poppable="{{ false }}"
+      color="#07c160"
+      max-range="{{ 15 }}"
+      show-confirm="{{ false }}"
+      show-title="{{ false }}"
+      confirm-text="完成"
+      confirm-disabled-text="请选择结束时间"
+      class="calendar"
+      bind:close="onClose"
+      bind:confirm="onConfirm"
+    />
+    </view>
+   <view class="main">
+   
+   </view>
+   <view class="footer">
+     <view class="footer-top">
+      <view class="section">
+          <view class="section__title">{{startDate}}</view>
+          <picker bindchange="bindPickerChange"  value="{{index}}" range="{{pickerHourTextArr}}">
+            <view class="picker">
+             {{pickerHourTextArr[index]}}
+             <image src="/assets/ic_right_gray_arrow.png" style="width:20rpx;height:20rpx"></image>
+            </view>
+          </picker>
+      </view>
+      <view class="section">
+            <view class="section__title">取还车时间</view>
+            <view class="picker">
+             3天
+            </view>
+      </view>
+       <view class="section">
+            <view class="section__title">{{endDate}}</view>
+            <picker bindchange="bindBackerChange" mode = selector value="{{indexBack}}" range="{{backerHourTextArr}}">
+              <view class="picker">
+                {{backerHourTextArr[indexBack]}}
+                <image src="/assets/ic_right_gray_arrow.png" style="width:20rpx;height:20rpx"></image>
+              </view>
+            </picker>
+       </view>
+     </view>
+     <view class="footer-bottom">
+         <button class="okBtn" bindtap="okBtn">确定</button>
+     </view>
+  </view>
+</view>

@@ -7,6 +7,11 @@ Page({
   data: {
 
   },
+  changeBtn:function(){
+    wx.navigateTo({
+      url: '/pages/changeOrder/changeOrder',
+    })
+  },
   onSubmit:function(){
     wx.navigateTo({
       url: '/pages/orderPay/orderPay',

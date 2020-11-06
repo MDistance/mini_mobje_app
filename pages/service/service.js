@@ -5,34 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    items: [
-			{
-				icon: '',
-				text: '查询信息',
-				path: '/pages/order/list/index'
-			}, 
-			{
-				icon: '',
-				text: '预订',
-				path: '/pages/address/list/index'
-			}, 
-			{
-				icon: '',
-				text: '修改',
-				path: '18521708248',
-			}, 
-			{
-				icon: '',
-				text: '取消',
-				path: '/pages/help/list/index',
-      },
-      {
-				icon: '',
-				text: '发票相关',
-				path: '/pages/help/list/index',
-			},
-    ],
+    customerTel:'17549643375',
     activeNames: ['1']
+  },
+  phoneCall: function () {
+    console.log("phoneCall")
+    wx.makePhoneCall({
+      phoneNumber: this.data.customerTel 
+    })
   },
   scrollToTop() {
     this.setAction({
@@ -43,6 +23,11 @@ Page({
     this.setData({
       activeNames: event.detail,
     });
+  },
+  useCarCity(){
+  wx.navigateTo({
+    url: '/pages/details/details',
+  })
   },
   /**
    * 生命周期函数--监听页面加载
