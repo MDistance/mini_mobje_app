@@ -1,10 +1,6 @@
 {
-<<<<<<< HEAD
   "usingComponents": {
     "van-button": "/miniprogram_npm/@vant/weapp/button/index"
   },
-=======
-  "usingComponents": {},
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
   "navigationBarTitleText": "发票抬头"
 }

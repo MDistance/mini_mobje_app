@@ -13,16 +13,12 @@
             </view>
       </view>
       <view class="main">
-<<<<<<< HEAD
         <view class="header">
           <text class="title">我的服务</text>
         </view>
           <van-cell size="large" class="collapseConItem" icon="notes-o" is-link title="发票管理" link-type="navigateTo" url="/pages/invoice-management/invoice-management"/>
           <van-cell size="large" class="collapseConItem" icon="coupon-o" is-link title="违章记录" link-type="navigateTo" url="/pages/delr/delr"/>
         <!-- <view class="content">
-=======
-        <view class="content">
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
           <view class="conItem" bindtap="invoiceManage">
              <image class="img" src="/assets/fapiaoguanli1.png"></image>
              <text>发票管理</text>

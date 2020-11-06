@@ -10,11 +10,7 @@ Page({
   },
   invoiceTitle:function(){
      wx.navigateTo({
-<<<<<<< HEAD
        url: '/pages/invoice/invoice',
-=======
-       url: '/pages/invoice-title/invoice-title',
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
      })
   },
   invoiceHistory:function(){

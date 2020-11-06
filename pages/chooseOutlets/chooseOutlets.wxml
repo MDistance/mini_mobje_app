@@ -4,11 +4,7 @@
       <view class="map_header">
         <view class="map_headerCon">
           <image class="letf_search" src="{{'/assets/ic_search.png'}}" bindtap="onClickSearch"/>
-<<<<<<< HEAD
           <input class="weui-input" data-city="{{city}}"   data-longitude="{{longitude}}" data-latitude="{{latitude}}" value="{{backfill}}" placeholder="输入景点，地址寻找附近门店"/>
-=======
-          <input class="weui-input" data-city="{{city}}"  bindtouchstart="bindInput" data-longitude="{{longitude}}" data-latitude="{{latitude}}" value="{{backfill}}" placeholder="输入景点，地址寻找附近门店"/>
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
         </view>
         <text class="toMap" bindtap="toMap">地图</text>
       </view>
@@ -21,7 +17,6 @@
             bind:click-nav="onClickNav"
             bind:click-item="onClickItem"
           >
-<<<<<<< HEAD
           <view slot="content" class="content" wx:for="{{netWorkAddress}}" wx:key="key" >
                   <view class="con-left"  bindtap="toIndexNet">
                     <view class="conHeader">
@@ -49,19 +44,6 @@
                     <view class="con-right-bot"></view>
                   </view>
           </view>
-=======
-          <image src="https://img.yzcdn.cn/vant/apple-1.jpg" slot="content" />
-          <!-- <view slot="content">
-            <view class="conHeader">
-              <text class="addressTitle"></text>
-            </view>
-            <view class="conMain">
-              <text class="address">
-
-              </text>
-            </view>
-          </view> -->
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
         </van-tree-select>
       </view> 
     

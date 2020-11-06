@@ -1,5 +1,4 @@
 <!--pages/vaddService/vaddService.wxml-->
-<<<<<<< HEAD
 <form bindsubmit="submitForm">
   <view class="container">
     <view class="header">
@@ -28,65 +27,6 @@
                   placeholder="请输入姓名"
                   bind:click-icon="onClickIcon"
                 />
-=======
-<view class="container">
-   <view class="header">
-      <view class="headerLeft semicircle"></view>
-      <view class="mid">
-        <text class="headerText">已选  </text>
-      <text class="iconfont icon-qian01 sizeFont"></text>
-      <text class="headerText_price sizeFont">   280</text>
-      </view>
-      <view class="headerRight semicircle"></view>
-   </view>
-   <view class="main">
-      <view class="content">
-          <view class="contentHeader">
-             <text class="headerTitle">租赁人信息</text>
-          </view>
-          <view class="safeguard">
-            <van-cell-group>
-              <van-field
-                value="{{ username }}"
-                required
-                clearable
-                label="用户名"
-                placeholder="请输入姓名"
-                bind:click-icon="onClickIcon"
-              />
-            </van-cell-group>
-            <van-cell-group>
-              <van-field
-                value="{{ userIDNum }}"
-                required
-                clearable
-                label="身份证号"
-                placeholder="请输入身份证号"
-                bind:click-icon="onClickIcon"
-              />
-            </van-cell-group>
-            <van-cell-group>
-              <van-field
-                value="{{ userphone }}"
-                required
-                clearable
-                label="手机号"
-                placeholder="请输入手机号"
-                bind:click-icon="onClickIcon"
-              />
-            </van-cell-group>
-            <van-button  round type="info"  size="small"  block plain >租赁人认证</van-button>
-          </view>
-      </view>
-      <view class="content">
-          <view class="contentHeader">
-             <text class="headerTitle">租车保障</text>
-          </view>
-          <view class="safeguard">
-             <van-cell-group>
-                <van-cell icon="question-o"  title="无忧保障（50元每天）" border="{{ true }}" />
-                  <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
               </van-cell-group>
               <van-cell-group>
                 <van-field
@@ -129,7 +69,6 @@
                 <van-cell icon="question-o" title="基础保障（20元每天）"/>
                 <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
               </van-cell-group>
-<<<<<<< HEAD
             </view>
         </view>
         <view class="content addService">
@@ -162,48 +101,6 @@
               </van-cell-group>
             </view>
         </view>
-=======
-          </view>
-      </view>
-      <view class="content">
-          <view class="contentHeader">
-             <text class="headerTitle">押金</text>
-          </view>
-          <view class="safeguard">
-            <van-cell-group>
-              <van-field
-                value="200元"
-                label="需支付押金"
-                left-icon="balance-list-o"
-                disabled
-                border="{{ false }}"
-              />
-            </van-cell-group>
-          </view>
-      </view>
-   </view>
-   <view class="footer">
-     <van-cell-group>
-      <van-cell icon="description" title="取车凭证"  label="本人有效身份证+驾驶证原件 （正副页）+信用卡" border="{{ false }}" />
-    </van-cell-group>
-    <van-cell-group>
-      <van-cell icon="gold-coin-o" title="押金金额"  label="取车时刷取车辆押金，还车时当场撤销预授权；         还车时刷取违章押金，还车后30-45天无违章自动解冻。" border="{{ false }}" />
-    </van-cell-group>
-    <van-cell-group>
-      <van-cell icon="coupon-o" title="发票"  label="可在”摩捷短租“申请开票，还车后为您开具增值税发票。"  border="{{ false }}" />
-    </van-cell-group>
-    <view class="read">
-        <checkbox-group bindchange="checkboxChange" data-checked='{{isChecked}}'>
-              <checkbox name="box_check" style="transform: scale(0.8,0.7);"></checkbox>
-              我已阅读并同意
-              <text style="color:red;" bindtap="treaty">《规则说明》</text>
-        </checkbox-group>
-    </view>
-    <view class="empty"></view>
-    </view>
-    <view class="subBtn">
-      <view class="subBtnText" bindtap="subBtnText"> 提交订单</view>
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
     </view>
     <view class="footer">
       <van-cell-group>

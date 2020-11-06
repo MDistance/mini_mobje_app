@@ -37,29 +37,7 @@ page{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-<<<<<<< HEAD
 
-=======
-  margin-top: 10rpx;
-}
-.collapseItem{
-
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  background-color: rgb(226, 226, 226,0.5);
-}
-.collapseConItem:nth-last-child(0){
-  border-bottom:none;
-}
-.collapseConItem{
-  height: 80rpx;
-  line-height: 80rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1rpx solid #e8e8e8;
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
 }
 
 

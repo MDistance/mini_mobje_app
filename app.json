@@ -1,6 +1,5 @@
 {
   "pages": [
-<<<<<<< HEAD
     "pages/index/index",
     "pages/invoice-history/invoice-history",
     "pages/invoice/invoice",
@@ -25,38 +24,12 @@
     "pages/networkNum/networkNum",
     "pages/orderPay/orderPay",
     "pages/login/login",
-=======
-    "pages/vaddService/vaddService",
-    "pages/index/index",
-    "pages/invoice-title/invoice-title",
-    "pages/invoice-management/invoice-management",
-    "pages/order/order",
-    "pages/inputtips/index",
-    "pages/chooseOutlets/chooseOutlets",
-    "pages/desposit/desposit",
-    "pages/changeOrder/changeOrder",
-    "pages/orderDetail/orderDetail",
-    "pages/changeAddService/changeAddService",
-    "pages/service/service",
-    "pages/networkNum/networkNum",
-    "pages/orderPay/orderPay",
-    "pages/login/login",
-    "pages/my/my",
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
     "pages/carType/carType",
     "pages/logs/logs",
     "components/PagingView/index",
     "pages/changeOrderPay/changeOrderPay",
-    "pages/poi/poi",
-<<<<<<< HEAD
-    "pages/newGuide/newGuide"
-=======
-    "pages/network-details/network-details",
-    "pages/delr/delr",
-    "pages/pay-fees/pay-fees",
-    "pages/pay-result/pay-result",
-    "pages/invoice-history/invoice-history"
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
+    "pages/poi/poi"
+    
   ],
   "tabBar": {
     "color": "#333333",

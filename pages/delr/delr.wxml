@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <view class="container">
   <view class="header">
     <view class="header-title">
@@ -51,7 +50,3 @@
         暂无违章记录
     </view>
 </view>
-=======
-<!--pages/delr/delr.wxml-->
-<text>pages/delr/delr.wxml</text>
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c

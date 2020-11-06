@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <view class="container">
   <view class="header">
     <text class="header-title">暂无发票抬头</text>
@@ -10,7 +9,3 @@
     <text class="footerText" bindtap="addInvoiceTitle">新增发票抬头</text>
   </view>
 </view>
-=======
-<!--pages/invoice-title/invoice-title.wxml-->
-<text>pages/invoice-title/invoice-title.wxml</text>
->>>>>>> 526926e08a8f3c0bd687c16076f7d1f014019d9c
