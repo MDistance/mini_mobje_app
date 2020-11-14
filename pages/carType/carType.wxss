@@ -1,13 +1,164 @@
-/* pages/carType/carType.wxss */
-.page{
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  height: 100%;
-  padding: 30rpx;
+
 }
-.carContent{
-  border: 1px solid blcak;
+.main{
+  padding:10rpx 20rpx;
   box-sizing: border-box;
+  background-color: #fff;
+}
+.van-tabs{
+  padding:0rpx 10rpx;
+}
+/* 租赁方式选择 */
+.rental{
   width: 100%;
-  height: 400rpx;
+  background-color: #fff;
+  display: flex;
+  padding:10rpx 20rpx;
+  box-sizing: border-box;
+  flex-direction: column;
+  font-size: 20rpx;
+}
+.rentalText{
+  font-size: 30rpx;
+}
+.rentalDays{
+  padding: 10rpx 0;
+  display: flex;
+  align-items: center;
+}
+.backDateTextPrice{
+  font-size:35rpx;
+  color: red;
+}
+/* 背景白色代码 */
+.itemBackColor{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
   padding: 20rpx;
+}
+/* 普通日租方式 */
+.page-section-spacingItemOne{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0;
+  border-bottom: 1rpx solid #e8e8e8;
+
+}
+.van-stepper{
+  margin-right: 10rpx;
+}
+.main,.rental{
+  margin-bottom: 20rpx;
+}
+
+.page-section-title{
+  padding: 20rpx;
+  box-sizing: border-box;
+   margin-bottom: 20rpx;
+   text-align: center;
+   box-shadow:1rpx 1rpx 10rpx #f1e7f7;
+}
+.page-section-spacingItem{
+  display: flex;
+  height: 50rpx;
+  margin-top: 20rpx;
+  justify-content: space-between;
+}
+
+/* 归还日期代码 */
+.backDate{
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  font-size:30rpx;
+  align-items: center;
+  justify-content: space-between;
+  padding:40rpx 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 10rpx;
+}
+/* 确认按钮 */
+.confirmBtn{
+  padding:30rpx 20rpx;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.btn{
+  width: 100%;
+  background-color: #ff7f00;
+  color: white;
+}
+/* 车型样式 */
+.car_type{
+  background-color:#FFF;
+}
+.carTypeItem{
+  border-radius:10rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+  background-color: rgb(233, 233, 233);
+}
+.avgDayItem{
+  display: flex;
+  align-items: baseline;
+  font-size: 24rpx;
+  color: red;
+}
+.rentalText{
+  font-size: 24rpx;
+}
+.imgSize{
+  display: inline-block;
+}
+.carImg{
+  z-index: 99;
+  width: 150rpx;
+  height:100rpx;
+}
+.carName{
+  color: rgb(41, 146, 111);
+}
+.carDesc{
+  font-size: 20rpx;
+  color: #bebaba;
+}
+.scrollItem{
+  margin-bottom:10rpx;
+}
+.carTextDesc,.avgDayItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.carTextDesc-left,.carTypeItem-mid{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.carTypeItem-mid{
+  width: 90%;
+  padding: 10rpx 20rpx;
+}
+
+.avgDayPriceText{
+  color: #969696;
+}
+.avgDayPrice{
+  color: rgb(255, 161, 46);
 }

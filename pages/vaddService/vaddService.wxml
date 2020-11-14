@@ -1,113 +1,87 @@
 <!--pages/vaddService/vaddService.wxml-->
-<form bindsubmit="submitForm">
+<!-- <form bindsubmit="submitForm"> -->
   <view class="container">
     <view class="header">
         <view class="headerLeft semicircle"></view>
         <view class="mid">
           <text class="headerText">已选  </text>
-        <text class="iconfont icon-qian01 sizeFont"></text>
-        <text class="headerText_price sizeFont">   280</text>
+        <text class=" sizeFont">¥ </text>
+        <text class="headerText_price sizeFont">  {{price}}</text>
         </view>
         <view class="headerRight semicircle"></view>
     </view>
     <view class="main">
-        <view class="content">
-            <view class="contentHeader">
-              <text class="headerTitle">租赁人信息</text>
-            </view>
-            <view class="safeguard">
-          
-              <van-cell-group>
-                <van-field
-                  value="{{ username }}"
-                  required
-                  name="username"
-                  clearable
-                  label="用户名"
-                  placeholder="请输入姓名"
-                  bind:click-icon="onClickIcon"
-                />
-              </van-cell-group>
-              <van-cell-group>
-                <van-field
-                  value="{{ userIDNum }}"
-                  required
-                  name="userIDNum"
-                  clearable
-                  label="身份证号"
-                  placeholder="请输入身份证号"
-                  bind:click-icon="onClickIcon"
-                />
-              </van-cell-group>
-              <van-cell-group>
-                <van-field
-                  value="{{ userphone }}"
-                  required
-                  clearable
-                  name="userphone"
-                  label="手机号"
-                  placeholder="请输入手机号"
-                  bind:click-icon="onClickIcon"
-                />
-              </van-cell-group>
-              <view class="submit-btn">
-                  <button class='button' loading="{{isLoading}}" hover-start-time="200" disabled="{{isdisabled}}" formType="submit">租赁人认证</button>
-              </view>
       
-            </view>
-        </view>
         <view class="content">
             <view class="contentHeader">
               <text class="headerTitle">租车保障</text>
             </view>
-            <view class="safeguard">
+            <view class="safeguard"  wx:for-items="{{insuranceList}}" wx:key="index">
               <van-cell-group>
-                  <van-cell icon="question-o"  title="无忧保障（50元每天）" border="{{ true }}" />
-                    <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
+                  <van-cell icon="question-o" data-show="{{item.show}}" title="{{item.insuranceName+'('+item.insurancePrice+'元'+')'}}" border="{{ true }}" bind:click="insuranceExplain"/>
+                    <van-switch checked="{{ item.checked }}" name="{{item.insuranceId}}" data-index="{{index}}" bind:change="onChangeSwitchInsuranceList" size="24px" />
                 </van-cell-group>
-              <van-cell-group>
-                <van-cell icon="question-o" title="基础保障（20元每天）"/>
-                <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
-              </van-cell-group>
             </view>
         </view>
         <view class="content addService">
             <view class="contentHeader">
               <text class="headerTitle">增值服务</text>
             </view>
-            <view class="appreciation">
+            <view class="appreciation" wx:for-items="{{addedList}}" wx:key="index">
               <van-cell-group>
-                <van-cell icon="question-o" title="整备费 （20元每次）"  />
-                <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
+                <van-cell icon="question-o" data-show="{{item.show}}" title="{{item.addedName+'('+item.addedPrice+'元'+')'}}" bind:click="addedExplain" />
+                <van-switch checked="{{ item.checked }}" data-index="{{index}}" bind:change="onChangeSwitchAddedList" size="24px" />
               </van-cell-group>
-              <van-cell-group>
-                  <van-cell icon="question-o" title="加油服务费 （20元每次）"  />
-                  <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="24px" />
-                </van-cell-group>
             </view>
         </view>
         <view class="content">
             <view class="contentHeader">
+              <text class="headerTitle">租赁人信息</text>
+            </view>
+            <view class="safeguard">
+              <view class="input-item">
+                <text class="tit">用户名 :</text>
+                <input  type="text" placeholder="请输入姓名" id="trueName" name="trueName" bindinput="handleInputChange"/>
+              </view>
+              <view class="input-item">
+                <text class="tit">身份证号 :</text>
+                <input  type="number" placeholder="请输入身份证号" id="identityNumber" name="identityNumber" bindinput="handleInputChange"/>
+              </view>
+              <view class="input-item">
+                <text class="tit">手机号码 :</text>
+                <input  type="number" placeholder="请输入手机号码" id="phone" name="phone" bindinput="handleInputChange"/>
+              </view>
+              <view class="submit-btn">
+                  <button class='button' bindtap="checkUserAuth" loading="{{isLoading}}" hover-start-time="200" disabled="{{isdisabled}}" formType="submit">租赁人认证</button>
+              </view>
+      
+            </view>
+        
+        </view>
+        <view class="content">
+            <view class="contentHeader">
               <text class="headerTitle">押金</text>
+              <text class="headerTitleDesc ">(押金需单独支付)</text>
             </view>
             <view class="safeguard">
               <van-cell-group>
                 <van-field
-                  value="200元"
-                  label="需支付押金"
+                  value="{{ruiesAmt}}"
+                  label="押金金额"
                   left-icon="balance-list-o"
                   readonly
                 />
               </van-cell-group>
             </view>
         </view>
+      
     </view>
     <view class="footer">
       <van-cell-group>
         <van-cell icon="description" title="取车凭证"  label="本人有效身份证+驾驶证原件 （正副页）+信用卡" border="{{ false }}" />
       </van-cell-group>
       <van-cell-group>
-        <van-cell icon="gold-coin-o" title="押金金额"  label="取车时刷取车辆押金，还车时当场撤销预授权；         还车时刷取违章押金，还车后30-45天无违章自动解冻。" border="{{ false }}" />
+        <van-cell icon="gold-coin-o" title="押金金额(需更改内容)"   label="取车时刷取车辆押金，还车时当场撤销预授权；         还车时刷取违章押金，还车后30-45天无违章自动解冻。" border="{{ false }}" />
       </van-cell-group>
       <van-cell-group>
         <van-cell icon="coupon-o" title="发票"  label="可在”摩捷短租“申请开票，还车后为您开具增值税发票。"  border="{{ false }}" />
@@ -123,6 +97,28 @@
       </view>
   </view>
   <view class="subBtn">
-    <button class="subBtnText"   disabled="{{isdisabled}}" bindtap="subBtnText" formType="submit">提交订单</button>
+    <button class="subBtnText"   disabled="{{isdisabled}}" bindtap="subBtnText" >提交订单</button>
   </view>
-</form>
+<!-- </form> -->
+
+
+<!-- // 租车保障弹窗 -->
+<van-dialog
+  use-slot
+  data-index="{{index}}"
+  show="{{ insuranceExplain }}"
+>
+<view style="width:500rpx;height:500rpx" wx:for-items="{{insuranceList}}" wx:key="index">
+ {{item.insuranceExplain}}
+</view>
+</van-dialog>
+<!-- // 增值服务弹窗 -->
+<van-dialog
+  use-slot
+  show="{{ addedExplain }}"
+  data-index="{{index}}"
+>
+<view style="width:500rpx;height:500rpx" wx:for-items="{{addedList}}"  wx:key="index">
+  {{item.addedExplain}}
+</view>
+</van-dialog>

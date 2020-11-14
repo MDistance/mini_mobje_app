@@ -1,41 +1,19 @@
 <view class="container">
   <view class="header">
-      <text class="header-tit">补交项</text>
+      <text class="header-tit">补交项 :</text>
   </view>
    <view class="main">
     <van-cell-group>
-        <van-field
-        value="大众CC"
-       label="租赁车型"
-          disabled
-        />
-        <van-field
-        value="{{ username }}"
-        label="租赁套餐"
-          disabled
-        />
-        <van-field
-        value="{{ username }}"
-        label="租赁时长"
-          disabled
-        />
-        <van-field
-        value="{{ username }}"
-       label="用户名"
-          disabled
-        />
-        <van-field
-        value="{{ username }}"
-        label="用户名"
-          disabled
-        />
+      <van-field wx:for="{{supplementaryDetailsList}}" wx:key="id"
+        value="{{item.amt}}元"
+        label="{{item.name}} :" readonly />
       </van-cell-group>
    </view>
   <view class="footer">
     <van-submit-bar
-  price="{{ 3050 }}"
-  button-text="支付"
-  bind:submit="onSubmit"
-/>
+        price="{{ total }}"
+        button-text="支付"
+        bind:submit="sendPay"
+      />
   </view>
 </view>

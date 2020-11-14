@@ -1,50 +1,50 @@
 /**index.wxss**/
-Page {
+.main {
   width: 100%;
   height: 100%;
-  background-color: #F8F8F8;
+  position: relative;
 }
  /* 头部轮播部分 */
 .homeHeader {
   width: 100%;
-  height: 380rpx;
+  height: 400rpx;
 }
-.homeHeader .swiper {
+.swiper {
   width: 100%;
   height: 100%;
 }
 /* 中间内容 */
 .container{
- padding:30rpx;
- height:80%;
+  position: absolute;
+  top: 350rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding:30rpx;
+
 }
 .content{
-  width: 100%;
-  height:100%;
-  position: relative;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+
 }
 .content .car{
-  position: absolute;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   border-radius:15rpx;
-  top: -40rpx;
-  font-size: 14px;
+  font-size: 16px;
   box-sizing: border-box;
   width: 100%;
   padding:30rpx;
+  margin-bottom: 20rpx;
 
 }
 /* 选择城市 */
 .carCity{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
 /* 基础价格 弹窗 */
 .van-dialog{
@@ -64,16 +64,26 @@ Page {
 /* 取车还地点代码 */
 .carCityItem{
   width: 100%;
-  padding:30rpx 0;
+  padding:20rpx 0;
   display: flex;
+  box-sizing: border-box;
   justify-content: space-between;
   border-bottom: #dedede 1px solid;
 }
 .pickerShowCar{
   display: flex;
   justify-content: space-between;
+  align-items:center;
   text-align: center;
-  align-items: center;
+}
+.showCarRight{
+  display: flex;
+  justify-content: space-between;
+  align-items:baseline;
+}
+.icon-line-copy{
+  margin-right: 5rpx;
+  margin-left: 5rpx;
 }
 .picker{
   display: flex;
@@ -81,26 +91,67 @@ Page {
   justify-content: space-between;
   text-align: center;
   align-items: center;
+
+}
+.pickerStyle{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.pick_outlets{
+  display: block;
+  /* 单行文本溢出 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width:180rpx;
+}
+.allDays{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .daysStyle{
   display: flex;
   align-items: center;
   text-align: center;
   padding:15rpx;
-  color: #fff;
-  border-radius: 50%;
-  background-color: #84cdf7;
+  color:#84cdf7;
+  font-size:35rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
   box-sizing: border-box;
 }
 .section{
+  padding: 0rpx  18rpx;
+  box-sizing: border-box;
   display: flex;
-  width:24%;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
 }
-.section__title{
+.section__title_pick::before{
+  text-align: center;
+  display: inline-block;
+  margin-right: 10rpx;
+  content: '';
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background-color: rgb(241, 148, 25);
+}
+.section__title_back::before{
+  text-align: center;
+  display: inline-block;
+  margin-right: 10rpx;
+  content: '';
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background-color: rgb(0, 158, 79);
+}
+.section__title,.section__title_pick,.section__title_back{
   color: #979797;
+  margin-bottom: 10rpx;
   font-size: 12px;
 }
 .backService{
@@ -111,11 +162,18 @@ Page {
 .carCityItem,.dateTime,.carType,.home_delivery{
   border-bottom: rgb(240, 240, 240) solid 0.1rpx;
 }
-
+.label-class{
+  font-size: 22rpx;
+}
+.carDesc{
+  color: #d1d1d1;
+  font-size: 26rpx;
+}
 .dateTime,.carType,.basicprice{
+  width: 100%;
   display: flex;
   align-items: center;
-  padding:30rpx 0rpx;
+  padding:20rpx 0rpx;
   box-sizing: border-box;
   justify-content: space-between;
 }
@@ -130,21 +188,16 @@ Page {
 }
 .money{
   color: red;
-  font-size: 20rpx;
+  font-size: 17rpx;
 }
-/* .hide{
-  display: none;
-}
-.show{
-  display: block;
-} */
+
 /* 基础价格 */
 .priceTitle{
-  width:26%;
+  display: flex;
+  flex-direction: row;
 }
 .price{
-  width: 70%;
-  text-align: center;
+  padding: 0rpx 20rpx;
   color: rgb(243, 105, 55);
   font-weight: 700;
   font-size: 20px;
@@ -165,6 +218,10 @@ Page {
   flex-direction: column;
   justify-content: space-around;
 }
+.timeColor{
+  color: #d1d1d1;
+  font-size: 28rpx;
+}
 .line{
   width: 60rpx;
   height: 10rpx;
@@ -173,6 +230,9 @@ Page {
   right: 0;
   display: inline-block;
   text-align: center;
+}
+.titDesc{
+  font-size: 26rpx;
 }
 /* 日期类代码 */
 .mod{
@@ -185,11 +245,8 @@ Page {
 /* 底部新手指引等部分 */
 .content .other{
   border-radius: 2%;
-  position: absolute;
-  height: 20%;
   width: 100%;
   background-color: #fff;
-  bottom:10rpx;
   border-radius: 5rpx;
   overflow: hidden;
 }
@@ -198,8 +255,8 @@ Page {
   white-space: nowrap;
 }
 .scrollItem .wrapList{
-  width:180rpx;
-  height: 240rpx;
+  width: 180rpx;
+  height: 120rpx;
   display: inline-block;
 }
 .scrollItem .wrapList image{
@@ -226,11 +283,6 @@ Page {
   padding: 20rpx;
   justify-content: space-between;
   background-color: #fff;
-}
-.carImg{
-  width: 60rpx;
-  height:100rpx;
-  background-color: yellowgreen;
 }
 .carName{
   color: rgb(41, 146, 111);

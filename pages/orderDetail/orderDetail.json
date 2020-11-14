@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "van-submit-bar": "/miniprogram_npm/@vant/weapp/submit-bar/index"
+    "van-submit-bar": "/miniprogram_npm/@vant/weapp/submit-bar/index",
+    "van-count-down": "/miniprogram_npm/@vant/weapp/count-down/index"
   },
   "navigationBarTitleText": "订单详情"
 }

@@ -35,30 +35,5 @@ pay-fees   补交费用
 delr  违章记录页面
 invoice-history 发票历史页
 invoice-title  发票抬头页
-
-      {
-        "pagePath": "pages/service/service",
-        "text": "客服",
-        "iconPath": "/assets/tabbar/kefu.png",
-        "selectedIconPath": "/assets/tabbar/kefuS.png"
-      },
-
- <view class="add-header"> 
-                    <text class="addTitle">长春市朝阳区</text>
-                  </view>
-                  <view class="add-main">
-                    <view class="left">
-                      <view class="leftItem">
-                        <text class="iconfont "></text>
-                        <text class="desc">上海市闵行区</text>
-                      </view> <view class="leftItem">
-                        <text class="iconfont "></text>
-                        <text class="desc">021-64159708</text>
-                      </view>
-                      <view class="leftItem">
-                        <text class="iconfont "></text>
-                        <text class="desc">09:00-20:00</text>
-                      </view>
-                    </view>
-                    <view class="right" bindtap="toNavigation"></view>
-                  </view>
+20201109
+carDoorAddress 送车上门页面

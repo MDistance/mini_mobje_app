@@ -37,7 +37,15 @@ page{
   padding:10rpx 0;
   margin-bottom:20rpx;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+.itemCar{
+  padding:10rpx 0;
+  margin-bottom:20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 .itemDesc{
   font-size: 14px;
@@ -66,6 +74,12 @@ page{
   background-color: #fff;
   
 }
+.countDown{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
 .carName{
   color: rgb(66, 172, 136);
 }
@@ -79,6 +93,9 @@ page{
 .carDetail_header_right{
   display: flex;
   flex-direction: column;
+}
+.itemContent{
+  font-size: 24rpx;
 }
 .carDetail_content,.orderDetail_content1,.orderDetail_content2{
   display: flex;

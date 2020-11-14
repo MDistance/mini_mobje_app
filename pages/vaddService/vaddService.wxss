@@ -21,6 +21,12 @@
   align-items: center;
   justify-content: center;
 }
+.appreciation-item{
+  padding: 10rpx 0rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .semicircle{
   width:50rpx;
   height: 50rpx;
@@ -46,11 +52,16 @@
   border: 1px solid seashell;
   box-sizing: border-box;
   width: 100%;
-  padding: 30rpx;
+  padding:10rpx 30rpx;
   background-color: #fff;
   margin-bottom: 30rpx;
 }
-
+.input-item{
+  display: flex;
+  padding: 20rpx 20rpx;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
 .contentHeader{
   width: 100%;
   padding: 20rpx 0;
@@ -68,6 +79,11 @@
   justify-content: start;
   background-color: #fff;
 }
+.headerTitleDesc{
+  color: red;
+  font-size: 25rpx;
+  margin-left: 20rpx;
+}
 .van-radio-groupRead{
   display: inline-block;
 }
@@ -81,7 +97,6 @@
   width: 100%;
   padding:30rpx 20rpx;
   box-sizing: border-box;
-
   background-color:#fff;
 }
 .button {

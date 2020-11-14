@@ -1,153 +1,181 @@
-  <!-- 轮播图部分 -->
-<swiper class='homeHeader' indicator-dots autoplay interval='3000' circular skip-hidden-item-layout>
-    <swiper-item class='swiper' wx:for="{{homeAdvertises}}" wx:key="index">
-      <image src='/assets/ic_home_advertise.png' mode='scaleToFill' class='swiper' data-index='{{index}}'></image>
-      <!-- <image src='https://mobje.top/prod-api{{item.imgUrl}}' mode='scaleToFill' class='swiper' data-index='{{index}}'></image> -->
-    </swiper-item>
-</swiper>
-<!-- 整体内容区 -->
-<view class="container">
-  <form bindsubmit="submitForm">
-    <view class="content">
-      <!-- 选择车型城市日期 -->
-        <view class="car">
-           <!-- 选择城市 -->
-            <view class="carCity">
-              <view class="carCityItem">
-                <view class="section">
-                    <view class="section__title">{{pickup_city}}</view>
-                    <picker bindchange="bindPickerCity" value="{{index}}" range="{{array}}">
-                        <view class="picker">{{array[index]}}
+<wxs src="../../wxs/tools.wxs" module="tools" />
+<view class="main">
+      <!-- 轮播图部分 -->
+      <swiper class='homeHeader' indicator-dots autoplay interval='3000' circular skip-hidden-item-layout>
+          <swiper-item class='swiper' wx:for="{{homeAdvertises}}" wx:key="index">
+            <image src='/assets/ic_home_advertise.png' mode='scaleToFill' class='swiper' data-index='{{index}}'></image>
+            <!-- <image src='https://mobje.top/prod-api{{item.imgUrl}}' mode='scaleToFill' class='swiper' data-index='{{index}}'></image> -->
+          </swiper-item>
+      </swiper>
+      <!-- 整体内容区 -->
+      <view class="container">
+        <form bindsubmit="submitForm">
+          <view class="content">
+            <!-- 选择车型城市日期 -->
+              <view class="car">
+                <!-- 选择城市 -->
+                  <view class="carCity">
+                    <view class="carCityItem">
+                      <view class="section">
+                          <view class="section__title_pick">{{pickup_city}}</view>
+                          <picker bindchange="bindPickerCity" value="{{index}}" range="{{array}}" range-key="{{'cityName'}}" >
+                              <view class="picker  pickerStyle">{{array[index].cityName}}
+                            </view>
+                          </picker>
                       </view>
-                    </picker>
-                </view>
-                <view class="section">
-                      <view class="section__title">{{checked===true?home_delivery:pickup_outlets}}</view>
-                      <view class="picker" bindtap="bindPickerAddress">{{array[index]}}
+                      <view class="section" wx:if="{{checked===true}}">
+                            <view class="section__title">{{home_delivery}}</view>
+                            <view bindtap="bindCarDoorAddress">
+                              <view class="picker pickerStyle" wx:if="{{!location}}">请选择地址
+                            </view>
+                            <view class="picker pickerStyle " wx:else >{{location.name}}
+                            </view>
+                            </view>
                       </view>
-                </view>
-                <view class="section">
-                    <view class="section__title">{{return_city}}</view>
-                    <picker bindchange="bindBackCity" value="{{index}}" range="{{backArray}}">
-                        <view class="picker">{{backArray[index]}}
+                      <view class="section" wx:else>
+                            <view class="section__title">取车网点</view>
+                            <view class="picker pickerStyle pick_outlets" bindtap="bindPickerAddress">{{pickup_outlets}}
+                            </view>
                       </view>
-                    </picker>
-                </view>
-                <view class="section">
-                        <view class="section__title">{{return_outlets}}</view>
-                        <!-- <picker bindchange="bindBackAddress" value="{{index}}" range="{{backArray}}"> -->
-                        <view class="picker" bindtap="bindBackAddress">{{backArray[index]}}
-                         </view>
-                    <!-- </picker> -->
-                </view>
-              </view>
-            </view>
-            <!-- 选择日期 -->
-            <view class="dateTime">
-              <view class="mod t-sign-time">
-                  <view class="picker" bindtap="bindTimeChange">
-                    <text> {{ startDate}}</text>
-                    <text>{{pickup_time}}</text>
-                  </view>
-              </view>
-              <view class="mod t-sign-time">
-                <view class="picker daysStyle">
-                   <text> {{days[10]}}</text>
-                </view>
-                <text class="toRightLine"></text>
-              </view>
-              <view class="mod t-sign-time">
-                <view class="picker" bindtap="bindTimeChange">
-                      <text>{{endDate}}</text>
-                      <text>{{return_time}}</text>
-                  </view>
-              </view>
-            </view>
-            <!-- 选择车型 -->
-            <view class="carType">
-              <text class="key">车型选择：</text>
-              <view bindtap="showCar">
-                  <view class="pickerShowCar">{{carList[index]}}
-                    <text class="iconfont icon-arrLeft-fill"></text>
-                  </view>
-              </view>
-            </view>
-            <!-- 送车上门  -->
-            <view class="home_delivery">
-              <van-checkbox value="{{ checked }}" checked-color="#07c160" shape="square" bind:change="onChangeCar">
-                送车上门
-              </van-checkbox>
-              <text class="money">该服务将产生200元费用</text>
-            </view>
-            <!-- 基础价格 -->
-            <view class="basicprice">
-              <view class="priceTitle">
-                <text class="key">基础价格</text>
-                <text class="iconfont icon-wenhao2" bindtap="modalinput"></text>
-              </view>
-              <text class="price">888元</text>
-            </view>
-            <!-- 确认按钮 -->
-            <view>
-              <button class="btn" bindtap="confirm"  formType="submit">确认</button>
-            </view>
-        </view>
-        <!-- 底部其他部分 -->
-        <view class="other">
-          <scroll-view class="scrollItem" scroll-x="true">
-            <view class="wrap">
-              <block wx:for="{{list}}" wx:key="index">
-                  <view class="wrapList" bindtap="jump">
-                      <image src="{{item.image}}"></image>
-                      <view class="itemName">{{item.itemName}}</view>
+                     <view class="section">
+                        <van-checkbox value="{{ checked }}" checked-color="#07c160" shape="square" bind:change="onChangeCar"  icon-size="15px" label-class="label-class">
+                        送车上门
+                      </van-checkbox>
+                      <text class="money">该服务将产生{{deliveryPrice}}元费用</text>
+                     </view>
                     </view>
-                </block> 
-            </view>
-          </scroll-view>
-        </view>
-    </view>
-  </form>
-    <!-- 车型弹框 -->
-<van-popup show="{{ showView }}" bind:close="onClose" custom-style=" width:90%;height:85%;">
-   <carType/>
-</van-popup>
-    <!-- 基础价格 弹窗 -->
-    <van-dialog
-    class="dialog"
-      use-slot
-      title="详情信息"
-      show="{{ show }}"
-      show-cancel-button
-      confirm-button-open-type="getUserInfo"
-      bind:close="onClose"
-      bind:getuserinfo="getUserInfo"
-    >
-   <view class="cont">
-      <view class="itemPrice">
-      <text class="itemPriceText">车型：</text>
-      <text class="itemPriceCon"></text>
-    </view>
-    <view class="itemPrice">
-      <text class="itemPriceText">租赁方式：</text>
-      <text class="itemPriceCon"></text>
-    </view>
-    <view class="itemPrice">
-      <text class="itemPriceText">租赁天数：</text>
-      <text class="itemPriceCon"></text>
-    </view>
-    <view class="itemPrice">
-      <text class="itemPriceText">租赁时长：</text>
-      <text class="itemPriceCon"></text>
-    </view>
-    <!-- <view class="itemPrice">
-      <text class="itemPriceText">还车网点：</text>
-      <text class="itemPriceCon"></text>
-    </view> -->
-    <view class="itemPrice">
-      <text class="itemPriceText">租赁金额：</text>
-      <text class="itemPriceCon"></text>
-    </view>
+                    <view class="carCityItem">
+                      <view class="section">
+                          <view class="section__title_back">{{return_city}}</view>
+                          <picker bindchange="bindBackCity" value="{{index}}" range="{{returnArray}}" range-key="{{'cityName'}}">
+                              <view class="picker pickerStyle">{{array[index].cityName}}
+                            </view>
+                          </picker>
+                      </view>
+                      <view class="section">
+                              <view class="section__title">还车网点</view>
+                              <view class="picker pick_outlets pickerStyle" bindtap="bindBackAddress">{{return_outlets}}
+                              </view>
+                      </view>
+                      <view class="section">
+                        <view class="section__title"></view>
+                              <view class="picker pick_outlets pickerStyle" >
+                              </view>
+                     </view>
+                    </view>
+                    
+                  </view>
+                  <!-- 选择日期 -->
+                  <view class="dateTime">
+                    <view class="mod t-sign-time">
+                        <view class="picker" bindtap="bindTimeChange">
+                          <text> {{tools.formatDate(startDate)}}</text>
+                          <text class="timeColor">{{pickup_time}}</text>
+                        </view>
+                    </view>
+                    <view class="mod t-sign-time">
+                      <view class="allDays ">
+                        <text class="iconfont icon-line-copy"></text>
+                        <text class="daysStyle"> {{allDays}}天</text>
+                        <text class="iconfont icon-line-copy"></text>
+                      </view>
+                      <text class="toRightLine"></text>
+                    </view>
+                    <view class="mod t-sign-time">
+                      <view class="picker" bindtap="bindTimeChange">
+                            <text>{{tools.formatDate(endDate)}}</text>
+                            <text class="timeColor">{{return_time}}</text>
+                        </view>
+                    </view>
+                  </view>
+                  <!-- 选择车型 -->
+                  <view class="carType">
+                    <text class="key">车型选择：</text>
+                    <view bindtap="showCar">
+                        <view class="pickerShowCar">
+                          <image mode='scaleToFill' src='{{baseUrl + "/" + carUrl}}' style="width:80rpx;height:80rpx"></image>
+                         <view class="showCarRight">
+                          <text>{{car_type}}</text>
+                          <text class="carDesc">{{car_series}}</text>
+                          <text class="iconfont icon-arrLeft-fill"></text>
+                         </view>
+                        </view>
+                    </view>
+                  </view>
+                  <!-- 送车上门  -->
+                  <!-- <view class="home_delivery">
+             
+                  </view> -->
+                  <!-- 基础价格 -->
+                  <view class="basicprice">
+                    <view class="priceTitle">
+                      <text class="key">基础价格</text>
+                      <text class="iconfont icon-wenhao2" bindtap="modalinput"></text>
+                    </view>
+                    <text class="price">{{baseAmt}}元</text>
+                    <view class="price"></view>
+                  </view>
+                  <!-- 确认按钮 -->
+                  <view>
+                    <button class="btn" bindtap="confirm"   formType="submit">确认</button>
+                  </view>
+              </view>
+              <!-- 底部其他部分 -->
+              <view class="other">
+                <scroll-view class="scrollItem" scroll-x="true">
+                  <view class="wrap">
+                    <block  wx:for="{{list}}" wx:key="index">
+                      <view class="wrapList">
+                        <navigator url="{{item.pathUrl}}" >
+                            <image src="{{item.image}}"></image>
+                            <view class="itemName">{{item.itemName}}</view>
+                      </navigator>
+                      
+                      </view>
+                    </block> 
+                  </view>
+                </scroll-view>
+              </view>
+          </view>
+        </form>
+          <!-- 基础价格 弹窗 -->
+          <van-dialog
+          class="dialog"
+            use-slot
+            title="详情信息"
+            show="{{ show }}"
+            show-cancel-button
+            confirm-button-open-type="getUserInfo"
+            bind:close="onClose"
+            bind:getuserinfo="getUserInfo"
+          >
+        <view class="cont">
+          <view >
+            <text class="titDesc"  decode="true">&emsp;&emsp;基础费用只包含基础费用只包含：。。。。。。。。。。。。。。。。。</text>
 
-   </view>
-    </van-dialog>
+          </view>
+          <view class="itemPrice">
+            <text class="itemPriceText" decode="true">车&emsp;&emsp;型：</text>
+            <text class="itemPriceCon">{{car_type}}{{car_series}}</text>
+          </view>
+          <view class="itemPrice">
+            <text class="itemPriceText">租赁方式：</text>
+            <text class="itemPriceCon">{{}}</text>
+          </view>
+          <view class="itemPrice">
+            <text class="itemPriceText">租赁天数：</text>
+            <text class="itemPriceCon">{{allDays}}天</text>
+          </view>
+          <view class="itemPrice">
+            <text class="itemPriceText">车辆租金：</text>
+            <text class="itemPriceCon">{{allPrice}}元</text>
+          </view>
+          <view class="itemPrice">
+            <text class="itemPriceText">送车服务：</text>
+            <text class="itemPriceCon"></text>
+          </view>
+
+        </view>
+          </van-dialog>
+      </view>
 </view>

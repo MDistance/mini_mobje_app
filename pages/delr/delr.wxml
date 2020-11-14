@@ -5,43 +5,51 @@
         
     </view>
   </view>
-   <view class="main"  wx:if="{{delrNum.length>0}}">
-     <view class="main-con" wx:for="{{delrNum}}" wx:key="key">
-      <van-field
-              value="{{ username }}"
+   <view class="main"  wx:if="{{delrList.length>0}}">
+     <view class="main-con" wx:for="{{delrList}}" wx:key="key">
+            <van-field
+              value="{{ item.orderNo }}"
               clearable
               readonly
               label="订单号"
-              placeholder="请输入订单号"
-              bind:click-icon="onClickIcon"
             />
             <van-field
-              value="{{ username }}"
+              value="{{ item.lllegalPrice }}"
               clearable
               readonly
-              label="车牌号"
-              placeholder="请输入车牌号"
+              label="罚款金额"
             />
             <van-field
-              value="{{ password }}"
-              type="password"
+              value="{{ item.lllegalFraction }}"
+              clearable
+              readonly
+              label="违章分数"
+            />
+            <van-field
+              value="{{ item.lllegalTime }}"
               readonly
               label="违章时间"
-              placeholder="请输入违章时间"
+            />
+            
+            <van-field
+              value="{{ item.lllegalPosition }}"
+              readonly
+              label="违章位置"
             />
             <van-field
-              value="{{ password }}"
-              type="password"
+              value="{{ item.lllegalReason }}"
               readonly
-              label="违章地址"
-              placeholder="请输入违章地址"
+              label="违章原因"
             />
-            <van-field
-              value="{{ password }}"
-              type="password"
-              label="违章行为"
+            <van-field wx:if="{{item.status == 0}}"
+              value="未处理"
+              label="处理结果"
               readonly
-              placeholder="请输入违章行为"
+            />
+            <van-field wx:if="{{item.status == 1}}"
+              value="已处理"
+              label="处理结果"
+              readonly
             />
      </view>
     

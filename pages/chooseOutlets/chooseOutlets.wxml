@@ -17,17 +17,17 @@
             bind:click-nav="onClickNav"
             bind:click-item="onClickItem"
           >
-          <view slot="content" class="content" wx:for="{{netWorkAddress}}" wx:key="key" >
+          <view slot="content" class="content" wx:for-items="{{netWorkAddress}}" wx:key="key"  >
                   <view class="con-left"  bindtap="toIndexNet">
                     <view class="conHeader">
-                      <text class="addressTitle">{{address}}</text>
+                      <text class="addressTitle">{{item.outletsName}}</text>
                     </view>
                   <view class="con-item">
                     <text class="address">
                         地址 : 
                     </text>
                     <text class="address">
-                        {{addressDesc}}
+                        {{item.outletsAddress}}
                     </text>
                   </view>
                   <view class="con-item">
@@ -35,7 +35,7 @@
                       电话 : 
                     </text>
                     <text class="address">
-                      {{addressPhone}}
+                      {{item.outletsUserPhone}}
                     </text>
                   </view>
                   </view>

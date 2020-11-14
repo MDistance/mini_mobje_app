@@ -17,26 +17,23 @@
       <view wx:if="{{personalHide}}">
         <van-cell-group>
             <van-field
-              value="{{ invoiceName }}"
               clearable
-              name="invoiceName"
+              name="receiptHeadName"
               label="姓名"
               placeholder="请输入姓名"
               bind:click-icon="onClickIcon"
             />
             <van-field
-              value="{{ invoiceTel }}"
               clearable
-              name="invoiceTel"
+              name="receiptHeadPhone"
               label="手机号"
               type="number"
               placeholder="请输入手机号"
               bind:click-icon="onClickIcon"
             />
             <van-field
-              value="{{ invoiceEmail }}"
               clearable
-              name="invoiceEmail"
+              name="receiptHeadEmail"
               label="电子邮箱"
               placeholder="请输入电子邮箱"
               bind:click-icon="onClickIcon"
@@ -49,57 +46,50 @@
       <view wx:if="{{enterpriseHide}}">
         <van-cell-group>
             <van-field
-              value="{{ invoiceEnterprise }}"
               clearable
-              name="invoiceEnterprise"
+              name="receiptHeadEntname"
               label="企业名称"
               placeholder="请输入企业名称"
               bind:click-icon="onClickIcon"
             />
             <van-field
-              value="{{ invoiceTel }}"
               clearable
               type="number"
-              name="invoiceTel"
+              name="receiptHeadPhone"
               label="手机号"
               placeholder="请输入手机号"
               bind:click-icon="onClickIcon"
             />
             <van-field
-              value="{{ invoiceAccount }}"
               clearable
-              name="invoiceAccount"
-              label="账号"
+              name="receiptHeadBankNumber"
+              label="银行账号"
               placeholder="请输入账号"
               bind:click-icon="onClickIcon"
             />
          
             <van-field
-              value="{{ invoiceBankName }}"
-              name="invoiceBankName"
+              name="receiptHeadBankName"
               type="number"
               label="开户行"
               placeholder="请输入开户行"
        
             />
             <van-field
-              value="{{ invoiceAddress }}"
               label="地址"
-              name="invoiceAddress"
+              name="receiptHeadAddress"
               placeholder="请输入地址"
           
             />
             <van-field
-              value="{{ invoiceEnterpriseNo }}"
               clearable
               type="number"
-              name="invoiceEnterpriseNo"
+              name="receiptHeadUsernumber"
               label="税号"
               placeholder="如企业开票，请提供相应税号"
             />
             <van-field
-              value="{{ invoiceEmail }}"
-              name="invoiceEmail"
+              name="receiptHeadEmail"
               label="电子邮箱"
               placeholder="电子发票接收邮箱"
             />

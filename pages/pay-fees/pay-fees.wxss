@@ -4,21 +4,20 @@
   height: 100%;
 }
 .header{
-  padding: 50rpx;
+  padding: 50rpx 30rpx;
   box-sizing: border-box;
   background-color: #fff;
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   border-bottom: 1rpx snow solid;
-  margin-bottom: 30rpx;
   box-shadow:1rpx 1rpx 10rpx snow ;
 }
-.header-tit{
 
-}
 .main{
+  padding:20rpx 50rpx;
+  box-sizing: border-box;
   background-color: #fff;
   width: 100%;
 }

@@ -1,37 +1,37 @@
 <!--pages/desposit/desposit.wxml-->
 <view class="container">
   <view class="header">
-    <text class=" iconfont icon-qian01 price">2000元</text>
+    <text class=" iconfont icon-qian01 price">{{orderInfo.despositAmt}}元</text>
   </view>
   <view class="content">
       <van-field
-        value="12432452342423"
+        value="{{orderInfo.orderNo}}"
         label="订单号 :"
         readonly
       />
       <van-field
-        value="宝来（1.5L自动）"
+        value="{{orderInfo.carSeriesName}}-{{orderInfo.carSeriesProperty}}"
         label="车  型 :"
         readonly
       />
       <van-field
-        value="2020-10-01 8:00--2020-10-10 8:00"
+        value="{{orderInfo.pickupTime}} - {{orderInfo.returnTime}}"
         label="用车时间 :"
         readonly
       />
       <van-field
-        value="输入框已禁用"
+        value="{{orderInfo.pickupOutlets.outletsAddress}}"
         label="取车网点 :"
         readonly
       />
       <van-field
-        value="输入框已禁用"
+        value="{{orderInfo.returnOutlets.outletsAddress}}"
         label="还车网点 :"
         readonly
       />
   </view>
   <view class="footer">
-    <view class="payMoney" bindtap="payMoney">
+    <view class="payMoney" bindtap="sendPay">
       支 付
     </view>
   </view>

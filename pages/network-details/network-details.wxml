@@ -1,23 +1,23 @@
 <view class="container">
   <view class="header">
-    <text class="header-title">浦东机场T2店{{}}</text>
+    <text class="header-title"> {{info.outletsName}}</text>
   </view>
    <view class="main">
        <view class="content">
-        <view class="main-header"><text>网点显示</text></view>
+        <view class="main-header"><text>网点照片</text></view>
         <view class="main-con">
           <scroll-view class="scrollItem" scroll-x="true">
               <view class="wrap">
-                <block wx:for="{{list}}" wx:key="index">
+                <block wx:for-items="{{photoUrlList}}" wx:key="key">
                     <view class="wrapList" bindtap="jump">
-                        <image src="{{item.image}}"></image>
+                        <image  v-if="{{item}}"  :src="{{item}}" ></image>
                       </view>
                   </block> 
               </view>
           </scroll-view>
           <view class="address">
             <view class="openHours addressTo">
-              <text class="addressDesc">上海市浦东新区苏杭路110号{{}}</text>
+              <text class="addressDesc">{{info.outletsAddress}}</text>
               <text class="iconfont icon-zb" style="color:blue" bindtap="toNavgiat"></text>
             </view>
             <view class="openHours">
@@ -26,11 +26,11 @@
             </view>
             <view class="phoneNum">
               <text class="openHours-tit">网点联系人 : </text>
-              <text class="openHours-time">张三</text>
+              <text class="openHours-time">{{info.outletsUser}}</text>
             </view>
             <view class="phoneNum">
               <text class="openHours-tit">联系人电话 : </text>
-              <text class="openHours-time">18812345678</text>
+              <text class="openHours-time">{{info.outletsUserPhone}}</text>
             </view>
           </view>
         </view>

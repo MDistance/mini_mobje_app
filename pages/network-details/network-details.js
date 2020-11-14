@@ -1,10 +1,28 @@
 // pages/network-details/network-details.js
+const {getoutInfo }  = require('../../api/shortrent/outletsManage')
+const { PHOTO_NAME } = require('../../utils/api.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    photoUrlList:[],
+    info:{
+      outletsId: null,
+      outletsName: "null",
+      outletsCityName: null,
+      outletsCityCode: null,
+      outletsAreaName: null,
+      outletsAreaCode: null,
+      outletsLongitude: null,
+      outletsLatitude: null,
+      outletsAddress: null,
+      outletsUser: null,
+      outletsUserPhone: null,
+      outletsPhotoUrls: null,
+      outletsPhotoNames: null,
+    },  
     list:[
       {
         url: "",
@@ -49,6 +67,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
+    let param={
+      outletsId:39,
+    };
+    //根据区域查询网点信息
+    getoutInfo(param,{
+      success(res){   
+        that.setData({         
+          info:res.data
+        })
+        let sap =res.data.outletsPhotoUrls.split(",");
+        that.setData({
+          photoUrlList:PHOTO_NAME+sap
+        })
+        console.log(that.data.photoUrlList)   
+      },
+      fail(err){
+        console.log(err)
+      }
+
+    })
 
   },
 

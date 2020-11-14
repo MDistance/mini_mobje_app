@@ -1,22 +1,23 @@
 <!--pages/my/my.wxml-->
 <view class="container">
-      <view class='loginHeader'>
-            <view class="headerLeft">
-              <image src='{{userHead}}' bindtap='loginTap' class='userHead' mode='aspectFill' />
+  <view class='loginHeader'>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bind:getuserinfo="onGetUserInfo"> 点击授权登录 </button>
+    <block wx:if="{{canIUse}}">
+      <view class="headerLeft">
+              <image src='{{userInfo.avatarUrl}}' bind:getuserinfo="onGetUserInfo" class='userHead' mode='aspectFill' />
             </view>
             <view wx:if="{{!isLoginSuccess}}" class="headerRight">
-              <text class='userTitle' bindtap='loginTap'>{{userTitle}}</text>
+              <text class='userTitle' >{{userInfo.nickName}}</text>
             </view>
-            <view wx:else="{{isLoginSuccess}}" class="headerRight">
-              <text class='userTel'>{{userTel}}</text>
-              <text class='userRen'>{{userRen}}</text>
-            </view>
-      </view>
+    </block>
+    
+</view>
+
       <view class="main">
         <view class="header">
           <text class="title">我的服务</text>
         </view>
-          <van-cell size="large" class="collapseConItem" icon="notes-o" is-link title="发票管理" link-type="navigateTo" url="/pages/invoice-management/invoice-management"/>
+          <van-cell size="large" class="collapseConItem" icon="notes-o" is-link title="发票管理" link-type="navigateTo" url="/pages/invoice-history/invoice-history"/>
           <van-cell size="large" class="collapseConItem" icon="coupon-o" is-link title="违章记录" link-type="navigateTo" url="/pages/delr/delr"/>
         <!-- <view class="content">
           <view class="conItem" bindtap="invoiceManage">

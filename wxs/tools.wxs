@@ -1,0 +1,36 @@
+var orderStatusDict = {
+  '0':'已取消',
+  '1':'待付款',
+  '2':'预约成功',
+  '3':'租赁中',
+  '4':'还车中',
+  '5':'已完成',
+  '6':'取消中'
+}
+
+var payStatusDict = {
+  '0':'未支付',
+  '1':'支付中',
+  '2':'已支付'
+}
+
+
+var formatOrderStatus = function(status){
+    return orderStatusDict[status]
+}
+
+var formatPayStatus = function(status){
+  return payStatusDict[status]
+}
+
+var  formatDate = function(data) {
+  var date = getDate(data)
+  console.log(data,date)
+  return date.getMonth() + 1 + '月'+ date.getDate() + '日';
+}
+
+module.exports = {
+  formatOrderStatus : formatOrderStatus,
+  formatPayStatus : formatPayStatus,
+  formatDate : formatDate
+}

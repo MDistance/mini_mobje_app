@@ -1,4 +1,4 @@
-<!--pages/service/service.wxml-->
+<!--/packageA/pages//service/service.wxml-->
 <view class="container">
   <view class="header">
     <text class="title">猜你想问</text>
@@ -8,28 +8,28 @@
           <van-collapse value="{{ activeNames }}" bind:change="onChange">
             <van-collapse-item title="查询信息" label="用车城市，用车类型，提供车型，司机信息，查询订单" name="1" >
               <view class="collapseItem">
-                <van-cell class="collapseConItem" is-link title="用车城市" link-type="navigateTo" url="/pages/details/details"/>
-                <van-cell class="collapseConItem" is-link title="用车类型" link-type="navigateTo" url="/pages/details/details"/>
-                <van-cell class="collapseConItem" is-link title="提供车型" link-type="navigateTo" url="/pages/details/details"/>
-                <van-cell class="collapseConItem" is-link title="司机信息" link-type="navigateTo" url="/pages/details/details"/>
-                <van-cell class="collapseConItem" border="{{false}}" is-link title="查询订单" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" is-link title="用车城市" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
+                <van-cell class="collapseConItem" is-link title="用车类型" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
+                <van-cell class="collapseConItem" is-link title="提供车型" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
+                <van-cell class="collapseConItem" is-link title="司机信息" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
+                <van-cell class="collapseConItem" border="{{false}}" is-link title="查询订单" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
               </view>
             </van-collapse-item>
             <van-collapse-item  title="预订" label="预订渠道，如何预订" name="2">
-                <van-cell class="collapseConItem" is-link title="预订渠道" link-type="navigateTo" url="/pages/details/details"/>
-                <van-cell class="collapseConItem" border="{{false}}" is-link title="如何预订" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" is-link title="预订渠道" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
+                <van-cell class="collapseConItem" border="{{false}}" is-link title="如何预订" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
             </van-collapse-item>
             <van-collapse-item title="修改" label="如何修改" name="3">
-              <van-cell class="collapseConItem" border="{{false}}" is-link title="如何修改" link-type="navigateTo" url="/pages/details/details"/>
+              <van-cell class="collapseConItem" border="{{false}}" is-link title="如何修改" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
             </van-collapse-item>
             <van-collapse-item class="van-collapse-item" title="取消" label="常规取消条款，紧急用车取消条款" name="4" >
-                <van-cell class="collapseConItem" is-link title="常规取消条款" link-type="navigateTo" url="/pages/details/details"/>
-                <van-cell class="collapseConItem" border="{{false}}" is-link title="紧急用车取消条款" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" is-link title="常规取消条款" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
+                <van-cell class="collapseConItem" border="{{false}}" is-link title="紧急用车取消条款" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
             </van-collapse-item>
             <van-collapse-item title="发票相关" label="如何申请发票，发票开局时效，没有收到电子发票" name="5">
-                <van-cell class="collapseConItem" is-link title="如何申请发票" link-type="navigateTo" url="/pages/details/details"/>
-                <van-cell class="collapseConItem" is-link title="发票开局时效" link-type="navigateTo" url="/pages/details/details"/>
-                <van-cell class="collapseConItem" border="{{false}}" is-link title="没有收到电子发票" link-type="navigateTo" url="/pages/details/details"/>
+                <van-cell class="collapseConItem" is-link title="如何申请发票" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
+                <van-cell class="collapseConItem" is-link title="发票开局时效" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
+                <van-cell class="collapseConItem" border="{{false}}" is-link title="没有收到电子发票" link-type="navigateTo" url="/packageA/pages/serviceDesc/serviceDesc"/>
             </van-collapse-item>
         </van-collapse>
     </scroll-view>

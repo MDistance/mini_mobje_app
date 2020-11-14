@@ -8,7 +8,8 @@
     "van-switch": "/miniprogram_npm/@vant/weapp/switch/index",
     "van-tag": "/miniprogram_npm/@vant/weapp/tag/index",
     "van-field": "/miniprogram_npm/@vant/weapp/field/index",
-    "van-button": "/miniprogram_npm/@vant/weapp/button/index"
+    "van-button": "/miniprogram_npm/@vant/weapp/button/index",
+    "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index"
   },
   "navigationBarTitleText": "增值服务选择"
 }

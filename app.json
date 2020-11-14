@@ -1,35 +1,42 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/invoice-history/invoice-history",
-    "pages/invoice/invoice",
-    "pages/network-details/network-details",
+
     "pages/vaddService/vaddService",
-    "pages/order/order",
-    "pages/desposit/desposit",
-    "pages/delr/delr",
-    "pages/pay-fees/pay-fees",
-    "pages/pay-result/pay-result",
-    "pages/chooseDateTime/chooseDateTime",
+
     "pages/chooseOutlets/chooseOutlets",
-    "pages/add-invoice-title/add-invoice-title",
-    "pages/invoice-management/invoice-management",
-    "pages/my/my",
-    "pages/service/service",
-    "pages/invoice-title/invoice-title",
-    "pages/inputtips/index",
-    "pages/changeOrder/changeOrder",
-    "pages/orderDetail/orderDetail",
-    "pages/changeAddService/changeAddService",
     "pages/networkNum/networkNum",
-    "pages/orderPay/orderPay",
-    "pages/login/login",
     "pages/carType/carType",
+    "pages/network-details/network-details",
+    "pages/login/login",
+    "pages/orderPay/orderPay",
+    "pages/changeAddService/changeAddService",
+    "pages/add-invoice-title/add-invoice-title",
+    "pages/pay-fees/pay-fees",
+    "pages/delr/delr",
+    "pages/service/service",
+    "pages/my/my",
+    "pages/order/order",
+    "pages/invoice/invoice",
+    "pages/invoice-history/invoice-history",
+    "pages/orderDetail/orderDetail",
+    "pages/desposit/desposit",
+    "pages/chooseDateTime/chooseDateTime",
+    "pages/invoice-management/invoice-management",
+    "pages/invoice-title/invoice-title",
     "pages/logs/logs",
     "components/PagingView/index",
-    "pages/changeOrderPay/changeOrderPay",
-    "pages/poi/poi"
-    
+    "pages/vaddService/ruleDesc/ruleDesc"
+  ],
+  "subpackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/planAct/planAct",
+        "pages/newGuide/newGuide",
+        "pages/serviceDesc/serviceDesc"
+      ]
+    }
   ],
   "tabBar": {
     "color": "#333333",
@@ -66,6 +73,20 @@
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "plugins": {
+    "routePlan": {
+      "version": "1.0.5",
+      "provider": "wx50b5593e81dd937a"
+    },
+    "chooseLocation": {
+      "version": "1.0.2",
+      "provider": "wx76a9a06e5b4e693e"
+    },
+    "subway": {
+      "version": "1.0.8",
+      "provider": "wx6aaf93c4435fa1c1"
     }
   },
   "sitemapLocation": "sitemap.json"

@@ -2,7 +2,7 @@
 <view class="container">
    <view class="content">
     <view class="top">
-     <text class="amountPay">应付金额  341元 {{}}</text>
+     <text class="amountPay">应付金额  {{price}}元 </text>
      <text class="descr">取车时请带好二证一卡（身份证原件，驾驶证，信用卡）</text>
    </view>
    <view class="mid">
@@ -12,11 +12,13 @@
         <image class="imgSize" style="width:35rpx;height:35rpx" src="/assets/weixinzhifu.svg"></image>
         <text class="wxcost">微信支付</text>
        </view>
-       <text class="iconfont icon-duihao6"></text>
+       <van-radio-group value="{{ radio }}" bind:change="onChange">
+        <van-radio name="1" icon-size="20px" checked-color="#07c160"></van-radio>
+      </van-radio-group>
      </view>
    </view>
    <view class="bottom">
-     <view class="btn" bindtap="payBtn">立即支付</view>
+     <view class="btn" bindtap="sendPay">立即支付</view>
      <view class="btn" bindtap="orderManBtn">订单管理</view>
    </view>
    <view class="con"></view>

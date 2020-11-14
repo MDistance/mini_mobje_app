@@ -1,9 +1,5 @@
 // components/pickup_outlets/pickup_outlets.js
 // 引用百度地图微信小程序JSAPI模块 
-var bmap = require('../../libs/bmap-wx.js'); 
-var BMap = new bmap.BMapWX({ 
-  ak: 'S0kLEjeZBorgvU1jeoXaKl5BqEVHZS7V' 
-}); 
 var wxMarkerData = []; 
 Component({
   /**

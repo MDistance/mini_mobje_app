@@ -5,34 +5,67 @@
       <view class="map_header">
         <view class="map_headerCon">
           <image class="letf_search" src="{{'/assets/ic_search.png'}}" bindtap="onClickSearch"/>
-          <input class="weui-input" data-city="{{city}}"  bindtouchstart="bindInput" data-longitude="{{longitude}}" data-latitude="{{latitude}}" value="{{backfill}}" placeholder="输入景点，地址寻找附近门店"/>
+          <input class="weui-input" data-city="{{city}}"   data-longitude="{{longitude}}" data-latitude="{{latitude}}" bindinput="getsuggest" value="{{backfill}}"placeholder="输入景点，地址寻找附近门店"/>
         </view>
         <text class="toList" bindtap="toList">列表</text>
       </view>
    
       <view class="mapCon">
-        <map  id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map> 
+        <map
+          class="map"
+          id="map"
+          latitude="{{location.latitude}}"
+          longitude="{{location.longitude}}"
+          markers="{{markers}}"
+          scale="14"
+          bindregionchange="onChangeRegion"
+          bindtap="onTapMap"
+          bindpoitap="onTapPoi"
+          bindmarkertap="onTapMarker"
+        >
+        </map>
       </view>
-      <!-- <view class="footer">
+      <view class="footer">
         <view class="address">
           <text>已选择网点：</text>
-          <text>{{address}}</text>
+          <view wx:for="{{suggestion}}" wx:key="index">
+            <!--绑定回填事件-->
+            <view>
+            <!--根据需求渲染相应数据-->
+            <!--渲染地址title-->
+                <view style="text-align:center;" bindtap="backfill" id="{{index}}">{{item.title}}</view>
+                <!--渲染详细地址-->
+                <view style="font-size:12px;color:#666;text-align:center;">{{item.addr}}</view>
+            </view>
+          </view>
+          <!-- <view class="feature-container pl20">
+            <view class="feature-content  border-bottom">
+              <text class="feature-label">地图点击回调</text>
+              <text class="feature-txt">{{mapCallbackTxt}}</text>
+            </view>
+            <view class="feature-content  border-bottom">
+              <text class="feature-label">标注点击回调</text>
+              <text class="feature-txt">{{markerCallbackTxt}}</text>
+            </view>
+            <view class="feature-content border-bottom">
+              <text class="feature-label">POI点击回调</text>
+            <text class="feature-txt">{{poiCallbackTxt}}</text>
+            </view>
+            <view class="feature-content">
+              <text class="feature-label">视野变化回调</text>
+              <text class="feature-txt">{{regionCallbackTxt}}</text>
+            </view>
+          </view> -->
+        </view>
+        <view class="address">
+          <text>联系电话：</text>
+          <text>13756897524</text>
         </view>
         <view class="btn"> 
           <text class="okBtn">确认</text>
         </view>
-      </view> -->
-      <view class="flaot-container">
-            <scroll-view scroll-x="true" class="ip_tab_comtainer">
-              <view class="ip_tab_comtainer_padd"></view>
-              <block wx:for="{{ips}}" wx:for-item="ip" wx:key="{{ip.id}}">
-                <view class="{{ip.isSelect?'ip_tab_item_s':'ip_tab_item_n'}}" bindtap="onIpItemClick" wx:key="{{ip.id}}" data-item="{{ip}}">
-                  {{ip.title}}
-                </view>
-              </block>
-              <view class="ip_tab_comtainer_padd"></view>
-            </scroll-view>
-        </view>
+      </view>
+
     </view> 
     
   </view>

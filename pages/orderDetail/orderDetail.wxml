@@ -1,32 +1,32 @@
 <!--pages/orderDetail/orderDetail.wxml-->
+<wxs src="../../wxs/tools.wxs" module="tools" />
 <view class="container">
   <view class="header" >
     <view class="countDown">
       <text class="iconfont icon-shijian"></text>
+      <van-count-down time="{{900000 }}" millisecond format="mm:ss:SSS" />
       <text class="headerTitle">{{}}尽快支付锁定心仪车型。</text>
     </view>
     <view class="order">
       <view class="item">
         <view>
           <text class="itemTitle itemDesc">订单号 :</text>
-          <text class="itemCon">1194455268{{}}</text>
+          <text class="itemCon">{{orderNo}}</text>
         </view>
         <view>
           <text class="itemTitle itemDesc">订单状态 :</text>
-          <text class="itemCon ">预约成功{{}}</text>
+          <text class="itemCon ">{{tools.formatOrderStatus(orderStatus)}}</text>
         </view>
       </view>
       <view class="item">
         <view>
           <text class="itemTitle itemDesc">订单金额 :</text>
-          <text class="itemCon">341元</text>
+          <text class="itemCon">{{orderAmt}}元</text>
         </view>
         <view>
           <text class="itemTitle itemDesc">支付状态 :</text>
-          <text class="itemMon">未支付</text>
+          <text class="itemMon">{{tools.formatPayStatus(payStatus)}}</text>
         </view>
-        
-        
       </view>
     </view>
   </view>
@@ -38,26 +38,27 @@
         </view>
         <view class="carDetail_header_right">
           <text class="tit itemDesc">选定车型：</text>
-          <text class="carName">大众朗逸{{}}</text>
-          <text class="tit itemDesc">大众朗逸自动1.6L三厢四座{{}}</text>
+          <text class="carName">{{carSeriesName}}</text>
+          <text class="tit itemDesc">{{carSeriesName}}{{carSeriesProperty}}</text>
         </view>
       </view>
       <view class="carDetail_content">
-        <view class="item">
+        <view class="itemCar">
           <text class="itemDesc carDetail_header_left">取车时间 :</text>
-          <text class="itemContent"></text>
+          <text class="itemContent">{{pickupTime}}</text>
         </view>
-        <view class="item">
+        <view class="itemCar">
           <text class="itemDesc carDetail_header_left">取车门店 :</text>
-          <text class="itemContent"></text>
+          <text class="itemContent" wx:if="{{item.isHomeDelivery === '1'}}">{{homeDeliveryAddress}}</text>
+          <text class="itemContent" wx:if="{{item.isHomeDelivery !== '1'}}">{{pickupOutlets.outletsAddress}}</text>
         </view>
-        <view class="item">
+        <view class="itemCar">
           <text class="itemDesc carDetail_header_left">还车时间 :</text>
-          <text class="itemContent"></text>
+          <text class="itemContent">{{returnTime}}</text>
         </view>
-        <view class="item">
+        <view class="itemCar">
           <text class="itemDesc carDetail_header_left">还车门店 :</text>
-          <text class="itemContent"></text>
+          <text class="itemContent">{{returnOutlets.outletsAddress}}</text>
         </view>
       </view>
     </view>
@@ -67,26 +68,28 @@
       <view class="orderDetail_title">订单明细</view>
       <view class="orderDetail_content1">
         <view class="flexItem">
-          <text class="describe"> 车辆租赁费及门店服务费（门店现付价）-----------------</text>
-          <text class="price"> 241元</text>
+          <text class="describe"> 基础价格（套餐租金+上门取车</text>
+          <text class="price"> {{baseAmt}}元</text>
+        </view>
+        <view class="flexItem" wx:for="{{guaranteeList}}" wx:key="insuranceId">
+          <text class="describe"> {{item.insuranceName}}</text>
+          <text class="price"> {{item.insurancePrice}}元</text>
+        </view>
+        <view class="flexItem" wx:for="{{addedServiceVOList}}" wx:key="addedId">
+          <text class="describe"> {{item.addedName}}</text>
+          <text class="price"> {{item.addedPrice}}元</text>
         </view>
         <view class="flexItem">
-          <text class="describe"> 基本保障服务费-----------------------------------</text>
-          <text class="price"> 80元</text>
-        </view>
-        <view class="flexItem">
-          <text class="describe"> 手续费-------------------------------------------</text>
-          <text class="price"> 24元</text>
+          <text class="describe"></text>
+          <view class="price"> 订单总额 <text class="price">{{orderAmt}}</text>元</view>
         </view>
       </view>
       <view class="orderDetail_content2">
         <view class="flexItem">
-          <text> 车辆押金（可退）4000元</text>
-          <view> 订单总额 <text class="price">4000</text>元</view>
+          <text> 车辆押金（另支付）{{despositAmt}}元</text>
+         
         </view>
-        <view>
-          <text> 违章押金（可退）2000元</text>
-        </view>
+
       </view>
     </view>
    </view>
@@ -100,7 +103,8 @@
 </view>
 
 <van-submit-bar
-      price="{{ 34150 }}"
+      price="{{ allPrice }}"
       button-text="支付"
       bind:submit="onSubmit"
+      safe-area-inset-bottom
     />

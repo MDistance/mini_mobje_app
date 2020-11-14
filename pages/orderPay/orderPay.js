@@ -1,16 +1,20 @@
 // pages/orderPay/orderPay.js
+const { supplementaryDetails,orderPayMiniProgram } = require('../../api/shortrent/payFees')
+const { orderInfo } = require('../../api/shortrent/order')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    radio: '1',
+    orderNo:'',
+    orderInfo:[],
   },
   // 立即支付按钮
   payBtn: function () {
     wx.navigateTo({
-      url: '/pages/vaddService/vaddService',
+      url: '/pages/desposit/desposit',
     })
     },
     // 订单管理按钮
@@ -19,12 +23,155 @@ Page({
         url: '/pages/order/order',
       })
       },
+      // 选择微信支付
+      onChange(event) {
+        this.setData({
+          radio: event.detail,
+        });
+      },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function () {
+    let that = this
+    that.setData({
+      orderNo: options.orderNo
+    })
+    that.orderInfos(options.orderNo);
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('acceptDataFromOpenerPagePrice', function ({ price }) {
+      that.setData({
+        price: price/100,
+      })
+      console.log(price)
+    })
   },
+  //获取订单详情
+  orderInfos:function(orderNo){
+    let that = this;
+    orderInfo({
+      orderNo:orderNo,
+    }, {
+      success(res) {
+       that.setData({
+         orderInfo:res.data
+       })
+      },
+      fail(err) {
+        wx.showToast({
+          title: '网络超时',
+          icon: 'none',
+          duration: 2000
+        })
+        console.log('orderInfo 服务器异常');
+      }
+    })
+  },
+
+  //调起支付
+  sendPay: function (res) {
+    let that = this;
+    //获取openid
+    const user = wx.getStorageSync('userInfo')
+    //获取订单价格
+    const price = that.data.orderInfo.orderAmt;
+    //获取时间
+    let myDate = new Date(); //获取系统当前时间
+    let time = that.dateFtt("yyyyMMddhhmmss", myDate);  //格式化时间
+    //获取补交流水号
+    const payDetailsOrderNo = that.data.orderInfo.payDetailsList
+      .find(item => item.type === 1)
+      .payDetailsOrderNo
+    orderPayMiniProgram({
+      openId:user.openId,
+      orderAmount:price,
+      orderFrom:'SHR_MINI_PROGRAM_FRONT',
+      orderNo:that.data.orderNo,
+      orderTime:time,
+      payAmount:price,
+      productName:'支付订单费用',
+      remark:'',
+      trxNo:payDetailsOrderNo,
+      trxType:'1'
+
+    }, {
+      success(res) {
+        console.log(res)
+        wx.requestPayment(
+          {
+            'timeStamp': res.data.timeStamp1,
+            'nonceStr': res.data.nonceStr,
+            'package': res.data.package1,
+            'signType': 'MD5',
+            'paySign': res.data.sign,
+            'success': function (res) {
+               console.log('success')
+              },
+            'fail': function (res) {
+               console.log('支付失败！')
+               wx.showModal({
+                title: '提示',
+                content: '支付失败,请重试'
+            });
+              },
+            'complete': function (res) {
+              console.log('支付完成');
+              var url = that.data.url;
+              console.log('get url', url)
+              if (res.errMsg == 'requestPayment:ok') {
+                  wx.showModal({
+                      title: '提示',
+                      content: '充值成功'
+                  });
+                  if (url) {
+                      setTimeout(function () {
+                          wx.redirectTo({
+                              url: '/pages' + url
+                          });
+                      }, 2000)
+                  } else {
+                      setTimeout(() => {
+                          wx.navigateBack()
+                      }, 2000)
+                  }
+              }
+              return;
+              }
+          }) 
+      },
+      fail(err) {
+        wx.showToast({
+          title: '网络超时',
+          icon: 'none',
+          duration: 2000
+        })
+        console.log('服务器异常');
+      }
+    })
+    
+  },
+
+
+  //时间格式化
+  dateFtt:function(fmt, date) {
+    var o = {
+        "M+": date.getMonth() + 1, //月份   
+        "d+": date.getDate(), //日   
+        "h+": date.getHours(), //小时   
+        "m+": date.getMinutes(), //分   
+        "s+": date.getSeconds(), //秒   
+        "q+": Math.floor((date.getMonth() + 3) / 3), //季度   
+        "S": date.getMilliseconds() //毫秒   
+    };
+    if(/(y+)/.test(fmt))
+        fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for(var k in o)
+        if(new RegExp("(" + k + ")").test(fmt))
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+},
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

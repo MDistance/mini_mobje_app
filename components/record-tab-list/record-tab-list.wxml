@@ -1,4 +1,0 @@
-<view class="container">
-    <view class="record_total">共300 条记录</view>
-    <common-list list="{{recordList}}"  loadMore="{{loadMore}}" generic:list-item="record-item" bindonClickListItem="onClickListItem" />
-</view>

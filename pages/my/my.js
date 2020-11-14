@@ -1,17 +1,20 @@
 var app = getApp();
 var isLoginSuccess = false;
-// const API = require('../../utils/api.js');
+const {
+  wechatLogin
+} = require('../../api/shortrent/wechat')
+// const { login }  = require('../../api/shortrent/login')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userTitle: '点击头像登录',
-    userHead: '/assets/ic_mine_normal.png',
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    code:'',
     customerTel:'',
-    userRen:'摩捷认证用户',
-    userTel:'1800009536'
   },
 
 // 发票管理
@@ -30,20 +33,10 @@ invoiceManage:function(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.isUserinfo();
-    this.getCustomerTel();
-    // this.initLoginMsg();
+    let that = this;
+    that.userAuthorized();
   },
-  isUserinfo: function(){
-    if (!isLoginSuccess) {
-      var user = wx.getStorageSync("userInfo");
-      this.setData({
-        userTitle: user.nickName,
-        userHead: user.avatarUrl
-      })
-     
-    }
-  },
+
   previewHead: function () {
     wx.previewImage({
       current: this.data.userHead,
@@ -51,93 +44,92 @@ invoiceManage:function(){
     })
   },
 
-  loginTap: function () {
-    var that = this;
-    if (!isLoginSuccess) {
-      wx.showLoading({
-        title: '正在登录...',
-      })
-      // 登录
-      wx.login({
-        success: res => {
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    //查看是否授权
+    userAuthorized() {
+      let that = this;
+      wx.getSetting({
+        success: data => {
+          if (data.authSetting['scope.userInfo']) {
+            wx.getUserInfo({
+              success: data => {
+                app.globalData.hasUserInfo = true;
+                that.setData({
+                  userInfo: data.userInfo,
+                  hasUserInfo: true
+                })
+              }
+            })
+          } else {
+            that.setData({
+              hasUserInfo: false
+            })
+            app.globalData.hasUserInfo = false;
+  
+          }
         }
       })
-      // 获取用户信息
-      wx.getSetting({
-        success: res => {
-          wx.hideLoading();
-          if (res.authSetting['scope.userInfo']) {
-            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+    },
+    onGetUserInfo(e) {
+      let that=this;
+      const userInfo = e.detail.userInfo
+      console.log(userInfo);
+      if (userInfo) {
+        that.setData({
+          userInfo:userInfo,
+          hasUserInfo:true
+        })
+        //小程序通过wx.login()获取code
+        wx.login({
+          success: function (login_res) {
+            //获取用户信息
             wx.getUserInfo({
-              success: res => {
-                // 可以将 res 发送给后台解码出 unionId
-                app.globalData.userInfo = res.userInfo
-
-                // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                // 所以此处加入 callback 以防止这种情况
-                if (app.userInfoReadyCallback) {
-                  app.userInfoReadyCallback(res)
-                }
-                that.initLoginMsg();
-              },
-              fail: res => {
-                wx.hideLoading();
-                isLoginSuccess = false;
-                that.setData({
-                  userTitle: '点击登录',
-                  userHead: '/images/ic_mine_normal.png'
+              success: function (info_res) {
+                // 小程序通过请求发送code到开发者服务器
+                wechatLogin({
+                  //临时登录凭证
+                  code: login_res.code,
+                  //用户非敏感信息
+                  rawData: info_res.rawData,
+                  //签名
+                  signature: info_res.signature,
+                  //用户敏感信息
+                  encrypteData: info_res.encryptedData,
+                  iv: info_res.iv //解密算法的向量
+                }, {
+                  success(res) {
+                   if (res.data.code == 200) {
+                   //如果登录成功切换全局登录状态
+                     app.globalData.hasUserInfo = true;
+                     //用户信息保存到缓存
+                     wx.setStorageSync('userInfo', res.data.data);
+                     
+                   }
+                  },
+                  fail(err) {
+                   //如果登录失败切换全局登录状态
+                   app.globalData.hasUserInfo = false;
+                  }
                 })
               }
             })
           }
-        }
+        })
+      }
+  
+    },
+  loginTap: function () {
+    var that = this;
+    //查看是否授权
+    that.userAuthorized();
+    if (!isLoginSuccess) {
+      wx.showLoading({
+        title: '正在登录...',
       })
     }
-  },
-
- 
-
-  allOrderTap: function () {
-    wx.switchTab({
-      url: '../order/order?type=all',
-    })
-  },
-
-  aboutTap: function () {
-    wx.navigateTo({
-      url: '../about/about',
-    })
-  },
-  personalTap: function () {
-    wx.navigateTo({
-      url: '../personal/personal',
-    })
-  },
-
-  
-getCustomerTel: function(e){
-  var that = this;
-  wx.request({
-    // url: API.getCustomerTel,
-    method: 'POST',
-    header: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
-    success: function (res) {
-      console.log(res)
-      if (res.data.code == 200) {
-        that.setData({
-          customerTel:res.data.data.dictValue
-        })
-      } 
-    },
-    fail: function (error) {
-      console.log(error);
+    if(that.data.hasUserInfo == false){
 
     }
-  })
-},
+  },
 
   tel: function () {
     console.log("tel")
@@ -157,7 +149,6 @@ getCustomerTel: function(e){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

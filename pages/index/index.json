@@ -4,8 +4,6 @@
     "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index",
     "van-tab": "/miniprogram_npm/@vant/weapp/tab/index",
     "van-tabs": "/miniprogram_npm/@vant/weapp/tabs/index",
-    "carTypeCom":"/components/carTypeCom/carTypeCom",
-    "carType":"/pages/carType/carType",
     "van-radio": "/miniprogram_npm/@vant/weapp/radio/index",
     "van-radio-group": "/miniprogram_npm/@vant/weapp/radio-group/index",
     "pickup_outlets": "/components/pickup_outlets/pickup_outlets",

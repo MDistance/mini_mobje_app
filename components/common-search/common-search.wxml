@@ -1,8 +1,0 @@
-<view class="container">
-    <view class="search_container">
-        <image class="letf_search" src="{{'/assets/ic_search.png'}}" bindtap="onClickSearch"/>
-        <input placeholder="搜索城市或景点" class="search_input" bindconfirm="bindConfirmSearch" bindfocus="bindSearchInput" value="{{searchValue}}" bindinput="bindSearchInput" placeholder-class="search_placeholder" auto-focus />
-        <image class="input_delete" hidden="{{content.length<1}}" src="{{'/assets/ic_input_delete.png'}}" bindtap="onClickClear" />
-    </view>
-    <view class="search_btn" bindtap="cancel">取消</view>
-</view>

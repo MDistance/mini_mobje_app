@@ -1,12 +1,105 @@
 <!--pages/carType/carType.wxml-->
-<view class="carContent">
-  <view class="main">
-    <van-tabs bind:change="onChange" active="{{ active }}">
-    <van-tab title="经济型">
-      <carTypeCom class="carTypeCom"></carTypeCom>
-    </van-tab>
-    <van-tab title="舒适型"> <carTypeCom class="carTypeCom"></carTypeCom></van-tab>
-    <van-tab title="SUV"> <carTypeCom class="carTypeCom"></carTypeCom></van-tab>
-   </van-tabs>
-  </view>
+<view class="container">
+    <view class="main">
+      <van-tabs   active="{{ active }}"  bind:click="onClick">
+        <van-tab  title="{{carTypeList[index].carTypeName}}" wx:for="carList" wx:key="index">
+          <view class="carTypeCom">
+            <view class="car_type">
+              <scroll-view scroll-y="true" style="height:600rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+                <view id="demo1" wx:for-items="{{carArr}}" wx:key="index" class="scroll-view-item scrollItem">
+                  <view  class="carTypeItem">
+                      <view class="carTypeItem-left">
+                        <image class="carImg" src='{{baseUrl + "/" +item.url}}' mode='scaleToFill' data-index='{{index}}'></image>
+                      </view>
+                      <view class="carTypeItem-mid">
+                        <view class="carTextDesc">
+                          <view class="carTextDesc-left">
+                            <text class="carName">{{item.car_type}}</text>
+                            <text class="carDesc">{{item.car_series}}</text>
+                          </view>
+                          <view class="carTextDesc-right" style="input-width:200rpx">
+                          </view>
+                        </view>
+                        <view class="avgDayItem">
+                          <view class="carTextDesc-left" style="input-width:200rpx">
+                          </view>
+                          <view class="carTextDesc-right">
+                            <text class="avgDayPrice">{{item.price}}元</text>
+                            <text class="avgDayPriceText">日均价</text>
+                          </view>
+                        
+                        </view>
+                      </view>
+                      <van-radio-group value="{{ radio }}" bind:change="onChangeCar">
+                        <van-radio name="{{item.name}}"></van-radio>
+                      </van-radio-group>
+                  </view>
+                </view>
+              </scroll-view>
+          </view>
+          </view>
+          
+        </van-tab>
+      </van-tabs>
+      
+
+    </view>
+    <!-- 租赁方式代码 -->
+      <view class="rental" wx:if="{{isShow}}">
+        <view class="itemBackColor">
+          <view class="page-section-title">
+           <text class="rentalText">租赁方式选择</text>
+          </view>
+          <view class="page-section-spacing">
+              <view  class="scroll-view-item demo-text-1" wx:if="{{oneDay !== null}}">
+                <view class="page-section-spacingItemOne">
+                  <text class="rentalText">普通日租方式</text>
+                  <view class="rentalDays">
+                    <van-stepper  wx:if="{{oneDay.checked }}" value="{{ oneDay.value}}" data-car-setmeal-id="{{oneDay.carSetmealId}}" style="margin-right:20rpx;" bind:change="onChangeStep"  max="15" integer  step="1"/>
+                    <van-checkbox
+                      value="{{ oneDay.checked}}"
+                      data-car-setmeal-id="{{oneDay.carSetmealId}}" 
+                      checked-color="#07c160"
+                      bind:change="onChange"
+                      shape="square"
+                    >
+                    </van-checkbox>
+                  </view>
+                 
+                </view>
+              </view>
+              <view id="demo1" class="scroll-view-item demo-text-1" wx:for-items="{{others}}" wx:key="index">
+                <view class="page-section-spacingItem">
+                  <text class="rentalText">{{item.setmeal_name}}{{item.price}}元</text>
+                  <view class="rentalDays">
+                  <van-stepper wx:if="{{ item.checked }}" style="  margin-right:20rpx;" model:value="{{ item.num }}" data-car-setmeal-id="{{item.carSetmealId}}" bind:change="onChangeStep" integer  step="1"/>
+                  <van-checkbox
+                     shape="square"
+                    value="{{ item.checked }}"
+                    checked-color="#07c160"
+                    data-car-setmeal-id="{{item.carSetmealId}}" 
+                    bind:change="onChange"
+                  >
+                  </van-checkbox>
+                  </view>
+                </view>
+              </view>
+          </view>
+        </view>
+      </view>
+      <!-- 归还日期代码 -->
+      <view class="backDate">
+        <view class="backDatePrice">
+          <text class="backDateText">总天数</text>
+          <text class="backDateTextPrice">{{duration}}天</text>
+        </view>
+        <view class="backDatePrice">
+          <text class="backDateText">车辆租赁金额</text>
+          <text class="backDateTextPrice">{{price}}元</text>
+        </view>
+      </view>
+      <view style="width:100%;height:100rpx"></view>
 </view>
+<view class="confirmBtn">
+          <button class="btn" bindtap="confirmBtn">确认</button>
+ </view>

@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -29,9 +29,11 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
+    "bundle": false,
     "useIsolateContext": true,
-    "useCompilerModule": true,
+    "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true
@@ -39,7 +41,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.13.1",
   "appid": "wxd1d70ec820274179",
-  "projectname": "mobjeShort",
+  "projectname": "mobje_shortrent_wx_mp",
   "debugOptions": {
     "hidedInDevtools": []
   },

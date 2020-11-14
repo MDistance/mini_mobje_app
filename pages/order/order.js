@@ -1,17 +1,30 @@
-
 var app = getApp()
+const {
+  wxUserIdentityNumberAuth
+} = require('../../api/shortrent/wechat')
 // const API = require('../../utils/api.js');
 // var utilMd5 = require('../../utils/md5.js');  
+const {
+  orderList,
+  cancel,
+  authSuccess,
+  returnCar
+} = require('../../api/shortrent/order')
+const {
+  formatOrderStatus
+} = require('../../utils/util')
 Page({
   data: {
     // 验证通过
-    verfiy:true,
+    verfiy: true,
     // 验证拒绝
-    verifyRefuse:true,
+    verifyRefuse: true,
     // 验证未通过
-    failedValidation:true,
-    showContent:false,
+    failedValidation: true,
+    showContent: false,
     show: false,
+    //是否显示showAuthFailed层
+    showAuthFailed: false,
     // 顶部菜单切换
     navbar: ['预约中', '租赁中', "已完成", "已取消"],
     // 默认选中菜单
@@ -19,15 +32,18 @@ Page({
     index: 0,
     pick_name: "",
     // list数据
-    orderAll: [{
-      
-    }],
-    orderOn:[{}],
-    orderFinish:[{}],
-    orderCancel:[{}],
-
+    orderAll: [],
+    orderOn: [],
+    orderFinish: [],
+    orderCancel: [],
+    trueName: '',
+    identityNumber: '',
+    phone: '',
+    //是否身份证验证：0:未认证;1:已认证;2:认证拒绝;3:姓名与身份证号不符
+    checkUserAuth: 0,
+ 
   },
-
+  formatOrderStatus,
   // 初始化加载
   onLoad: function (options) {
     var that = this;
@@ -37,15 +53,15 @@ Page({
     //   })
     //   that.finishOrder()
     // }else{
-     
-
+ 
+ 
     // }
-    that.allOrder();
+    that.allOrder("1,2");
   },
-  toNavgiat:function(){
+  toNavgiat: function () {
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-      success (res) {
+      success(res) {
         const latitude = res.latitude
         const longitude = res.longitude
         wx.openLocation({
@@ -54,419 +70,272 @@ Page({
           scale: 18
         })
       }
-     })
-
+    })
+ 
   },
-
+ 
   //全部订单list
-  allOrder: function () {
+  allOrder: function (orderStatuses) {
     var that = this;
     //获取缓存里用户信息openid
-    var user = wx.getStorageSync("userInfoData");
-    var list = []
-    wx.request({
-      // url: API.getBookingList,
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        state: 0,
-        openId: user.openId
-      },
-      success: function (res) {
-
-        if (res.data.code == 200) {
-
-          list.push(res.data.data)
+    var user = wx.getStorageSync("userInfo");
+ 
+    //todo 正式接入需要判断openId不存在，不获取列表
+    if (user !== null && user != "") {
+      orderList({
+        openId: user.openId,
+        orderStatuses
+      }, {
+        success(res) {
           that.setData({
-            orderAll: list[0]
+            orderAll: res.data
           })
-
-
-        } else {
-
-          console.log('服务器异常');
+        },
+        fail(err) {
+          console.log(err)
         }
-      },
-      fail: function (error) {
-        console.log(error);
-
-      }
+      })
+    }
+ 
+ 
+  },
+  // 表单项内容发生改变的回调
+  handleInputChange(event) {
+    let type = event.currentTarget.id;
+    // console.log(type, event.detail.value);
+ 
+    this.setData({
+      [type]: event.detail.value
     })
-
   },
   // 租赁人认证
-  rental:function(){
-    var that=this
+  rental: function (e) {
+    var that = this
     that.setData({
       show: !that.data.show
     })
   },
-  verify:function(){
-
-  },
-  onClose() {
-    this.setData({ close: false });
-  },
-  onClose() {
-    this.setData({ show: false });
-  },
-  //待出行订单list
-  onOrder: function () {
-    var that = this;
-    //获取缓存里用户信息openid
-    var user = wx.getStorageSync("userInfoData");
-    var list = []
-    wx.request({
-      // url: API.getBookingList,
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        state: 1,
-        openId: user.openId
-      },
-      success: function (res) {
-
-        if (res.data.code == 200) {
-
-          list.push(res.data.data)
-          that.setData({
-            orderOn: list[0]
-          })
-
-
-        } else {
-
-          console.log('服务器异常');
+  //用户执行认证
+  checkUserAuth: function (event) {
+    let that = this;
+    //获取租赁人姓名
+    let renterName = event.currentTarget.dataset['name'];
+    //获取租赁人身份证号
+    let renterIdentityNumber = event.currentTarget.dataset['on'];
+    //获取订单编号
+    let orderNo = event.currentTarget.dataset['order'];
+    //获取用户认证状态
+    wxUserIdentityNumberAuth({
+      trueName: renterName,
+      IdentityNumber: renterIdentityNumber,
+    }, {
+      success(res) {
+        if (res.code == 200) {
+          //未认证
+          if (res.data.isAuth == 0) {
+            that.setData({
+              showAuthFailed: true,
+              checkUserAuth: 0
+            })
+          }
+          //已认证
+          if (res.data.isAuth == 1) {
+            that.setData({
+              checkUserAuth: 1
+            })
+            //认证成功调用订单认证成功API
+            authSuccess(orderNo, {
+              success(res) {
+                that.allOrder('1,2')
+              },
+              fail(err) {
+                wx.showToast({
+                  title: '网络超时',
+                  icon: 'none',
+                  duration: 2000
+                })
+                console.log('authSuccess服务器异常');
+              }
+            })
+ 
+          }
+          //认证被拒
+          if (res.data.isAuth == 2) {
+            that.setData({
+              showAuthFailed: true,
+              checkUserAuth: 2
+            })
+          }
+ 
         }
       },
-      fail: function (error) {
-        console.log(error);
-
+      fail(err) {
+        wx.showToast({
+          title: '网络超时',
+          icon: 'none',
+          duration: 2000
+        })
+        console.log('wxUserIdentityNumberAuth服务器异常');
       }
     })
-
+ 
+    console.log(that.data.identityNumber)
   },
-  //已完成订单list
-  finishOrder: function () {
-    var that = this;
-    //获取缓存里用户信息openid
-    var user = wx.getStorageSync("userInfoData");
-    var list = []
-    wx.request({
-      // url: API.getBookingList,
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        state: 2,
-        openId: user.openId
-      },
-      success: function (res) {
-
-        if (res.data.code == 200) {
-
-          list.push(res.data.data)
-          that.setData({
-            orderFinish: list[0]
+ 
+  onClose() {
+    this.setData({
+      close: false
+    });
+  },
+  onClose() {
+    this.setData({
+      show: false,
+      showAuthFailed: false
+    });
+  },
+ 
+  returnCar: function (e) {
+    const that = this;
+    const orderNo = e.currentTarget.dataset.order;
+    wx.showModal({
+      title: '提示',
+      content: "您确定是否还车？",
+      success(res) {
+        if (res.confirm) {
+          returnCar(orderNo, {
+            success() {
+              that.allOrder("4,5,6")
+              that.setData({
+                currentTab: 2
+              })
+            },
+            fail(err) {
+              console.error(err);
+            }
           })
-
-
-        } else {
-
-          console.log('服务器异常');
         }
-      },
-      fail: function (error) {
-        console.log(error);
-
       }
     })
-
-  },
-
-
-  //取消订单list
-  cancelOrder: function () {
-    var that = this;
-    //获取缓存里用户信息openid
-    var user = wx.getStorageSync("userInfoData");
-    var list = []
    
-    wx.request({
-      // url: API.getBookingList,
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        state: 3,
-        openId: user.openId,
-        sessionKey: user.sessionKey,
-      },
-      success: function (res) {
-        if (res.data.code == 200) {
-
-          list.push(res.data.data)
-          that.setData({
-            orderCancel: list[0]
-          })
-
-        } else {
-
-          console.log('服务器异常');
-        }
-      },
-      fail: function (error) {
-        console.log(error);
-
-      }
-    })
-
   },
-
-
+ 
+ 
   //顶部tab切换
   navbarTap: function (e) {
     var that = this;
-    console.log(e.currentTarget.dataset.idx)
     switch (e.currentTarget.dataset.idx) {
       case 0:
-        that.allOrder()
+        that.allOrder("1,2")
         break
       case 1:
-        that.onOrder()
+        that.allOrder("3")
         break
       case 2:
-        that.finishOrder()
+        that.allOrder("4,5")
         break
       case 3:
-        that.cancelOrder()
+        that.allOrder("0,6")
         break
     }
     that.setData({
       currentTab: e.currentTarget.dataset.idx
     })
   },
-// 补交费用按钮
-  payFreeBtn:function(){
+  // 补交费用按钮
+  payFreeBtn: function () {
     wx.navigateTo({
       url: '/pages/pay-fees/pay-fees',
     })
-   },
+  },
   //  开具发票按钮
-   invoiceBtn:function(){
+  invoiceBtn: function () {
     wx.navigateTo({
-      url: '/pages/invoice-management/invoice-management',
+      url: '/pages/invoice/invoice',
     })
-   },
+  },
   //  支付订单按钮
-  orderPayTap:function(){
-   wx.navigateTo({
-     url: '/pages/orderPay/orderPay',
-   })
+  orderPayTap: function (e) {
+    //获取订单编号
+    const orderNo = e.currentTarget.dataset.orderon;
+    wx.navigateTo({
+      url: '/pages/orderPay/orderPay?orderNo='+orderNo,
+    })
   },
   // 修改订单按钮
-  changeTap:function(){
-   wx.navigateTo({
-     url: '/pages/changeOrder/changeOrder',
-   })
+  changeTap: function () {
+    wx.navigateTo({
+      url: '/pages/changeOrder/changeOrder',
+    })
   },
   // 支付押金按钮
-  payDespo:function(){
-   wx.navigateTo({
-     url: '/pages/desposit/desposit',
-   })
-  },
-  // 申请结束按钮
-  toEnd:function (e) {
-    var that = this;
-    var id = e.currentTarget.dataset.bookingid;
-    //获取缓存里用户信息openid
-    var user = wx.getStorageSync("userInfoData");
-    wx.showModal({
-      title: '提示',
-      content: '是否结束订单',
-      cancelColor: 'cancelColor',
-      success(res) {
-        if (res.confirm) {
-          if (id) {
-            wx.request({
-              // url: API.cancelBooking,
-              method: 'POST',
-              header: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              },
-              data: {
-                bookingId: id,
-                openId: user.openId,
-                sessionKey: user.sessionKey
-              },
-              success: function (res) {
-                if (res.data.code == 200) {
-                  wx.showModal({
-                    title: '提示',
-                    content: res.data.data,
-                    showCancel: false,
-                    success(res) {
-                      if (res.confirm) {
-                    that.allOrder()
-                    that.onOrder()
-                    that.finishOrder()
-                    that.cancelOrder()
-                      }
-                    }
-                  })
-                } else {
-                  wx.showModal({
-                    title: '提示',
-                    content: res.data.msg,
-                    showCancel: false,
-                  })
-                } 
-              },
-              fail: function (error) {
-                wx.showModal({
-                  title: '提示',
-                  content: "网络超时",
-                  showCancel: false,
-                })
-              }
-            })
-          }
-        } else if (res.cancel) {
-          console.log('用户点击了取消')
-        }
-      }
+  payDespo: function (e) {
+    //获取订单编号
+    const orderNo = e.currentTarget.dataset.orderon;
+    wx.navigateTo({
+      url: '/pages/desposit/desposit?orderNo='+orderNo,
     })
   },
-  //取消按钮
+ 
+  //取消订单按钮
   cancelTap: function (e) {
-    var that = this;
-    var id = e.currentTarget.dataset.bookingid;
-    //获取缓存里用户信息openid
-    var user = wx.getStorageSync("userInfoData");
-    wx.showModal({
-      title: '提示',
-      content: '是否取消订单',
-      cancelColor: 'cancelColor',
-      success(res) {
-        if (res.confirm) {
-          if (id) {
-            wx.request({
-              // url: API.cancelBooking,
-              method: 'POST',
-              header: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              },
-              data: {
-                bookingId: id,
-                openId: user.openId,
-                sessionKey: user.sessionKey
-              },
-              success: function (res) {
-                if (res.data.code == 200) {
-                  wx.showModal({
-                    title: '提示',
-                    content: res.data.data,
-                    showCancel: false,
-                    success(res) {
-                      if (res.confirm) {
-                    that.allOrder()
-                    that.onOrder()
-                    that.finishOrder()
-                    that.cancelOrder()
-                      }
-                    }
-                  })
-                } else {
-                  wx.showModal({
-                    title: '提示',
-                    content: res.data.msg,
-                    showCancel: false,
-                  })
-                } 
-              },
-              fail: function (error) {
-                wx.showModal({
-                  title: '提示',
-                  content: "网络超时",
-                  showCancel: false,
+    const that = this;
+    //获取订单编号
+    const orderNo = e.currentTarget.dataset.order;
+    const payDetailsList = that.data.orderAll
+      .find(item => item.orderNo === orderNo)
+      .payDetailsList
+    //判断是否有支付中的订单
+    if (payDetailsList.filter(i => i.status === '1').length > 0) {
+      wx.showModal({
+        title: '提示',
+        content: "订单尚未支付成功，请稍后重试",
+        showCancel: false,
+      })
+      return
+    }
+ 
+    //获取订单流水号
+    const payDetailsNo = payDetailsList
+      .filter(i => i.status === '2')
+      .map(i => i.payDetailsOrderNo)
+      wx.showModal({
+        title: '提示',
+        content: "您确定取消订单？",
+        success(res) {
+          if (res.confirm) {
+            cancel({orderNo,payDetailsNo}, {
+              success(res) {
+                that.allOrder("0")
+                that.setData({
+                  currentTab: 3
                 })
+              },
+              fail(err) {
+                console.log(err);
               }
             })
           }
-        } else if (res.cancel) {
-          console.log('用户点击了取消')
         }
-      }
-    })
-  },
-
-  //修改订单
-  updateTap: function (e) {
-    var that = this;
-    var id = e.currentTarget.dataset.bookingid;
-    var type = e.currentTarget.dataset.type;
-    //获取缓存里用户信息openid
-    var user = wx.getStorageSync("userInfoData");
-    wx.request({
-      // url: API.timeOut,
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        bookingId: id,
-        openId: user.openId
-      },
-      success: function (res) {
-        if (res.data.code == 300) {
-          wx.showModal({
-            title: '提示',
-            content: '订单超过4小时不可修改!',
-            showCancel: false,
-            success(res) {
-              if (res.confirm) {
-                that.allOrder()
-                that.onOrder()
-                that.finishOrder()
-                that.cancelOrder()
-              }
-            }
-          })
-
-        } else if (res.data.code == 200) {
-          wx.navigateTo({
-            url: '../reserve/edit/edit?type=' + type + '&bookingId=' + id,
-          })
-        } 
-
-      },
-      fail: function (error) {
-        wx.showModal({
-          title: '提示',
-          content: "网络超时",
-          showCancel: false,
-        })
-      }
-    })
+      })
    
   },
+ 
   //申请发票
   invoiceTap: function (e) {
-    var that = this;
-    var id = e.currentTarget.dataset.bookingid;
-    var type = e.currentTarget.dataset.type;
-    var orderNo = e.currentTarget.dataset.orderno;
+    const orderNo = e.currentTarget.dataset.orderno;
     wx.navigateTo({
-      url: '../invoice/invoice?bookingId=' + id + '&orderNo=' + orderNo,
+      url: '../invoice/invoice?orderNo='+orderNo,
     })
   },
-
-
+  
+    //费用补交
+    payFeesTap: function (e) {
+      var that = this;
+      var orderNo = e.currentTarget.dataset.orderno;
+      wx.navigateTo({
+        url: '../pay-fees/pay-fees?orderNo=' + orderNo,
+      })
+    },
+ 
+ 
 })

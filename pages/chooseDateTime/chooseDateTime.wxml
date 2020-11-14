@@ -1,3 +1,4 @@
+<wxs src="../../wxs/tools.wxs" module="tools" />
 <view class="container">
    <view class="header">
     <van-calendar
@@ -9,6 +10,7 @@
       show-confirm="{{ false }}"
       show-title="{{ false }}"
       confirm-text="完成"
+      default-date="{{[startDate,endDate]}}"
       confirm-disabled-text="请选择结束时间"
       class="calendar"
       bind:close="onClose"
@@ -21,7 +23,7 @@
    <view class="footer">
      <view class="footer-top">
       <view class="section">
-          <view class="section__title">{{startDate}}</view>
+          <view class="section__title">{{tools.formatDate(startDate)}}</view>
           <picker bindchange="bindPickerChange"  value="{{index}}" range="{{pickerHourTextArr}}">
             <view class="picker">
              {{pickerHourTextArr[index]}}
@@ -32,11 +34,11 @@
       <view class="section">
             <view class="section__title">取还车时间</view>
             <view class="picker">
-             3天
+            {{allDays}}天
             </view>
       </view>
        <view class="section">
-            <view class="section__title">{{endDate}}</view>
+            <view class="section__title">{{tools.formatDate(endDate)}}</view>
             <picker bindchange="bindBackerChange" mode = selector value="{{indexBack}}" range="{{backerHourTextArr}}">
               <view class="picker">
                 {{backerHourTextArr[indexBack]}}
